@@ -1765,6 +1765,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9194944115906116530, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: moveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194944115906116530, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: RatController
       value: 
       objectReference: {fileID: 9100000, guid: 1db817adf89ae4e4d85fd48c8471ccf7, type: 2}

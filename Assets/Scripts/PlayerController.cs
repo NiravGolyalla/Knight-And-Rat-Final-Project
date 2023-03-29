@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 8f;
     public RuntimeAnimatorController KnightController;
     public RuntimeAnimatorController RatController;
 
@@ -26,10 +26,12 @@ public class PlayerController : MonoBehaviour
             if (isKnightController)
             {
                 animator.runtimeAnimatorController = KnightController;
+                moveSpeed = 5f; // Set the moveSpeed to 3 when using KnightController
             }
             else
             {
                 animator.runtimeAnimatorController = RatController;
+                moveSpeed = 8f; // Set the moveSpeed to 5 when using RatController
             }
         }
     }
