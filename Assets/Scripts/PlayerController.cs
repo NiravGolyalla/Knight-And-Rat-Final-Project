@@ -10,11 +10,18 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     private float lastHorizontalInput = 1f;
     private bool isKnightController = false;
+    private float ratScale = 6f;
+    private float knightScale = 11f;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        transform.localScale = new Vector3(ratScale, ratScale, 1f);
     }
 
     private void Update()
@@ -26,12 +33,14 @@ public class PlayerController : MonoBehaviour
             if (isKnightController)
             {
                 animator.runtimeAnimatorController = KnightController;
-                moveSpeed = 5f; 
+                moveSpeed = 5f;
+                transform.localScale = new Vector3(knightScale, knightScale, 1f);
             }
             else
             {
                 animator.runtimeAnimatorController = RatController;
-                moveSpeed = 8f; 
+                moveSpeed = 8f;
+                transform.localScale = new Vector3(ratScale, ratScale, 1f);
             }
         }
     }
