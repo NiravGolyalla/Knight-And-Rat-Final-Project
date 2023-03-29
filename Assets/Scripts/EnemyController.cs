@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
         Transform player = findPlayer(aggroRange);
         if(player){
             state = "Aggro";
-            Approach(player,5f);
+            Approach(player,1f);
         } else{
             state = "Wander";
             Wander();
