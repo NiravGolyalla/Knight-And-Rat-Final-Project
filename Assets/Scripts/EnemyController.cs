@@ -25,8 +25,8 @@ public class EnemyController : MonoBehaviour
         startPosition = rb.position;
         wanderPosition = rb.position;
         state = "Wander";
-
-        seeker.StartPath(startPosition,wanderPosition,OnPathComplete);
+        // Wander();
+        
     }
 
     void OnPathComplete(Path p){
@@ -36,14 +36,17 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
+    void caclulatePath(Vector2 target){
+        seeker.StartPath(rb.position,target,OnPathComplete);
+    }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if(path == null){
-            return;
-        }
+        // if(path == null){
+        //     print("null");
+        //     return;
+        // }
         Transform player = findPlayer(aggroRange);
         if(player){
             state = "Aggro";
@@ -54,24 +57,38 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // private void Move(float speed){ 
+    //     if(path == null) return;
+    //     if(currentWayPoint >= path.vectorPath.Count){
+    //         return;
+    //     }
+    //     rb.position = Vector2.MoveTowards(rb.position, path.vectorPath[currentWayPoint], 1f * speed * Time.deltaTime);
+    //     if(Vector2.Distance(rb.position,path.vectorPath[currentWayPoint]) < 0.1f){
+    //         currentWayPoint++;
+    //     }
+    // }
+
     private void Move(Vector2 target, float speed){ 
         rb.position = Vector2.MoveTowards(rb.position, target, 1f * speed * Time.deltaTime);
     }
 
     private void Wander(){
-      
         if (rb.position == wanderPosition)
         {
             wanderPosition.x = Random.Range(startPosition.x - wanderRange, startPosition.x + wanderRange);
             wanderPosition.y = Random.Range(startPosition.y - wanderRange, startPosition.y + wanderRange);
         }
-
+        // caclulatePath(wanderPosition);
+        // Move(wanderSpeed);
         Move(wanderPosition,wanderSpeed);
+        
     }
 
     private void Approach(Transform target,float distance){
         Vector2 direction = (Vector2)target.position - rb.position;
         targetPosition = (Vector2)target.position - direction.normalized * distance;
+        //caclulatePath(targetPosition);
+        //Move(aggroSpeed);
         Move(targetPosition,aggroSpeed);
     }
 
