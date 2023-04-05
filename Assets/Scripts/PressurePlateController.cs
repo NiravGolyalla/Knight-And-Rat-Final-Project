@@ -20,10 +20,13 @@ public class PressurePlateController : MonoBehaviour
         
     }
      private void OnTriggerStay2D(Collider2D other) {
+        print(other.tag);
         // Handles the case if the knight transforms into a rat
         // Pressure plate can not be activated by a rat
         activate = other.tag == "Knight" ? true: false;
-        gameObject.GetComponent<SpriteRenderer>().sprite = pressurePlateOn;
+        if (activate) {
+            gameObject.GetComponent<SpriteRenderer>().sprite = pressurePlateOn;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
