@@ -2,62 +2,134 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 8f;
-    public RuntimeAnimatorController KnightController;
-    public RuntimeAnimatorController RatController;
-
-    private Animator animator;
+    [Header("Setup Variables")]
+    [SerializeField] private GameObject rat;
+    [SerializeField] private GameObject knight;
+    
+    //Swaping variables
+    private Animator currAnimator;
+    private Animator ratAnimator;
+    private Animator knightAnimator;
     private Rigidbody2D rb2d;
-    private float lastHorizontalInput = 1f;
+    
+    //State Variables
     private bool isKnightController = false;
+    private bool isMoving = false;
+    private bool isAttacking = false;
+    private bool isDashing = false;
+    private bool isInteracting = false;
 
-    private void Awake()
+    //movement variables
+    private float horizontalInput = 1f;
+    private float verticalInput = 1f;
+    
+    [Header("Customizable Variables")]
+    [SerializeField] private float ratMoveSpeed = 10f;
+    [SerializeField] private float knightMoveSpeed = 5f;
+    [SerializeField] private float runBonusMoveSpeed = 5f;
+    
+
+    //Managing Animations
+    private int currentState;
+    private float lockedTimer;
+    //private float 
+
+    private static readonly int R_Idle_D = Animator.StringToHash("R_Idle_D");
+    private static readonly int R_Idle_LR = Animator.StringToHash("R_Idle_LR");
+    private static readonly int R_Idle_U = Animator.StringToHash("R_Idle_U");
+    private static readonly int R_Move_D = Animator.StringToHash("R_Move_D");
+    private static readonly int R_Move_LR = Animator.StringToHash("R_Move_LR");
+    private static readonly int R_Move_U = Animator.StringToHash("R_Move_U");
+    private static readonly int K_Idle_D = Animator.StringToHash("K_Idle_D");
+    private static readonly int K_Idle_LR = Animator.StringToHash("K_Idle_LR");
+    private static readonly int K_Idle_U = Animator.StringToHash("K_Idle_U");
+    private static readonly int K_Move_D = Animator.StringToHash("K_Move_D");
+    private static readonly int K_Move_LR = Animator.StringToHash("K_Move_LR");
+    private static readonly int K_Move_U = Animator.StringToHash("K_Move_U");
+    private static readonly int K_Attack_D = Animator.StringToHash("K_Attack_D");
+    private static readonly int K_Attack_LR = Animator.StringToHash("K_Attack_LR");
+    private static readonly int K_Attack_U = Animator.StringToHash("K_Attack_U");
+    //May Need to put in a roll(idk yet)
+    private static readonly int K_Dash_D = Animator.StringToHash("K_Dash_D");
+    private static readonly int K_Dash_LR = Animator.StringToHash("K_Dash_LR");
+    private static readonly int K_Dash_U = Animator.StringToHash("K_Dash_U");
+    
+
+
+
+    private void Start()
     {
-        animator = GetComponent<Animator>();
+        ratAnimator = rat.GetComponent<Animator>();
+        knightAnimator = knight.GetComponent<Animator>();
+        isKnightController = false;
+        rat.SetActive(!isKnightController);
+        knight.SetActive(isKnightController);
         rb2d = GetComponent<Rigidbody2D>();
+        currAnimator = ratAnimator;
+        currentState = R_Idle_D;
     }
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            isKnightController = !isKnightController;
-
-            if (isKnightController)
-            {
-                animator.runtimeAnimatorController = KnightController;
-                moveSpeed = 5f; 
-            }
-            else
-            {
-                animator.runtimeAnimatorController = RatController;
-                moveSpeed = 8f; 
-            }
+        cInput();
+        int state = updateSprite();
+        if(state != currentState){
+            currAnimator.CrossFade(state,0,0);
+            currentState = state;
+            print(state);
         }
     }
 
-    private void FixedUpdate()
-    {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
+    private void FixedUpdate(){
+        Movement();
+    }
 
-        animator.SetFloat("HorizontalValue", horizontalInput);
-        animator.SetFloat("VerticalValue", verticalInput);
+    private void cInput(){
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            isKnightController = !isKnightController;
+            rat.SetActive(!isKnightController);
+            knight.SetActive(isKnightController);
+            currAnimator = isKnightController ? knightAnimator : ratAnimator;
+        }
+
+        isAttacking = (Input.GetMouseButtonDown(0) && isKnightController);
+        isMoving = (horizontalInput != 0 || verticalInput != 0); 
+        isInteracting = Input.GetKeyDown(KeyCode.E); 
+        isDashing = Input.GetKey(KeyCode.LeftShift); 
+    }
+
+    private void Movement(){
         Vector2 movement = new Vector2(horizontalInput, verticalInput);
         movement.Normalize();
+        float moveSpeed = isKnightController ? knightMoveSpeed : ratMoveSpeed;
+        moveSpeed += (!isKnightController && isDashing) ? runBonusMoveSpeed : 0f;
         rb2d.velocity = movement * moveSpeed;
+    }
 
-        bool isMoving = Mathf.Abs(rb2d.velocity.x) > 0.1f || Mathf.Abs(rb2d.velocity.y) > 0.1f;
-        animator.SetBool("Moving", isMoving);
+    private int updateSprite(){
+        if(Time.time < lockedTimer) return currentState;
 
-        if (horizontalInput != 0f)
-        {
-            lastHorizontalInput = horizontalInput;
+        if(isKnightController){
+            if (isDashing) return lockState(K_Dash_LR,1);
+            if (isAttacking) return lockState(K_Attack_LR,1);
+            if (isMoving) return K_Move_LR;
+            else return K_Idle_LR;
+        } else{
+            if (isMoving) return R_Move_LR;
+            else return R_Idle_LR;
         }
-        if (isMoving == false)
-        {
-            animator.SetFloat("HorizontalValue", lastHorizontalInput);
+        return currentState;
+
+
+        int lockState(int s,float t){
+            lockedTimer = Time.time + t;
+            return s;
         }
+
     }
 }
