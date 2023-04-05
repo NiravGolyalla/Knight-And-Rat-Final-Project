@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Knight
+  - Enemy
+  - Barrel
   layers:
   - Default
   - TransparentFX
