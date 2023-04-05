@@ -566,7 +566,6 @@ MonoBehaviour:
   healthBar: {fileID: 9194944115756170756}
   staminaBar: {fileID: 2863683379413550426}
   formBar: {fileID: 7514705982789012874}
-  currAnimator: {fileID: 0}
   health: 10
   stamina: 10
   dmgTakeR: 2
@@ -968,8 +967,12 @@ PrefabInstance:
       value: 0.9607843
       objectReference: {fileID: 0}
     - target: {fileID: 3437880011819283016, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
+      propertyPath: reduceSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437880011819283016, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: showDecrease
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3437880011819283018, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_Name
@@ -1236,6 +1239,10 @@ PrefabInstance:
     - target: {fileID: 3437880011558492522, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_Color.r
       value: 0.9811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437880011819283016, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
+      propertyPath: reduceSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3437880011819283018, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_Name

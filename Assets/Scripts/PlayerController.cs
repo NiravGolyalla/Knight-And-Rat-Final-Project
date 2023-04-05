@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -20,8 +22,11 @@ public class PlayerController : MonoBehaviour
     private bool isKnightController = false;
     private bool isMoving = false;
     private bool isAttacking = false;
+    private bool canDash = true;
     private bool isDashing = false;
+    private bool takingDamage = false;
     private bool isInteracting = false;
+    private bool canMove = true;
 
     //movement variables
     private float horizontalInput = 1f;
@@ -37,6 +42,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float ratMoveSpeed = 10f;
     [SerializeField] private float knightMoveSpeed = 5f;
     [SerializeField] private float runBonusMoveSpeed = 5f;
+    [SerializeField] private float dashAmount = 2f;
+    [SerializeField] private float dashDur = 0.5f;
+    [SerializeField] private float dashCooldown = 2f;
+    
     
 
     //Managing Animations
@@ -64,9 +73,6 @@ public class PlayerController : MonoBehaviour
     private static readonly int K_Dash_LR = Animator.StringToHash("K_Dash_LR");
     private static readonly int K_Dash_U = Animator.StringToHash("K_Dash_U");
     
-
-
-
     private void Start()
     {
         ratAnimator = rat.GetComponent<Animator>();
@@ -92,6 +98,8 @@ public class PlayerController : MonoBehaviour
             currentState = state;
             print(state);
         }
+        regenBar(staminaBar,2f);
+        regenBar(formBar);
     }
 
     private void FixedUpdate(){
@@ -102,28 +110,42 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && formBar.getValue() == formBar.getMaxValue())
         {
             isKnightController = !isKnightController;
             rat.SetActive(!isKnightController);
             knight.SetActive(isKnightController);
             currAnimator = isKnightController ? knightAnimator : ratAnimator;
+            formBar.setValue(0f);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            transform.localScale = new Vector3(1, 1, 1);
         }
 
         isAttacking = (Input.GetMouseButtonDown(0) && isKnightController);
         isMoving = (horizontalInput != 0 || verticalInput != 0); 
         isInteracting = Input.GetKeyDown(KeyCode.E); 
-        isDashing = Input.GetKey(KeyCode.LeftShift); 
+        if(Input.GetKey(KeyCode.LeftShift) && canDash){isDashing = true;}
+        
     }
 
     private void Movement(){
         Vector2 movement = new Vector2(horizontalInput, verticalInput);
         movement.Normalize();
         float moveSpeed = isKnightController ? knightMoveSpeed : ratMoveSpeed;
-        moveSpeed += (!isKnightController && isDashing) ? runBonusMoveSpeed : 0f;
-        if(isDashing){Dash();}
-
-        rb2d.velocity = movement * moveSpeed;
+        moveSpeed += (!isKnightController && isDashing && staminaBar.getValue() > .2f) ? runBonusMoveSpeed : 0f;
+        if(isDashing){
+            StartCoroutine(Dash());
+        } 
+        if(canMove){rb2d.velocity = movement * moveSpeed;}
+        print(moveSpeed);
+        
     }
 
     private int updateSprite(){
@@ -146,22 +168,52 @@ public class PlayerController : MonoBehaviour
         return currentState;
     }
 
-    private void TakeDamage(float dmg){
-        float take = isKnightController ? dmgTakeK*dmg : dmgTakeR*dmg;
-        healthBar.setValue(healthBar.getValue()-take);
-    }
-    private void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
-    private void Dash(){
-        float take = isKnightController ? stmLostK : stmLostR;
-        staminaBar.setValue(staminaBar.getValue()-take*Time.deltaTime);
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if(col.gameObject.CompareTag("Enemy")){
-            TakeDamage(2f);
+    private IEnumerator TakeDamage(float dmg){
+        if(!takingDamage){
+            takingDamage = true;
+            float take = isKnightController ? dmgTakeK*dmg : dmgTakeR*dmg;
+            healthBar.setValue(healthBar.getValue()-take);
+            yield return new WaitForSeconds(1f);
+            takingDamage = false;
         }
     }
+
+    private void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
+    private IEnumerator Dash(){
+        float take = isKnightController ? stmLostK : stmLostR;
+        if(canDash && take < staminaBar.getValue()){
+            canDash = false;
+            staminaBar.setValue(staminaBar.getValue()-take);
+            
+            if(isKnightController){
+                canMove = false;
+                rb2d.velocity = rb2d.velocity*dashAmount;
+                yield return new WaitForSeconds(dashDur);
+                canMove = true;
+                isDashing = false;
+                yield return new WaitForSeconds(dashCooldown);
+            } else{
+                isDashing = false;
+                canDash = true;
+                yield return new WaitForSeconds(0.1f);
+            }
+            canDash = true;
+        }
+        isDashing = false;
+    }
+
+    void OnCollisionStay2D(Collision2D col)
+    {
+        if(col.gameObject.CompareTag("Enemy")){
+            StartCoroutine(TakeDamage(2f));
+        }
+    }
+
+    void regenBar(Bar_Controller Bar,float rate = 1){
+        Bar.setValue(Bar.getValue()+Time.deltaTime * rate);
+    }
+
+    
 
 
     
