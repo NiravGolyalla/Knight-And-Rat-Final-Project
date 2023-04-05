@@ -5,6 +5,10 @@ public class PlayerController : MonoBehaviour
     [Header("Setup Variables")]
     [SerializeField] private GameObject rat;
     [SerializeField] private GameObject knight;
+    [SerializeField] private Bar_Controller healthBar;
+    [SerializeField] private Bar_Controller staminaBar;
+    [SerializeField] private Bar_Controller formBar;
+
     
     //Swaping variables
     private Animator currAnimator;
@@ -24,6 +28,12 @@ public class PlayerController : MonoBehaviour
     private float verticalInput = 1f;
     
     [Header("Customizable Variables")]
+    [SerializeField] private float health = 10f;
+    [SerializeField] private float stamina = 10f;
+    [SerializeField] private float dmgTakeR = 1f;
+    [SerializeField] private float dmgTakeK = 0.5f;
+    [SerializeField] private float stmLostR = 1f;
+    [SerializeField] private float stmLostK = 5f;
     [SerializeField] private float ratMoveSpeed = 10f;
     [SerializeField] private float knightMoveSpeed = 5f;
     [SerializeField] private float runBonusMoveSpeed = 5f;
@@ -67,8 +77,11 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         currAnimator = ratAnimator;
         currentState = R_Idle_D;
+        healthBar.setMaxValue(health);
+        healthBar.setValue(health);
+        staminaBar.setMaxValue(stamina);
+        staminaBar.setValue(stamina);
     }
-
 
     private void Update()
     {
@@ -108,6 +121,8 @@ public class PlayerController : MonoBehaviour
         movement.Normalize();
         float moveSpeed = isKnightController ? knightMoveSpeed : ratMoveSpeed;
         moveSpeed += (!isKnightController && isDashing) ? runBonusMoveSpeed : 0f;
+        if(isDashing){Dash();}
+
         rb2d.velocity = movement * moveSpeed;
     }
 
@@ -121,15 +136,33 @@ public class PlayerController : MonoBehaviour
             else return K_Idle_LR;
         } else{
             if (isMoving) return R_Move_LR;
-            else return R_Idle_LR;
+            else return R_Idle_D;
         }
-        return currentState;
-
-
         int lockState(int s,float t){
             lockedTimer = Time.time + t;
             return s;
         }
 
+        return currentState;
     }
+
+    private void TakeDamage(float dmg){
+        float take = isKnightController ? dmgTakeK*dmg : dmgTakeR*dmg;
+        healthBar.setValue(healthBar.getValue()-take);
+    }
+    private void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
+    private void Dash(){
+        float take = isKnightController ? stmLostK : stmLostR;
+        staminaBar.setValue(staminaBar.getValue()-take*Time.deltaTime);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.CompareTag("Enemy")){
+            TakeDamage(2f);
+        }
+    }
+
+
+    
 }
