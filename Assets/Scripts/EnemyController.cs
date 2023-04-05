@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyController : MonoBehaviour
 {
@@ -12,23 +13,37 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float wanderRange = 5f;
     [SerializeField] private string playerTag = "Player";
     private Vector2 startPosition,wanderPosition,targetPosition;
-    public List<Spot> path;
-    private int pathIndex = 0;
+    Path path;
+    int currentWayPoint = 0;
+    bool reached = false;
+    Seeker seeker;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        seeker = GetComponent<Seeker>();
         startPosition = rb.position;
         wanderPosition = rb.position;
-        path = new List<Spot>();
-        pathIndex = 0;
         state = "Wander";
+
+        seeker.StartPath(startPosition,wanderPosition,OnPathComplete);
+    }
+
+    void OnPathComplete(Path p){
+        if(!p.error){
+            path = p;
+            currentWayPoint = 0;
+        }
     }
 
 
+
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if(path == null){
+            return;
+        }
         Transform player = findPlayer(aggroRange);
         if(player){
             state = "Aggro";
@@ -44,29 +59,7 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Wander(){
-        // A star failed rn
-        // if (rb.position == wanderPosition)
-        // {   
-        //     if(path == null){
-        //         print(path);
-        //         return;
-        //     }
-        //     if(!(pathIndex < path.Count)){
-        //         print("imposter");
-        //         Vector3 str = new Vector3(rb.position.x,rb.position.y,0);
-        //         Vector3 end = new Vector3(0,0,0);
-        //         end.x = Random.Range(startPosition.x - wanderRange, startPosition.x + wanderRange);
-        //         end.y = Random.Range(startPosition.y - wanderRange, startPosition.y + wanderRange);
-        //         print(str);
-        //         print(end);
-        //         path.Clear();
-        //         path = GenerateGrid.Instance.GeneratePath(str,end);
-        //         pathIndex = 0;
-        //     }
-        //     print(path.Count);
-        //     wanderPosition.x = path[pathIndex].X;
-        //     wanderPosition.y = path[pathIndex].Y;
-        // }
+      
         if (rb.position == wanderPosition)
         {
             wanderPosition.x = Random.Range(startPosition.x - wanderRange, startPosition.x + wanderRange);
