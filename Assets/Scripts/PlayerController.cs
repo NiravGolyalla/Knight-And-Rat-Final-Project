@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -211,6 +212,12 @@ public class PlayerController : MonoBehaviour
 
     void regenBar(Bar_Controller Bar,float rate = 1){
         Bar.setValue(Bar.getValue()+Time.deltaTime * rate);
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.tag == "barn"){
+            SceneManager.LoadScene("tutorial2");
+        }
     }
 
     
