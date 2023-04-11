@@ -212,8 +212,14 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if(other.tag == "barn"){
+        if(other.tag == "to_tutorial2"){
             SceneManager.LoadScene("tutorial2");
+        }
+        else if(other.tag =="to_tutorial3"){
+            SceneManager.LoadScene("tutorial3");
+        }
+        else if(other.tag =="to_dungeon"){
+            SceneManager.LoadScene("Dungeon Level");
         }
     }
 

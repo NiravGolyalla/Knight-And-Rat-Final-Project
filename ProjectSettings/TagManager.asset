@@ -7,7 +7,9 @@ TagManager:
   - Knight
   - Enemy
   - Barrel
-  - barn
+  - to_tutorial3
+  - to_tutorial2
+  - to_dungeon
   layers:
   - Default
   - TransparentFX
