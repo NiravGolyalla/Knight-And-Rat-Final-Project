@@ -97,7 +97,6 @@ public class PlayerController : MonoBehaviour
         if(state != currentState){
             currAnimator.CrossFade(state,0,0);
             currentState = state;
-            print(state);
         }
         regenBar(staminaBar,2f);
         regenBar(formBar);
@@ -144,9 +143,7 @@ public class PlayerController : MonoBehaviour
         if(isDashing){
             StartCoroutine(Dash());
         } 
-        if(canMove){rb2d.velocity = movement * moveSpeed;}
-        print(moveSpeed);
-        
+        if(canMove){rb2d.velocity = movement * moveSpeed;}        
     }
 
     private int updateSprite(){
