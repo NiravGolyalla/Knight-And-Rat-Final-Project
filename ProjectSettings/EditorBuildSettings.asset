@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/adri.unity
+    guid: ee37d4a9b6921734299c27d6a296a6e7
+  - enabled: 1
     path: Assets/Scenes/Sewer Hub.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/JORGES SCENNE.unity
     guid: 0283a12aff43944f4a99dd0e0a621bc6
-  - enabled: 1
-    path: Assets/Scenes/adri.unity
-    guid: ee37d4a9b6921734299c27d6a296a6e7
   - enabled: 1
     path: Assets/Scenes/courtney.unity
     guid: 2ab66f2b34683814ca4d8ae0ff45ff14
