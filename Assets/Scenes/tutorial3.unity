@@ -7012,7 +7012,7 @@ GameObject:
   - component: {fileID: 673296844}
   m_Layer: 0
   m_Name: Barrel Sprite (2)
-  m_TagString: Untagged
+  m_TagString: BARRELS
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9365,7 +9365,7 @@ GameObject:
   - component: {fileID: 1038075552}
   m_Layer: 0
   m_Name: Barrel Sprite (1)
-  m_TagString: Untagged
+  m_TagString: BARRELS
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16248,7 +16248,7 @@ GameObject:
   - component: {fileID: 1827221663}
   m_Layer: 0
   m_Name: Barrel Sprite
-  m_TagString: Untagged
+  m_TagString: BARRELS
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

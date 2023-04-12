@@ -11,6 +11,7 @@ TagManager:
   - to_tutorial2
   - to_dungeon
   - Sword
+  - BARRELS
   layers:
   - Default
   - TransparentFX
