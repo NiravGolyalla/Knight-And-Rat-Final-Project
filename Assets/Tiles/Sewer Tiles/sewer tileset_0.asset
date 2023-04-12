@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sewer tileset_0
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 416164109, guid: 8386ec2975a18bd4393fc8095d8d99fa, type: 3}
-  m_Color: {r: 0.07058824, g: 0.6901961, b: 0.1882353, a: 1}
+  m_Color: {r: 0.06541474, g: 0.6603774, b: 0.17838235, a: 1}
   m_Transform:
     e00: 1
     e01: 0

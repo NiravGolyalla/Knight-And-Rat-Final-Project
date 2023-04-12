@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1092750025038004916, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7436571
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 1092750025038004916, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -194,6 +194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2511165482302940963, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
+      propertyPath: aggroRange
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
 --- !u!1 &138089395
@@ -205,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 138089396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pipes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,23 +353,55 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1758919241, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.31941265
+      value: -0.3194127
       objectReference: {fileID: 0}
     - target: {fileID: 1758919241, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1594084
+      value: 0.15940845
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758919241, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.972459
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313588456427989600, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313588456427989600, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313588456427989600, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8550823861825322649, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000017881393
+      value: -0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 8550823861825322649, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000000029802322
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550823861825322649, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 9194944115906116528, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194944115906116528, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194944115906116528, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9194944115906116528, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9194944115906116528, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2512,7 +2548,7 @@ GameObject:
   - component: {fileID: 679577970}
   - component: {fileID: 679577972}
   - component: {fileID: 679577971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pipe (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2723,6 +2759,93 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &811853013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811853015}
+  - component: {fileID: 811853014}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &811853014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811853013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAACYn+uzPup4fwIAAD0FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWxwXGgt9YhpIckTGgnF1+EtMYaZMkjyQGS4b93JRvsUl8sv/18b1f+IkLZGpjTZmUEf9YcyPcR8WfybdQbn+BId1ptxCdcfN4Fd6V3osHnjTqhEY99mNUVOCPYD7WT3jlCsFGi0KZa8h1k2jqLcEGlBTQZ7Xy0QuhrRI74Gi98yAlP03t/+sTTIhqd8chAOTC9a5xMFv65m3YRs0nSAz4wnUzv5sk8WY6j+5CiUUzSqgbu+fSZkrTLEM+Cm0KmnYdnxbSUwnZtEneqgwwZrW2DJNGBC4q0Q2/RZIFACWJXOk9iGP5aFBZcp4qhpwdhUL82L/mpW1EravdtZx9UNr5SmoSm2pzP/5nHcTAXRldPl7Jx5Eu4UrD9Gz0xat1A9CH80HceB30OVO7pVsJ7CepFr4xuFEejM40PbSxMH/rPK7OsBLbv8bbVG7Cpe8GvM57M5kk8T2epH1E3NU/oHJQ4ZlJU26Bq0gIbqYP6YUvA4Jx+Yfdhh2yXF1Hf0h8Lv+luuGyd4VEY69DUUVa+161ujHclyyCgp9a4TBsFAe4Y1KCodKc1pnG347yxDcreWB6pv1Zd8c52uS03IQHu/aPoxrTWh+vkbKkPz2DL18ZJoaBv2hteUKdMK9Vu21CTS9imMQVlg7BdI/i/e0a2i2lEt4zNpvO4mM3YGIpoMY95tOU85ndpSsIiCoU8qVy3jXby4NRUn1zh0l3+NqOVoXXYfG7oYSU+Kz2QXKhCb5gBUK9thmvjYLAI3lG+5AIF2oBzQoV5k6+cSM32wPNrojwwXR6doXmfJSe1+NDOIznJwu8lJx6+LvbawIeAgy9+SXYm579QSwMEFAAACAgAAJif6w92LYxtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKSpZFBYlJysrGRhWGasXGybmqagaWFYYpBUkqKYYqpmZlSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJif67M+6nh/AgAAPQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif6w92LYxtAAAAeAAAAAkAJAAAAAAAAAAAAAAAzAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACEAwAAAAA=
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 1
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &811853015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811853013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0656586, y: 2.980042, z: -0.20149408}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &821136981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,7 +2906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1092750025038004916, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.7436571
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 1092750025038004916, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2829,6 +2952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2511165482302940963, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
+      propertyPath: aggroRange
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
 --- !u!1 &910595527
@@ -2842,7 +2969,7 @@ GameObject:
   - component: {fileID: 910595528}
   - component: {fileID: 910595530}
   - component: {fileID: 910595529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pipe (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2953,7 +3080,7 @@ GameObject:
   - component: {fileID: 987279892}
   - component: {fileID: 987279894}
   - component: {fileID: 987279893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pipe (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3175,7 +3302,7 @@ GameObject:
   - component: {fileID: 1086186102}
   - component: {fileID: 1086186101}
   - component: {fileID: 1086186100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3333,7 +3460,7 @@ GameObject:
   - component: {fileID: 1175086010}
   - component: {fileID: 1175086012}
   - component: {fileID: 1175086011}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pipe (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3854,7 +3981,7 @@ GameObject:
   - component: {fileID: 1327032306}
   - component: {fileID: 1327032308}
   - component: {fileID: 1327032307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pipe (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3975,7 +4102,7 @@ GameObject:
   - component: {fileID: 1725983096}
   - component: {fileID: 1725983098}
   - component: {fileID: 1725983097}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4092,7 +4219,7 @@ GameObject:
   - component: {fileID: 1922958153}
   - component: {fileID: 1922958152}
   - component: {fileID: 1922958154}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

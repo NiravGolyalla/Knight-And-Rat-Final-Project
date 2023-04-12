@@ -110,13 +110,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 976388919}
+  - component: {fileID: 733856475}
+  - component: {fileID: 733856474}
+  - component: {fileID: 8547357623322893900}
   m_Layer: 0
   m_Name: SwordHitBox
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &976388919
 Transform:
   m_ObjectHideFlags: 0
@@ -125,13 +128,72 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976388918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.57, y: -0.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 627846976087027513}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &733856475
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976388918}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &733856474
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976388918}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &8547357623322893900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976388918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a9a5dde76fdbe4f81e74e34726a0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1758919238
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758919238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.31941244, y: 0.15940851, z: -17.213837}
+  m_LocalPosition: {x: -0.31941247, y: 0.15940845, z: -9.972459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -193,7 +255,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -469,7 +531,7 @@ GameObject:
   - component: {fileID: 6576548809155652530}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -531,17 +593,17 @@ MonoBehaviour:
   healthBar: {fileID: 9194944115756170756}
   staminaBar: {fileID: 2863683379413550426}
   formBar: {fileID: 7514705982789012874}
-  health: 10
+  health: 20
   stamina: 10
   dmgTakeR: 2
   dmgTakeK: 1
-  stmLostR: 1
+  stmLostR: 0.1
   stmLostK: 5
   ratMoveSpeed: 10
   knightMoveSpeed: 5
   runBonusMoveSpeed: 5
   dashAmount: 2
-  dashDur: 0.5
+  dashDur: 0.2
   dashCooldown: 2
 --- !u!1 &5832464266642264643
 GameObject:
@@ -702,7 +764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6265409750821366249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000000029802322, y: 0.000000074505806, z: -17.241377}
+  m_LocalPosition: {x: 0, y: 0.000000014901161, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -732,7 +794,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2170037156633924742}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7
+    OrthographicSize: 3
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -762,7 +824,7 @@ GameObject:
   - component: {fileID: 545190496}
   m_Layer: 0
   m_Name: Rat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -776,7 +838,7 @@ Transform:
   m_GameObject: {fileID: 6386301193164023400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.73, y: 0.73, z: 0.73}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2170037156633924742}
@@ -906,7 +968,7 @@ Transform:
   m_GameObject: {fileID: 9194944115906116541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.855252, y: 1.7488513, z: -0.009098537}
-  m_LocalScale: {x: 0.58, y: 0.58, z: 0.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2170037156633924742}
@@ -1210,7 +1272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437880011819283016, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: reduceSpeed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3437880011819283018, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_Name

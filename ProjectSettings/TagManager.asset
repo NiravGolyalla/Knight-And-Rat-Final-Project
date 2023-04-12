@@ -10,6 +10,7 @@ TagManager:
   - to_tutorial3
   - to_tutorial2
   - to_dungeon
+  - Sword
   layers:
   - Default
   - TransparentFX

@@ -5,13 +5,13 @@ using Pathfinding;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public Transform target;
+    private Vector3 target;
     public float speed = 2f;
     public float nextWaypointeDistance = 0.01f;
     
     Path path;
     int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
+    public bool reachedEndOfPath = false;
     bool recalc = false; 
 
     Seeker seeker;
@@ -21,6 +21,10 @@ public class EnemyMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
+    }
+
+    public void setTarget(Vector3 new_target){
+        target = new_target;
     }
 
 
@@ -33,8 +37,8 @@ public class EnemyMovement : MonoBehaviour
     private IEnumerator calculatePath(){
         if(!recalc){
             recalc = true;
-            seeker.StartPath(rb.position,target.position,OnPathComplete);
-            yield return new WaitForSeconds(1f);
+            seeker.StartPath(rb.position,target,OnPathComplete);
+            yield return new WaitForSeconds(0.2f);
             recalc = false;
         }
     }
