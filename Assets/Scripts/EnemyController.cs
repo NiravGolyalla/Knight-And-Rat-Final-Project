@@ -72,7 +72,6 @@ public class EnemyController : MonoBehaviour
         movement.setTarget(targetPosition);
         movement.speed = aggroSpeed;
         float dis = Vector2.Distance((Vector2)(rb.position),(Vector2)(target.position));
-        print(dis);
         if(dis-0.1f < distance){
             StartCoroutine(Attack(target));
         }
@@ -96,11 +95,11 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawSphere(wanderPosition,0.2f);
     }
 
-    public IEnumerator takeDamage(){
+    public void takeDamage(){
+        print(takingDamage);
         if(!takingDamage){
             takingDamage = true;
             healthBar.setValue(healthBar.getValue()-1f);
-            yield return new WaitForSeconds(0.1f);
             takingDamage = false;
         }
     }

@@ -118,14 +118,8 @@ public class PlayerController : MonoBehaviour
             currAnimator = isKnightController ? knightAnimator : ratAnimator;
             formBar.setValue(0f);
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            transform.localScale = new Vector3(1, 1, 1);
+        if(rb2d.velocity.x != 0f){
+            transform.localScale = new Vector3(Mathf.Sign(rb2d.velocity.x), 1, 1);
         }
 
         isAttacking = (Input.GetMouseButtonDown(0) && isKnightController);
