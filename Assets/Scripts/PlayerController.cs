@@ -92,18 +92,22 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        cInput();
-        int state = updateSprite();
-        if(state != currentState){
-            currAnimator.CrossFade(state,0,0);
-            currentState = state;
+        if(Time.timeScale != 0){
+            cInput();
+            int state = updateSprite();
+            if(state != currentState){
+                currAnimator.CrossFade(state,0,0);
+                currentState = state;
+            }
+            regenBar(staminaBar,2f);
+            regenBar(formBar);
         }
-        regenBar(staminaBar,2f);
-        regenBar(formBar);
+
+        if(healthBar.getValue()<= 0f){LevelManager.instance.Reload();}
     }
 
     private void FixedUpdate(){
-        Movement();
+        if(Time.timeScale != 0){Movement();}
     }
 
     private void cInput(){

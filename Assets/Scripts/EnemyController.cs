@@ -40,16 +40,18 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(healthBar.getValue()<= 0f){
-            Destroy(gameObject);
-        }
-        Transform player = findPlayer(aggroRange);
-        if(player){
-            state = "Aggro";
-            Approach(player);
-        } else{
-            state = "Wander";
-            Wander();
+        if(Time.timeScale != 0){
+            if(healthBar.getValue()<= 0f){
+                Destroy(gameObject);
+            }
+            Transform player = findPlayer(aggroRange);
+            if(player){
+                state = "Aggro";
+                Approach(player);
+            } else{
+                state = "Wander";
+                Wander();
+            }
         }
     }
 
