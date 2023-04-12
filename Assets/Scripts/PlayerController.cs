@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
         return currentState;
     }
 
-    private IEnumerator TakeDamage(float dmg){
+    public IEnumerator TakeDamage(float dmg){
         if(!takingDamage){
             takingDamage = true;
             float take = isKnightController ? dmgTakeK*dmg : dmgTakeR*dmg;

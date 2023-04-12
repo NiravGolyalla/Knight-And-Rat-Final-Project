@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     int currentWayPoint = 0;
     bool reached = false;
     bool takingDamage = false;
+    bool isAttacking = false;
     Seeker seeker;
     [SerializeField] private float health = 5f;
     [SerializeField] private Bar_Controller healthBar;
@@ -53,9 +54,9 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Wander(){
-        float distance = Vector2.Distance((Vector2)(rb.position),(Vector2)(wanderPosition));
+        float dis = Vector2.Distance((Vector2)(rb.position),(Vector2)(wanderPosition));
         movement.speed = wanderSpeed;
-        if ((distance < 0.1f || movement.reachedEndOfPath) && !reached)
+        if ((dis < 0.1f || movement.reachedEndOfPath) && !reached)
         {
             reached = true;
             wanderPosition.x = Random.Range(startPosition.x - wanderRange, startPosition.x + wanderRange);
@@ -70,6 +71,11 @@ public class EnemyController : MonoBehaviour
         targetPosition = (Vector2)target.position - direction.normalized * distance;
         movement.setTarget(targetPosition);
         movement.speed = aggroSpeed;
+        float dis = Vector2.Distance((Vector2)(rb.position),(Vector2)(target.position));
+        print(dis);
+        if(dis-0.1f < distance){
+            StartCoroutine(Attack(target));
+        }
     }
 
     private Transform findPlayer(float radius){
@@ -96,6 +102,18 @@ public class EnemyController : MonoBehaviour
             healthBar.setValue(healthBar.getValue()-1f);
             yield return new WaitForSeconds(0.1f);
             takingDamage = false;
+        }
+    }
+    public IEnumerator Attack(Transform player){
+        if(!isAttacking){
+            isAttacking = true;
+            print("here");
+            transform.localScale = new Vector3(0.9f,0.9f,0.9f);
+            yield return new WaitForSeconds(0.2f);
+            transform.localScale = new Vector3(1f,1f,1f);
+            StartCoroutine(player.parent.gameObject.GetComponent<PlayerController>().TakeDamage(2f));
+            yield return new WaitForSeconds(1f);
+            isAttacking = false;
         }
     }
 }
