@@ -83,7 +83,7 @@ public class EnemyController : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
     
         foreach (Collider2D c in colliders){       
-            if (c.tag == playerTag || c.tag == "Knight"){
+            if (c.tag == "Rat" || c.tag == "Knight"){
                 return c.transform;
             }
         }

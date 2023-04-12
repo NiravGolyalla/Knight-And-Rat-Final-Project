@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
                 currentState = state;
             }
             regenBar(staminaBar,2f);
-            regenBar(formBar);
+            regenBar(formBar,7f);
         }
 
         if(healthBar.getValue()<= 0f){LevelManager.instance.Reload();}
