@@ -219,6 +219,10 @@ public class PlayerController : MonoBehaviour
         else if(other.tag =="to_dungeon"){
             SceneManager.LoadScene("Dungeon Level");
         }
+        else if (other.tag == "to_circle")
+        {
+            SceneManager.LoadScene("adri");
+        }
     }
 
     

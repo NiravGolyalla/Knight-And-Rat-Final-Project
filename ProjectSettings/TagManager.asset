@@ -4,23 +4,33 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Knight
-  - Enemy
   - Barrel
-  - to_tutorial3
-  - to_tutorial2
-  - to_dungeon
   - Sword
+<<<<<<< Updated upstream
   - BARRELS
+=======
+  - Knight
+  - to_tutorial2
+  - to_tutorial3
+  - to_dungeon
+  - Enemy
+  - to_circle
+  - Rat
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
+<<<<<<< Updated upstream
   - Wall
   - PostProcessing
+=======
+  - 
+  - 
+>>>>>>> Stashed changes
   - 
   - 
   - 

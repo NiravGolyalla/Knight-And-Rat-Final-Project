@@ -39,6 +39,9 @@ public class KeyController : MonoBehaviour
             {
                 goals_complete[i] = goals[i].GetComponent<LeverController>().isOn();
             }
+            else if(goals[i].GetComponent<PressurePlateController>() != null) {
+                goals_complete[i] = goals[i].GetComponent<PressurePlateController>().isActivated();
+            }
         }
         
         Transform cageTransform = transform.Find("Cage");
