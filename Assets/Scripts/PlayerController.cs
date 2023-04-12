@@ -122,15 +122,14 @@ public class PlayerController : MonoBehaviour
             currAnimator = isKnightController ? knightAnimator : ratAnimator;
             formBar.setValue(0f);
         }
-        if(rb2d.velocity.x != 0f){
-            transform.localScale = new Vector3(Mathf.Sign(rb2d.velocity.x), 1, 1);
-        }
-
-        isAttacking = (Input.GetMouseButtonDown(0) && isKnightController);
+        isAttacking = (Input.GetMouseButtonDown(0) && isKnightController) || isAttacking;
         isMoving = (horizontalInput != 0 || verticalInput != 0); 
         isInteracting = Input.GetKeyDown(KeyCode.E); 
         if(Input.GetKey(KeyCode.LeftShift) && canDash){isDashing = true;}
-        
+        if(rb2d.velocity.x != 0f && canMove && !isAttacking){
+            print(isAttacking);
+            transform.localScale = new Vector3(Mathf.Sign(rb2d.velocity.x), 1, 1);
+        }
     }
 
     private void Movement(){
@@ -149,7 +148,10 @@ public class PlayerController : MonoBehaviour
 
         if(isKnightController){
             if (isDashing) return lockState(K_Dash_LR,1);
-            if (isAttacking) return lockState(K_Attack_LR,1);
+            if (isAttacking){
+                StartCoroutine(Attack());
+                return lockState(K_Attack_LR,1);
+            } 
             if (isMoving) return K_Move_LR;
             else return K_Idle_LR;
         } else{
@@ -174,6 +176,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public IEnumerator Attack(){
+        if(isAttacking){
+            yield return new WaitForSeconds(.8f);
+            isAttacking = false;
+        }
+    }
+
     private void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
     private IEnumerator Dash(){
         float take = isKnightController ? stmLostK : stmLostR;
@@ -183,7 +192,12 @@ public class PlayerController : MonoBehaviour
             
             if(isKnightController){
                 canMove = false;
-                rb2d.velocity = rb2d.velocity*dashAmount;
+                if(rb2d.velocity.x+rb2d.velocity.y != 0){
+                    rb2d.velocity = rb2d.velocity*dashAmount;
+                } else{
+                    rb2d.velocity = new Vector3(-Mathf.Sign(transform.localScale.x)*dashAmount*knightMoveSpeed/2f,0f,0f);
+                    transform.localScale = new Vector3(-Mathf.Sign(rb2d.velocity.x), 1, 1);
+                }
                 yield return new WaitForSeconds(dashDur);
                 canMove = true;
                 isDashing = false;
@@ -217,7 +231,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("tutorial3");
         }
         else if(other.tag =="to_dungeon"){
-            SceneManager.LoadScene("Dungeon Level");
+            SceneManager.LoadScene("Dungeon Level 1");
         }
         else if (other.tag == "to_circle")
         {
