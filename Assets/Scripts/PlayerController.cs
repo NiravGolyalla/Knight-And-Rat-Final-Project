@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
             else return K_Idle_LR;
         } else{
             if (isMoving) return R_Move_LR;
-            else return R_Idle_D;
+            else return R_Idle_LR;
         }
         int lockState(int s,float t){
             lockedTimer = Time.time + t;

@@ -111,8 +111,8 @@ GameObject:
   m_Component:
   - component: {fileID: 976388919}
   - component: {fileID: 733856475}
-  - component: {fileID: 733856474}
   - component: {fileID: 8547357623322893900}
+  - component: {fileID: 891896050442788274}
   m_Layer: 0
   m_Name: SwordHitBox
   m_TagString: Sword
@@ -156,7 +156,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &733856474
+--- !u!114 &8547357623322893900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976388918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a9a5dde76fdbe4f81e74e34726a0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &891896050442788274
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,18 +194,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &8547357623322893900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976388918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5a9a5dde76fdbe4f81e74e34726a0af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1758919238
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758919238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.31941247, y: 0.15940857, z: -9.972459}
+  m_LocalPosition: {x: -0.31941247, y: 0.15940845, z: -9.972459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -677,14 +677,14 @@ GameObject:
   - component: {fileID: 627846976087027513}
   - component: {fileID: 3981484402247212537}
   - component: {fileID: 5722823206311332007}
-  - component: {fileID: 2257038264988097646}
+  - component: {fileID: 521600020628278406}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Knight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &627846976087027513
 Transform:
   m_ObjectHideFlags: 0
@@ -763,7 +763,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -791347553, guid: 7368be22f11224a2caf2f30445cc8906, type: 3}
+  m_Sprite: {fileID: -1479816466, guid: 1418ebef22d89554792556228f0bc8f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -774,7 +774,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2257038264988097646
+--- !u!61 &521600020628278406
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -787,18 +787,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06558156, y: -0.0040988326}
+  m_Offset: {x: 0.2771026, y: 0.068277836}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4, y: 1.5}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 0.14, y: 0.15}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2623265, y: 1.5000597}
+  m_Size: {x: 1.21439, y: 1.532896}
   m_EdgeRadius: 0
 --- !u!1 &6210737702754847511
 GameObject:
@@ -816,7 +816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7122272202190666921
 Transform:
   m_ObjectHideFlags: 0
@@ -874,7 +874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6265409750821366249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00000013411045, z: -10}
+  m_LocalPosition: {x: 0, y: 0.000000014901161, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -938,7 +938,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3313588456427989600
 Transform:
   m_ObjectHideFlags: 0
