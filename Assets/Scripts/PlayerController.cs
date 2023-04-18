@@ -54,36 +54,27 @@ public class PlayerController : MonoBehaviour
     private float lockedTimer;
     //private float 
 
-    private static readonly int R_Idle_D = Animator.StringToHash("R_Idle_D");
+    
     private static readonly int R_Idle_LR = Animator.StringToHash("R_Idle_LR");
-    private static readonly int R_Idle_U = Animator.StringToHash("R_Idle_U");
-    private static readonly int R_Move_D = Animator.StringToHash("R_Move_D");
     private static readonly int R_Move_LR = Animator.StringToHash("R_Move_LR");
-    private static readonly int R_Move_U = Animator.StringToHash("R_Move_U");
-    private static readonly int K_Idle_D = Animator.StringToHash("K_Idle_D");
     private static readonly int K_Idle_LR = Animator.StringToHash("K_Idle_LR");
-    private static readonly int K_Idle_U = Animator.StringToHash("K_Idle_U");
-    private static readonly int K_Move_D = Animator.StringToHash("K_Move_D");
     private static readonly int K_Move_LR = Animator.StringToHash("K_Move_LR");
-    private static readonly int K_Move_U = Animator.StringToHash("K_Move_U");
-    private static readonly int K_Attack_D = Animator.StringToHash("K_Attack_D");
     private static readonly int K_Attack_LR = Animator.StringToHash("K_Attack_LR");
-    private static readonly int K_Attack_U = Animator.StringToHash("K_Attack_U");
-    //May Need to put in a roll(idk yet)
-    private static readonly int K_Dash_D = Animator.StringToHash("K_Dash_D");
     private static readonly int K_Dash_LR = Animator.StringToHash("K_Dash_LR");
-    private static readonly int K_Dash_U = Animator.StringToHash("K_Dash_U");
     
     private void Start()
     {
         ratAnimator = rat.GetComponent<Animator>();
         knightAnimator = knight.GetComponent<Animator>();
-        isKnightController = false;
+        rb2d = GetComponent<Rigidbody2D>();
+
         rat.SetActive(!isKnightController);
         knight.SetActive(isKnightController);
-        rb2d = GetComponent<Rigidbody2D>();
+        
+        
         currAnimator = ratAnimator;
-        currentState = R_Idle_D;
+        currentState = R_Idle_LR;
+        
         healthBar.setMaxValue(health);
         healthBar.setValue(health);
         staminaBar.setMaxValue(stamina);
@@ -140,7 +131,7 @@ public class PlayerController : MonoBehaviour
         if(isDashing){
             StartCoroutine(Dash());
         } 
-        if(canMove){rb2d.velocity = movement * moveSpeed;}        
+        rb2d.velocity = (canMove) ?  movement * moveSpeed : movement * 0f;
     }
 
     private int updateSprite(){
@@ -178,8 +169,10 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Attack(){
         if(isAttacking){
+            canMove = false;
             yield return new WaitForSeconds(.8f);
             isAttacking = false;
+            canMove = true;
         }
     }
 
@@ -238,9 +231,5 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("adri");
         }
     }
-
-    
-
-
     
 }
