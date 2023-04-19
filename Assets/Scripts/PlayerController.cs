@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool takingDamage = false;
     private bool canDash = true;
     private bool canMove = true;
+    private bool Swaping = false;
 
 
     //movement variables
@@ -163,6 +164,22 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
+    public IEnumerator Swap(){
+        if(!Swaping){
+            Swaping = true;
+            canMove = false;
+            yield return new WaitForSeconds(0.5f);
+            isKnightController = !isKnightController;
+            rat.SetActive(!isKnightController);
+            knight.SetActive(isKnightController);
+            currAnimator = isKnightController ? knightAnimator : ratAnimator;
+            formBar.setValue(0f);
+            Swaping = false;
+            canMove = true;
+        }
+        
+    }
+    
     private IEnumerator Dash(){
         float take = isKnightController ? stmLostK : stmLostR;
         if(canDash && take < staminaBar.getValue() && !isAttacking){
