@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
+    public void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
     private IEnumerator Dash(){
         float take = isKnightController ? stmLostK : stmLostR;
         if(canDash && take < staminaBar.getValue()){
