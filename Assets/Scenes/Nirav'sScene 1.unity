@@ -301,11 +301,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
---- !u!4 &539869042 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2170037156633924742, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
-  m_PrefabInstance: {fileID: 733856472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &733856472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9589,49 +9584,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092750025038004919, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1092750025038004921, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511165482302940963, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
-      propertyPath: distance
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6031438336009521729, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 539869042}
-    - target: {fileID: 6031438336009521729, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
-      propertyPath: movementType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6031438336009521729, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
-      propertyPath: neighborRadius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6031438336009521729, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
-      propertyPath: setUpweights.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6031438336009521729, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
-      propertyPath: avoidanceRadiusMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6031438336009521729, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
-      propertyPath: setUpweights.Array.data[0]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6031438336009521729, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
-      propertyPath: setUpweights.Array.data[1]
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6031438336009521729, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
-      propertyPath: setUpweights.Array.data[2]
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}

@@ -36,6 +36,10 @@ public class LevelManager : MonoBehaviour
         {
              SceneManager.LoadScene(5);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+             SceneManager.LoadScene(6);
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
              Reload();

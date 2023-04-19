@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Nirav'sScene.unity
+    path: Assets/Scenes/CombatScene.unity
     guid: a17f81f9974c73f42853ebb8f63f4fa6
   - enabled: 1
     path: Assets/Scenes/adri.unity

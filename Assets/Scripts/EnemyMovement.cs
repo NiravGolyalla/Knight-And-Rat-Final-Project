@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     Path path;
     int currentWaypoint = 0;
     public bool reachedEndOfPath = false;
-    public bool movementType = false;
+    public static bool movementType = false;
     bool recalc = false; 
     public float[] setUpweights = {1,1,1};
     float[] weights;

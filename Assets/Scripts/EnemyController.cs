@@ -26,6 +26,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Bar_Controller healthBar;
     public Animator anim;
 
+    Coroutine att;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,13 +56,13 @@ public class EnemyController : MonoBehaviour
                 Wander();
             }
         }
-        if(!isAttacking){
-            if(rb.velocity!= Vector2.zero){
-                anim.CrossFade("Enemy_Move",0,0);
-            } else{
-                anim.CrossFade("Enemy_Idle",0,0);
-            }
-        }
+        // if(isAttacking){
+        //     if(rb.velocity!= Vector2.zero){
+        //         anim.CrossFade("Enemy_Move",0,0);
+        //     } else{
+        //         anim.CrossFade("Enemy_Idle",0,0);
+        //     }
+        // }
         
     }
 
@@ -84,7 +86,7 @@ public class EnemyController : MonoBehaviour
         movement.speed = aggroSpeed;
         float dis = Vector2.Distance((Vector2)(rb.position),(Vector2)(target.position));
         if(dis-0.1f < distance){
-            StartCoroutine(Attack(target));
+            att = StartCoroutine(Attack(target));
         }
     }
 
@@ -108,11 +110,13 @@ public class EnemyController : MonoBehaviour
 
     public void takeDamage(){
         if(!takingDamage){
+            // if(att != null) StopCoroutine(att); 
+            // isAttacking = false;
             takingDamage = true;
             healthBar.setValue(healthBar.getValue()-2f);
             
             Vector2 direction = ((Vector2)targetPosition - rb.position).normalized;
-            rb.AddForce(-direction*5f,ForceMode2D.Impulse);
+            rb.AddForce(-direction*10f,ForceMode2D.Impulse);
             Invoke("delay",1f);
             takingDamage = false;
         }
@@ -120,13 +124,9 @@ public class EnemyController : MonoBehaviour
     public IEnumerator Attack(Transform player){
         if(!isAttacking){
             isAttacking = true;
-            anim.CrossFade("Enemy_Attack",0,0);
-            // print("here");
-            transform.localScale = new Vector3(0.9f,0.9f,0.9f);
-            yield return new WaitForSeconds(0.2f);
-            transform.localScale = new Vector3(1f,1f,1f);
+            // anim.CrossFade("Enemy_Attack",0,0);
             StartCoroutine(player.parent.gameObject.GetComponent<PlayerController>().TakeDamage(2f));
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             isAttacking = false;
         }
     }
