@@ -20,10 +20,11 @@ public class EnemyController : MonoBehaviour
     bool reached = false;
     bool takingDamage = false;
     bool isAttacking = false;
+    bool Knockbacked = false;
     Seeker seeker;
     [SerializeField] private float health = 5f;
     [SerializeField] private Bar_Controller healthBar;
-
+    public Animator anim;
 
     void Start()
     {
@@ -53,6 +54,14 @@ public class EnemyController : MonoBehaviour
                 Wander();
             }
         }
+        if(!isAttacking){
+            if(rb.velocity!= Vector2.zero){
+                anim.CrossFade("Enemy_Move",0,0);
+            } else{
+                anim.CrossFade("Enemy_Idle",0,0);
+            }
+        }
+        
     }
 
     private void Wander(){
@@ -98,17 +107,21 @@ public class EnemyController : MonoBehaviour
     }
 
     public void takeDamage(){
-        print(takingDamage);
         if(!takingDamage){
             takingDamage = true;
-            healthBar.setValue(healthBar.getValue()-1f);
+            healthBar.setValue(healthBar.getValue()-2f);
+            
+            Vector2 direction = ((Vector2)targetPosition - rb.position).normalized;
+            rb.AddForce(-direction*5f,ForceMode2D.Impulse);
+            Invoke("delay",1f);
             takingDamage = false;
         }
     }
     public IEnumerator Attack(Transform player){
         if(!isAttacking){
             isAttacking = true;
-            print("here");
+            anim.CrossFade("Enemy_Attack",0,0);
+            // print("here");
             transform.localScale = new Vector3(0.9f,0.9f,0.9f);
             yield return new WaitForSeconds(0.2f);
             transform.localScale = new Vector3(1f,1f,1f);
@@ -117,4 +130,20 @@ public class EnemyController : MonoBehaviour
             isAttacking = false;
         }
     }
+
+    void OnCollisionEnter2D(Collision2D r){
+        if(r.transform.tag == "Player")
+            r.otherRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+     
+    void OnCollisionExit2D(Collision2D r){
+        if(r.transform.tag == "Player")
+            r.otherRigidbody.constraints = RigidbodyConstraints2D.None;
+            r.otherRigidbody.freezeRotation = true;
+    }
+
+    void delay(){
+        rb.velocity = Vector2.zero;
+    }
+
 }

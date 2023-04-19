@@ -12,15 +12,25 @@ public class EnemyMovement : MonoBehaviour
     Path path;
     int currentWaypoint = 0;
     public bool reachedEndOfPath = false;
+    public bool movementType = false;
     bool recalc = false; 
+    public float[] setUpweights = {1,1,1};
+    float[] weights;
+
+    Vector2 currentVelocity;
 
     Seeker seeker;
     Rigidbody2D rb;
+
+    public float neighborRadius = 1.5f;
+    [Range(0f, 1f)]
+    public float avoidanceRadiusMultiplier = 0.5f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
+        weights = setUpweights;
     }
 
     public void setTarget(Vector3 new_target){
@@ -57,7 +67,7 @@ public class EnemyMovement : MonoBehaviour
             reachedEndOfPath = false;
         }
 
-        rb.position = Vector2.MoveTowards(rb.position, (Vector2)path.vectorPath[currentWaypoint], 1f * speed * Time.deltaTime);
+        if(movementType){CalculateMove();} else{OldMove();}  
 
         float distance = Vector2.Distance(rb.position,path.vectorPath[currentWaypoint]);
 
@@ -65,5 +75,72 @@ public class EnemyMovement : MonoBehaviour
             currentWaypoint++;
         }
     }
+
+    void OldMove(){
+        rb.position = Vector2.MoveTowards(rb.position, (Vector2)path.vectorPath[currentWaypoint], 1f * speed * Time.deltaTime);
+    }
+
+    void CalculateMove(){
+        List<Transform> neighbors = GetNearbyObjects();
+        print(neighbors.Count);
+
+        Vector2 move = Vector2.zero;
+
+        Vector2 dirMove = (Vector2)(path.vectorPath[currentWaypoint]-transform.position);
+        
+        Vector2 ranMove = (Vector2)Random.insideUnitSphere;
+            
+        Vector2 avoidanceMove = Vector2.zero;
+        float nAvoid = 0;
+        foreach (Transform item in neighbors)
+        {
+            if (Vector2.Distance(item.position,transform.position) < neighborRadius * avoidanceRadiusMultiplier)
+            {
+                nAvoid++;
+                
+                avoidanceMove += (Vector2)(transform.position-item.position);
+            }
+        }
+        if (nAvoid > 0)
+            avoidanceMove /= nAvoid;
+        
+        
+        Vector2[] behaviors = {dirMove,ranMove,avoidanceMove};
+        for (int i = 0; i < behaviors.Length; i++)
+        {
+            Vector2 partialMove = behaviors[i];
+            // print(i);
+            // print(partialMove);
+
+            if (partialMove != Vector2.zero)
+            {
+                partialMove.Normalize();
+                partialMove *= setUpweights[i];
+                move += partialMove;
+
+            }
+        }
+
+        move = move.normalized * speed;
+        move = Vector2.SmoothDamp(Vector2.zero,move,ref currentVelocity, 0.5f);
+        rb.position += move;
+        // rb.position = Vector2.MoveTowards(rb.position, (Vector2)path.vectorPath[currentWaypoint], 1f * speed * Time.deltaTime);
+    }
+
+    List<Transform> GetNearbyObjects()
+    {
+        List<Transform> context = new List<Transform>();
+        Collider2D[] contextColliders = Physics2D.OverlapCircleAll(transform.position, neighborRadius);
+        foreach (Collider2D c in contextColliders)
+        {
+            if (c != GetComponent<Collider2D>())
+            {
+                context.Add(c.transform);
+            }
+        }
+        return context;
+    }
+
+
 
 }

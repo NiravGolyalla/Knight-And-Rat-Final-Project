@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6031438336009521729}
   - component: {fileID: 2511165482302940963}
   - component: {fileID: 1987249390270468978}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 1
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -102,6 +102,13 @@ MonoBehaviour:
   speed: 2
   nextWaypointeDistance: 0.01
   reachedEndOfPath: 0
+  movementType: 0
+  setUpweights:
+  - 1
+  - 1
+  - 1
+  neighborRadius: 5
+  avoidanceRadiusMultiplier: 0.5
 --- !u!114 &2511165482302940963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +131,7 @@ MonoBehaviour:
   movement: {fileID: 6031438336009521729}
   health: 5
   healthBar: {fileID: 4188694488590508484}
+  anim: {fileID: 9169475956861127331}
 --- !u!61 &1987249390270468978
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,7 +145,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.054942608, y: -0.115379095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -148,7 +156,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0659311, y: 1.4505277}
   m_EdgeRadius: 0
 --- !u!1 &1092750025894104918
 GameObject:
@@ -160,7 +168,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1092750025894104919}
   - component: {fileID: 1092750025894104916}
-  m_Layer: 0
+  - component: {fileID: 9169475956861127331}
+  m_Layer: 6
   m_Name: EnemyGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092750025894104918}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.009098537}
+  m_LocalPosition: {x: -0.28, y: -0.09, z: 0.009098537}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -223,8 +232,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8392157, g: 0.40643206, b: 0.3372549, a: 1}
+  m_Sprite: {fileID: -315635405, guid: a25bc6bcdea2deb4f85fa5709323834b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -234,6 +243,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &9169475956861127331
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092750025894104918}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89c2915daceaf5b43b4834d35a15c78f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1672259101093808654
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +276,7 @@ GameObject:
   - component: {fileID: 8850654346579324498}
   - component: {fileID: 1252363757148261800}
   - component: {fileID: 5686645478783574110}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,6 +380,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3437880010764814771, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437880011558492524, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3437880011558492525, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_SizeDelta.x
       value: 1
@@ -361,6 +399,10 @@ PrefabInstance:
     - target: {fileID: 3437880011819283018, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_Name
       value: Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3437880011819283018, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3437880011819283019, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_Pivot.x
