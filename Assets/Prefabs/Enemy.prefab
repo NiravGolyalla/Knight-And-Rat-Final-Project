@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6031438336009521729}
   - component: {fileID: 2511165482302940963}
   - component: {fileID: 1987249390270468978}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092750025038004921}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -100,13 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  nextWaypointeDistance: 0.01
   reachedEndOfPath: 0
-  setUpweights:
-  - 1
-  - 0
-  - 1
-  neighborRadius: 5
+  nextWaypointeDistance: 0.01
+  neighborRadius: 1
   avoidanceRadiusMultiplier: 0.6
 --- !u!114 &2511165482302940963
 MonoBehaviour:
@@ -120,13 +116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c98e56dd1c45545b2ffce627070700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 3
+  aggroRange: 10
   distance: 1.9
   state: Wander
   wanderSpeed: 3
   aggroSpeed: 2
   wanderRange: 5
-  playerTag: Player
   movement: {fileID: 6031438336009521729}
   health: 5
   healthBar: {fileID: 4188694488590508484}
@@ -168,7 +163,7 @@ GameObject:
   - component: {fileID: 1092750025894104919}
   - component: {fileID: 1092750025894104916}
   - component: {fileID: 9169475956861127331}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: EnemyGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +270,7 @@ GameObject:
   - component: {fileID: 8850654346579324498}
   - component: {fileID: 1252363757148261800}
   - component: {fileID: 5686645478783574110}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,11 +376,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437880010764814771, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3437880011558492524, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3437880011558492525, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_SizeDelta.x
@@ -401,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437880011819283018, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3437880011819283019, guid: aa78136f13ecc3340a687f96983ed556, type: 3}
       propertyPath: m_Pivot.x

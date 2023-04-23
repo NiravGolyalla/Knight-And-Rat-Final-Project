@@ -12,11 +12,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float wanderSpeed = 3f;
     [SerializeField] private float aggroSpeed = 2f;
     [SerializeField] private float wanderRange = 5f;
-    [SerializeField] private string playerTag = "Player";
     [SerializeField] private EnemyMovement movement;
     private Vector3 startPosition,wanderPosition,targetPosition;
     Path path;
-    int currentWayPoint = 0;
     bool reached = false;
     bool takingDamage = false;
     bool isAttacking = false;
@@ -56,13 +54,13 @@ public class EnemyController : MonoBehaviour
                 Wander();
             }
         }
-        // if(isAttacking){
-        //     if(rb.velocity!= Vector2.zero){
-        //         anim.CrossFade("Enemy_Move",0,0);
-        //     } else{
-        //         anim.CrossFade("Enemy_Idle",0,0);
-        //     }
-        // }
+        if(isAttacking){
+            if(rb.velocity!= Vector2.zero){
+                anim.CrossFade("Enemy_Move",0,0);
+            } else{
+                anim.CrossFade("Enemy_Idle",0,0);
+            }
+        }
         
     }
 
@@ -80,14 +78,12 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Approach(Transform target){
-        Vector2 direction = (Vector2)target.position - rb.position;
-        targetPosition = (Vector2)target.position - direction.normalized * distance;
+        // Vector2 direction = (Vector2)target.position - rb.position;
+        // targetPosition = (Vector2)target.position - direction.normalized * distance;
+        targetPosition = (Vector2)target.position;
         movement.setTarget(targetPosition);
         movement.speed = aggroSpeed;
         float dis = Vector2.Distance((Vector2)(rb.position),(Vector2)(target.position));
-        if(dis-0.1f < distance){
-            att = StartCoroutine(Attack(target));
-        }
     }
 
     private Transform findPlayer(float radius){

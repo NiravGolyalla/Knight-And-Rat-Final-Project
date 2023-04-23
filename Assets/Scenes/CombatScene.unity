@@ -21848,6 +21848,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4436704497522899374, guid: 393772d396d67384f806e17d71245f37, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436704497522899374, guid: 393772d396d67384f806e17d71245f37, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436704497522899374, guid: 393772d396d67384f806e17d71245f37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -21887,9 +21895,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4436704497522899375, guid: 393772d396d67384f806e17d71245f37, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436704497522899375, guid: 393772d396d67384f806e17d71245f37, type: 3}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAACYn+ud9WTJeQIAADAFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWxsQ1Jby0Q0gMJE9rJxRdhrbEGWfJIcoBk+O9dyTZ26Qnx3n68fVr5i3BpKsis0mvN2UYxIN9HxJ3Jt1FPPsOZHpTc8U/oYt45s4ULoj7mjVquEA9dmlElWM2zH/IgXHCAYC15rnS5YgdYKGMNwjkVBpDSyrpsidDXiJzxZ/zoUi54ms7d6RNPj8HoiscMpAU9CI0ncRROZw+zxzYlmiTxQxwG4UObOZtEcRIk0WoczH2NWmaClhUwN1BfKgm7CpEPkzhqG+GYTAnBTauT2EvlfdhVBWhwRjBOcWyvLZgkCBTAD4V1QwyzX/PcgG1d0fSy5Br9a8qSn6oxtaTm2Aj7oKJ2jWax19TU3PxHj0NP51qVz13bMHAtbMGz4xu9ZNTYgelDeNkrD709JyqOdC/gvQD5otZa1ZIhaXXtUmsD02X/9zbZooDs2OON1Duwrnq/uzvubtjNcPXDnxeCl3tvZNwAO6G8334xQOPN/ELBfm1MWwJRp+KPgd/0MNyvlnji2lik2imlk7dXtXahZOU9c9PUdqG0BA+3oiuQVNjLFsvY+xu84wZt75gn6l5S27zlugdyl+LhPj4I7qitOt0uyxTqtAFTvNZWcAm9aEe8oE8LJWWzYENPurRdrXOaDdIONWf/rhYJYshhBvNwnzCgUzaextEszimlwTzJ6T4ifve4xDmp2DZCW3vw1mRfXOKedR+Y0VrTyi870/S05p+lGljOZa52mQaQr02Fm3DQ2ARfJVsxjgbtwFou/X2Tr5QIlR2BpbdCqZ90dbaapn2VlFT8Q1mHpGThvygpcfBtl7caPjicXPOu2JVc/wJQSwMEFAAACAgAAJif6+tPFDJtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKBSWpaqlmquWGSaUpqolGKrpGJsZlJWmJiooG5aVpikrFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJif6531ZMl5AgAAMAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif6+tPFDJtAAAAeAAAAAkAJAAAAAAAAAAAAAAAxgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB+AwAAAAA=
+      objectReference: {fileID: 0}
     - target: {fileID: 4436704497522899376, guid: 393772d396d67384f806e17d71245f37, type: 3}
       propertyPath: m_Name
       value: A*
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436704497522899376, guid: 393772d396d67384f806e17d71245f37, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 393772d396d67384f806e17d71245f37, type: 3}
