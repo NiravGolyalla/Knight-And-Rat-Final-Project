@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Bar_Controller healthBar;
     public Animator anim;
 
+    public bool stunned = false;
+
     Coroutine att;
 
     void Start()
