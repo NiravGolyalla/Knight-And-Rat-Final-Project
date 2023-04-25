@@ -25,13 +25,10 @@ public class EnemyMovement : MonoBehaviour
     Vector2 currentVelocity = Vector2.zero;
     private float[] weights;
     public float[] Weights{get{return weights;}}
-    
 
-
-
-    public float neighborRadius = 1.5f;
-    [Range(0f, 1f)]
-    public float avoidanceRadiusMultiplier = 0.5f;
+    public float obstacleRadius = .7f;
+    public float playerSpace = 1.5f;
+    public float searchRadius = 2f;
 
 
 
@@ -58,8 +55,9 @@ public class EnemyMovement : MonoBehaviour
         Vector2 tar = pathSeekBehavior() * 1f;
         // steering += ((Vector2)target - rb.position).normalized * speed * Time.deltaTime;
         steering += pathSeekBehavior();
-        steering += avoidObstaclesBehavior() * 2f;
-        print(Mathf.Abs(((Vector2)target - rb.position).magnitude));
+        steering += avoidObstaclesBehavior("Obstacle",obstacleRadius) * 2f;
+        steering += avoidObstaclesBehavior("Player",playerSpace) * 1.5f;
+        // print(Mathf.Abs(((Vector2)target - rb.position).magnitude));
         rb.position = Vector2.MoveTowards(rb.position, rb.position + steering , Time.deltaTime*speed);
         // rb.position = (Mathf.Abs(((Vector2)target - rb.position).magnitude) <= 2f) ? rb.position : Vector2.MoveTowards(rb.position, rb.position + steering , Time.deltaTime*speed);
         // rb.position = rb.position;
@@ -80,15 +78,16 @@ public class EnemyMovement : MonoBehaviour
         return target != null ? (desiredVector - rb.position).normalized : Vector2.zero;
     }
 
-    Vector2 avoidObstaclesBehavior(){
+    Vector2 avoidObstaclesBehavior(string name,float radius){
         Vector2 desiredVector = Vector2.zero;
         float nAvoid = 0;
-        List<Transform> contextColliders = GetNearbyObjects();
+        List<Transform> contextColliders = GetNearbyObjects(name);
+        // print(contextColliders.Count);
         foreach (Transform item in contextColliders)
         {
-            print(item.name);
+            ;
             Vector2 closestPoint = item.gameObject.GetComponent<Collider2D>().ClosestPoint(rb.position);
-            if ((closestPoint - rb.position).magnitude < neighborRadius)
+            if ((closestPoint - rb.position).magnitude < radius)
             {
                 nAvoid++;
                 desiredVector += (Vector2)(rb.position - closestPoint);
@@ -98,6 +97,21 @@ public class EnemyMovement : MonoBehaviour
             desiredVector /= nAvoid;
 
         return desiredVector.normalized;
+    }
+    List<Transform> GetNearbyObjects(string name)
+    {
+        List<Transform> context = new List<Transform>();
+        Collider2D[] contextColliders = Physics2D.OverlapCircleAll(transform.position, searchRadius);
+        int x = LayerMask.NameToLayer(name);
+        foreach (Collider2D c in contextColliders)
+        {
+            print(x + " " + c.gameObject.layer);
+            if (c != GetComponent<Collider2D>() && x == c.gameObject.layer)
+            {
+                context.Add(c.transform);
+            }
+        }
+        return context;
     }
 
     //A* path calculation
@@ -124,20 +138,6 @@ public class EnemyMovement : MonoBehaviour
     //OLD STUFF
     void OldMove(){
         rb.position = Vector2.MoveTowards(rb.position, (Vector2)path.vectorPath[currentWaypoint], 1f * speed * Time.deltaTime);
-    }
-
-    List<Transform> GetNearbyObjects()
-    {
-        List<Transform> context = new List<Transform>();
-        Collider2D[] contextColliders = Physics2D.OverlapCircleAll(transform.position, neighborRadius);
-        foreach (Collider2D c in contextColliders)
-        {
-            if (c != GetComponent<Collider2D>())
-            {
-                context.Add(c.transform);
-            }
-        }
-        return context;
     }
 
     void previousMovementLoop(){

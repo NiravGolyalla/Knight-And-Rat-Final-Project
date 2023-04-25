@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 733856475}
   - component: {fileID: 8547357623322893900}
   - component: {fileID: 891896050442788274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SwordHitBox
   m_TagString: Sword
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 7591418768703874048}
   - component: {fileID: 2149289628762140718}
   - component: {fileID: 1276547440198168816}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 2170037156633924742}
   - component: {fileID: 5054845812310076495}
   - component: {fileID: 6576548809155652530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 3981484402247212537}
   - component: {fileID: 5722823206311332007}
   - component: {fileID: 521600020628278406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Knight
   m_TagString: Knight
   m_Icon: {fileID: 0}
@@ -827,7 +827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8550823861825322649}
   - component: {fileID: 5337757580123146295}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +900,7 @@ GameObject:
   - component: {fileID: 3179926365904430028}
   - component: {fileID: 3468210719802355576}
   - component: {fileID: 545190496}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rat
   m_TagString: Rat
   m_Icon: {fileID: 0}

@@ -102,7 +102,7 @@ MonoBehaviour:
   speed: 2
   reachedEndOfPath: 0
   nextWaypointeDistance: 0.01
-  neighborRadius: 1
+  neighborRadius: 1.5
   avoidanceRadiusMultiplier: 0.6
 --- !u!114 &2511165482302940963
 MonoBehaviour:
@@ -126,6 +126,7 @@ MonoBehaviour:
   health: 5
   healthBar: {fileID: 4188694488590508484}
   anim: {fileID: 9169475956861127331}
+  stunned: 0
 --- !u!61 &1987249390270468978
 BoxCollider2D:
   m_ObjectHideFlags: 0
