@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
+    public Animator transition;
+    float transitionTime = 1f;
+
+    bool reloading = false;
 
     void Awake(){
         instance = this;
@@ -14,31 +18,31 @@ public class LevelManager : MonoBehaviour
     void Update(){
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-             SceneManager.LoadScene(0);
+             instance.LoadLevel(0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-             SceneManager.LoadScene(1);
+             instance.LoadLevel(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-             SceneManager.LoadScene(2);
+             instance.LoadLevel(2);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-             SceneManager.LoadScene(3);
+             instance.LoadLevel(3);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-             SceneManager.LoadScene(4);
+             instance.LoadLevel(4);
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-             SceneManager.LoadScene(5);
+             instance.LoadLevel(5);
         }
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-             SceneManager.LoadScene(6);
+             instance.LoadLevel(6);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -46,6 +50,38 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void Reload(){SceneManager.LoadScene(SceneManager.GetActiveScene().name);}
-    
+    public void Reload(){instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);}
+     
+
+
+     public void LoadLevel(string i){
+          StartCoroutine(loadScene(i)); 
+     }
+     public void LoadLevel(int i){
+          StartCoroutine(loadScene(i)); 
+     }
+
+     IEnumerator loadScene(int i){
+          if(!reloading){
+               reloading = true;
+               transition.CrossFade("SceneChange_Start",0,0);
+               yield return new WaitForSeconds(transitionTime);
+               SceneManager.LoadScene(i);
+               transition.CrossFade("SceneChange_End",0,0);
+               yield return new WaitForSeconds(transitionTime);
+               reloading = false;
+          }
+     }
+
+     IEnumerator loadScene(string i){
+          if(!reloading){
+               reloading = true;
+               transition.CrossFade("SceneChange_Start",0,0);
+               yield return new WaitForSeconds(transitionTime);
+               SceneManager.LoadScene(i);
+               transition.CrossFade("SceneChange_End",0,0);
+               yield return new WaitForSeconds(transitionTime);
+               reloading = false;
+          }
+     }
 }

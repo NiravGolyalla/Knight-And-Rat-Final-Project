@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: e86e151ce51e70149b7543e12f84b138, type: 3}
+  m_Sprite: {fileID: 1605081104, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
+  knight: {fileID: 0}
 --- !u!61 &5838277178632828072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -113,18 +114,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0034695864, y: 0}
+  m_Offset: {x: 0.0011596084, y: 0.002309993}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.15, y: 0.16}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.15, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.11530414, y: 0.13686943}
+  m_Size: {x: 0.8683593, y: 0.8714448}
   m_EdgeRadius: 0
 --- !u!50 &6134815901684297785
 Rigidbody2D:
