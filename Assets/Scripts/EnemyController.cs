@@ -63,10 +63,10 @@ public class EnemyController : MonoBehaviour
         if(state == "Knockbacked" || state == "Stunned" || state == "Attack"){
             return;
         }
-        if(cat){
-            state = "Cated";
-            movement.setTarget(cat.position);
-        }
+        // if(cat){
+        //     state = "Cated";
+        //     movement.setTarget(cat.position);
+        // }
         else if(player){
             state = "Aggro";
             movement.setTarget(player.position);
@@ -178,12 +178,12 @@ public class EnemyController : MonoBehaviour
             r.otherRigidbody.freezeRotation = true;
     }
 
-    void OnTriggerEnter2D(Collider2D r){
-        if(r.tag == "catnip"){
-            StartCoroutine(Stun());
-        }
+    // void OnTriggerEnter2D(Collider2D r){
+    //     if(r.tag == "catnip"){
+    //         StartCoroutine(Stun());
+    //     }
 
-    }
+    // }
 
     void delay(){
         rb.velocity = Vector2.zero;
