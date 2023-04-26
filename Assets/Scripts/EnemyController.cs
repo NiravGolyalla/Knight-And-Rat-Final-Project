@@ -145,7 +145,7 @@ public class EnemyController : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator Stun(Transform player){
+    public IEnumerator Stun(){
         if(!stunned){
             stunned = true;
             state = "Stunned";
@@ -167,14 +167,22 @@ public class EnemyController : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D r){
-        if(r.transform.tag == "Player")
+        if(r.transform.tag == "Player"){
             r.otherRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
     }
      
     void OnCollisionExit2D(Collision2D r){
         if(r.transform.tag == "Player")
             r.otherRigidbody.constraints = RigidbodyConstraints2D.None;
             r.otherRigidbody.freezeRotation = true;
+    }
+
+    void OnTriggerEnter2D(Collider2D r){
+        if(r.tag == "catnip"){
+            StartCoroutine(Stun());
+        }
+
     }
 
     void delay(){

@@ -81,6 +81,7 @@ public class EnemyMovement : MonoBehaviour
                 
             rb.position = Vector2.MoveTowards(rb.position, rb.position + steering , Time.deltaTime*speed);
             float dis = ((Vector2)target-rb.position).x;
+            print(target);
             if(dis != 0){
                 graphics.localScale = new Vector3(Mathf.Sign(dis),1f,1f);    
             }   
