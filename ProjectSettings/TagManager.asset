@@ -8,6 +8,13 @@ TagManager:
   - Rat
   - Sword
   - Enemy
+  - to_dungeon
+  - Barrel
+  - to_tutorial2
+  - to_circle
+  - to_tutorial3
+  - BARRELS
+  - catnip
   layers:
   - Default
   - TransparentFX

@@ -11,17 +11,19 @@ public class GateController : MonoBehaviour
     public PressurePlateController[] pressurePlates;
     public KeyController[] keys;
 
+    public Sprite gate_open;
+    public Sprite gate_closed;
+
     public CutRopeController[] ropes;
     private BoxCollider2D gate;
     private SpriteRenderer gate_sprite;
-    private Color assignedColor;
+
 
     // Start is called before the first frame update
     void Start()
     {
         gate = gameObject.GetComponent<BoxCollider2D>();
         gate_sprite = gameObject.GetComponent<SpriteRenderer>();
-        assignedColor = gate_sprite.color;
     }
 
     // Update is called once per frame
@@ -30,12 +32,13 @@ public class GateController : MonoBehaviour
         if (hasAllGoalsBeenCompleted())
         {
             gate.isTrigger = true;
-            gate_sprite.color = Color.clear;
+            gate_sprite.sprite = gate_open;
+           
         }
         else
         {
-            gate.isTrigger = false;
-            gate_sprite.color = assignedColor;  
+            gate.isTrigger = false; 
+            gate_sprite.sprite = gate_closed;
         }
 
     }
