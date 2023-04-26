@@ -7,12 +7,13 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float aggroRange = 0f; 
     [SerializeField] private float distance = 1f;
-    [SerializeField] private string state;
+    public string state;
     private Rigidbody2D rb;
     [SerializeField] private float wanderSpeed = 3f;
     [SerializeField] private float aggroSpeed = 2f;
     [SerializeField] private float wanderRange = 5f;
     [SerializeField] private EnemyMovement movement;
+    
     private Vector3 startPosition,wanderPosition,targetPosition;
     Path path;
     bool reached = false;
@@ -23,6 +24,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float health = 5f;
     [SerializeField] private Bar_Controller healthBar;
     public Animator anim;
+    
+
+    float Timer = 0;
 
     public bool stunned = false;
 
@@ -47,35 +51,44 @@ public class EnemyController : MonoBehaviour
             if(healthBar.getValue()<= 0f){
                 Destroy(gameObject);
             }
-            Transform player = findPlayer(aggroRange);
-            if(player){
-                state = "Aggro";
-                Approach(player);
-            } else{
-                state = "Wander";
-                Wander();
-            }
+            setState();
+            string s = updateSprite();
+            anim.CrossFade(s,0,0);
         }
-        if(isAttacking){
-            if(rb.velocity!= Vector2.zero){
-                anim.CrossFade("Enemy_Move",0,0);
-            } else{
-                anim.CrossFade("Enemy_Idle",0,0);
-            }
-        }
+        Timer += Time.deltaTime;
         
     }
 
+    private void setState(){
+        Transform cat = findCatnip(aggroRange);
+        Transform player = findPlayer(aggroRange);
+        
+        if(state == "Knockbacked" || state == "Stunned" || state == "Attack"){
+            return;
+        }
+        if(cat){
+            state = "Cated";
+            movement.setTarget(cat.position);
+        }
+        else if(player){
+            state = "Aggro";
+            movement.setTarget(player.position);
+            StartCoroutine(Attack(player));
+        } else{
+            state = "Wander";
+            Wander();
+        }
+    }
+
     private void Wander(){
-        float dis = Vector2.Distance((Vector2)(rb.position),(Vector2)(wanderPosition));
+        movement.setTarget(wanderPosition);
         movement.speed = wanderSpeed;
-        if ((dis < 0.1f || movement.reachedEndOfPath) && !reached)
+        float dis = Vector2.Distance((Vector2)(rb.position),(Vector2)(wanderPosition));
+        if ((dis < 0.1f || movement.reachedEndOfPath) || Timer > 5f)
         {
-            reached = true;
+            Timer = 0f;
             wanderPosition.x = Random.Range(startPosition.x - wanderRange, startPosition.x + wanderRange);
             wanderPosition.y = Random.Range(startPosition.y - wanderRange, startPosition.y + wanderRange);
-            movement.setTarget(wanderPosition);
-            reached = false;
         }
     }
 
@@ -91,6 +104,17 @@ public class EnemyController : MonoBehaviour
     
         foreach (Collider2D c in colliders){       
             if (c.tag == "Rat" || c.tag == "Knight"){
+                return c.transform;
+            }
+        }
+        return null;
+    }
+
+    private Transform findCatnip(float radius){
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+    
+        foreach (Collider2D c in colliders){       
+            if (c.tag == "catnip"){
                 return c.transform;
             }
         }
@@ -120,10 +144,13 @@ public class EnemyController : MonoBehaviour
     public IEnumerator Attack(Transform player){
         if(!isAttacking){
             isAttacking = true;
-            anim.CrossFade("Enemy_Attack",0,0);
+            state = "Attack";
             yield return new WaitForSeconds(.5f);
+            state = "Aggro";
+            yield return new WaitForSeconds(2f);
             isAttacking = false;
         }
+        yield return null;
     }
 
     void OnCollisionEnter2D(Collision2D r){
@@ -139,6 +166,13 @@ public class EnemyController : MonoBehaviour
 
     void delay(){
         rb.velocity = Vector2.zero;
+    }
+
+    private string updateSprite(){
+        
+        if (state == "Knockbacked") return "Enemy_Idle";
+        if (state == "Attack") return "Enemy_Attack";
+        return "Enemy_Move";
     }
 
 }

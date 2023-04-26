@@ -71,6 +71,7 @@ public class LevelManager : MonoBehaviour
                yield return new WaitForSeconds(transitionTime);
                reloading = false;
           }
+          yield return null;
      }
 
      IEnumerator loadScene(string i){
@@ -83,5 +84,6 @@ public class LevelManager : MonoBehaviour
                yield return new WaitForSeconds(transitionTime);
                reloading = false;
           }
+          yield return null;
      }
 }

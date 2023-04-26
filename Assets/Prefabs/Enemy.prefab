@@ -102,10 +102,13 @@ MonoBehaviour:
   speed: 2
   reachedEndOfPath: 0
   nextWaypointeDistance: 1
+  graphics: {fileID: 1092750025894104919}
   obstacleRadius: 1
   playerSpace: 1.5
   enemySpace: 1.1
   searchRadius: 3
+  center: {x: 0, y: 0}
+  radius: 15
 --- !u!114 &2511165482302940963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,11 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c98e56dd1c45545b2ffce627070700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 10
+  aggroRange: 5
   distance: 1.9
   state: Wander
-  wanderSpeed: 1
-  aggroSpeed: 2
+  wanderSpeed: 4
+  aggroSpeed: 5
   wanderRange: 5
   movement: {fileID: 6031438336009521729}
   health: 5

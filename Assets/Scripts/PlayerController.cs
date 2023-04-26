@@ -150,6 +150,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             takingDamage = false;
         }
+        yield return null;
     }
 
     public IEnumerator Attack(){
@@ -160,6 +161,7 @@ public class PlayerController : MonoBehaviour
             isAttacking = false;
             canMove = true;
         }
+        yield return null;
     }
 
     public void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
@@ -176,7 +178,7 @@ public class PlayerController : MonoBehaviour
             Swaping = false;
             canMove = true;
         }
-        
+        yield return null;
     }
     
     private IEnumerator Dash(){
@@ -205,6 +207,7 @@ public class PlayerController : MonoBehaviour
             canDash = true;
         }
         isDashing = false;
+        yield return null;
     }
 
     //Collision
