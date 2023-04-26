@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     
     //State Variables
-    private bool isKnightController = false;
+    static bool isKnightController = false;
     private bool isMoving = false;
     private bool isAttacking = false;
     private bool isDashing = false;
@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
     //Managing Animations
     private int currentState;
     private float lockedTimer;
-
     private float rIdleTime;
     private float rRunTime;
     private float kIdleTime;
@@ -78,8 +77,8 @@ public class PlayerController : MonoBehaviour
         rat.SetActive(!isKnightController);
         knight.SetActive(isKnightController);
         
-        currAnimator = ratAnimator;
-        currentState = R_Idle_LR;
+        currAnimator = isKnightController ? knightAnimator : ratAnimator;
+        currentState = isKnightController ? K_Idle_LR : R_Idle_LR;
         UpdateAnimClipTimes();
         
         healthBar.setMaxValue(health);
@@ -90,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(Time.timeScale != 0){
+        if(Time.timeScale != 0 || !LevelManager.instance.reloading){
             cInput();
             int state = updateSprite();
             if(state != currentState){
@@ -151,6 +150,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             takingDamage = false;
         }
+        yield return null;
     }
 
     public IEnumerator Attack(){
@@ -161,6 +161,7 @@ public class PlayerController : MonoBehaviour
             isAttacking = false;
             canMove = true;
         }
+        yield return null;
     }
 
     public void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
@@ -177,7 +178,7 @@ public class PlayerController : MonoBehaviour
             Swaping = false;
             canMove = true;
         }
-        
+        yield return null;
     }
     
     private IEnumerator Dash(){
@@ -206,12 +207,16 @@ public class PlayerController : MonoBehaviour
             canDash = true;
         }
         isDashing = false;
+        yield return null;
     }
 
     //Collision
     void OnCollisionStay2D(Collision2D col)
     {
         if(col.gameObject.CompareTag("Enemy")){
+            StartCoroutine(TakeDamage(2f));
+        }
+        if(col.gameObject.CompareTag("EnemyAttack")){
             StartCoroutine(TakeDamage(2f));
         }
     }
@@ -224,11 +229,11 @@ public class PlayerController : MonoBehaviour
             LevelManager.instance.LoadLevel("tutorial3");
         }
         else if(other.tag =="to_dungeon"){
-            LevelManager.instance.LoadLevel("Dungeon Level 1");
+            LevelManager.instance.LoadLevel("DungeonLevel2.0");
         }
         else if (other.tag == "to_circle")
         {
-            LevelManager.instance.LoadLevel("adri");
+            LevelManager.instance.LoadLevel("adri2.0");
         }
     }
 

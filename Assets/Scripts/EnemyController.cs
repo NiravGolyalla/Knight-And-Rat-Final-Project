@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float aggroRange = 0f; 
     [SerializeField] private float distance = 1f;
-    [SerializeField] private string state;
+    public string state;
     private Rigidbody2D rb;
     [SerializeField] private float wanderSpeed = 3f;
     [SerializeField] private float aggroSpeed = 2f;
@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float health = 5f;
     [SerializeField] private Bar_Controller healthBar;
     public Animator anim;
+    float Timer = 0;
 
     public bool stunned = false;
 
@@ -47,41 +48,48 @@ public class EnemyController : MonoBehaviour
             if(healthBar.getValue()<= 0f){
                 Destroy(gameObject);
             }
-            Transform player = findPlayer(aggroRange);
-            if(player){
-                state = "Aggro";
-                Approach(player);
-            } else{
-                state = "Wander";
-                Wander();
-            }
+            setState();
+            string s = updateSprite();
+            anim.CrossFade(s,0,0);
         }
-        if(isAttacking){
-            if(rb.velocity!= Vector2.zero){
-                anim.CrossFade("Enemy_Move",0,0);
-            } else{
-                anim.CrossFade("Enemy_Idle",0,0);
-            }
-        }
+        Timer += Time.deltaTime;
         
     }
 
+    private void setState(){
+        Transform cat = findCatnip(aggroRange);
+        Transform player = findPlayer(aggroRange);
+        
+        if(state == "Knockbacked" || state == "Stunned" || state == "Attack"){
+            return;
+        }
+        if(cat){
+            state = "Cated";
+            movement.setTarget(cat.position);
+        }
+        else if(player){
+            state = "Aggro";
+            movement.setTarget(player.position);
+            StartCoroutine(Attack(player));
+        } else{
+            state = "Wander";
+            Wander();
+        }
+    }
+
     private void Wander(){
-        float dis = Vector2.Distance((Vector2)(rb.position),(Vector2)(wanderPosition));
+        movement.setTarget(wanderPosition);
         movement.speed = wanderSpeed;
-        if ((dis < 0.1f || movement.reachedEndOfPath) && !reached)
+        float dis = Vector2.Distance((Vector2)(rb.position),(Vector2)(wanderPosition));
+        if ((dis < 0.1f || movement.reachedEndOfPath) || Timer > 5f)
         {
-            reached = true;
+            Timer = 0f;
             wanderPosition.x = Random.Range(startPosition.x - wanderRange, startPosition.x + wanderRange);
             wanderPosition.y = Random.Range(startPosition.y - wanderRange, startPosition.y + wanderRange);
-            movement.setTarget(wanderPosition);
-            reached = false;
         }
     }
 
     private void Approach(Transform target){
-        // Vector2 direction = (Vector2)target.position - rb.position;
-        // targetPosition = (Vector2)target.position - direction.normalized * distance;
         targetPosition = (Vector2)target.position;
         movement.setTarget(targetPosition);
         movement.speed = aggroSpeed;
@@ -99,6 +107,17 @@ public class EnemyController : MonoBehaviour
         return null;
     }
 
+    private Transform findCatnip(float radius){
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+    
+        foreach (Collider2D c in colliders){       
+            if (c.tag == "catnip"){
+                return c.transform;
+            }
+        }
+        return null;
+    }
+
     private void OnDrawGizmos(){
         Gizmos.color = Color.green;
         Gizmos.DrawSphere(startPosition,0.2f);
@@ -108,30 +127,49 @@ public class EnemyController : MonoBehaviour
 
     public void takeDamage(){
         if(!takingDamage){
-            // if(att != null) StopCoroutine(att); 
-            // isAttacking = false;
             takingDamage = true;
             healthBar.setValue(healthBar.getValue()-2f);
-            
-            Vector2 direction = ((Vector2)targetPosition - rb.position).normalized;
-            rb.AddForce(-direction*10f,ForceMode2D.Impulse);
-            Invoke("delay",1f);
+            StartCoroutine(KnockedBack());
             takingDamage = false;
         }
     }
     public IEnumerator Attack(Transform player){
         if(!isAttacking){
             isAttacking = true;
-            // anim.CrossFade("Enemy_Attack",0,0);
-            StartCoroutine(player.parent.gameObject.GetComponent<PlayerController>().TakeDamage(2f));
+            state = "Attack";
+            yield return new WaitForSeconds(.5f);
+            state = "Aggro";
             yield return new WaitForSeconds(2f);
             isAttacking = false;
         }
+        yield return null;
+    }
+
+    public IEnumerator Stun(){
+        if(!stunned){
+            stunned = true;
+            state = "Stunned";
+            yield return new WaitForSeconds(2f);
+            state = "Wander";
+            stunned = false;
+        }
+        yield return null;
+    }
+    public IEnumerator KnockedBack(){
+        if(!Knockbacked){
+            Knockbacked = true;
+            state = "Knockbacked";
+            yield return new WaitForSeconds(.5f);
+            state = "Wander";
+            Knockbacked = false;
+        }
+        yield return null;
     }
 
     void OnCollisionEnter2D(Collision2D r){
-        if(r.transform.tag == "Player")
+        if(r.transform.tag == "Player"){
             r.otherRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
     }
      
     void OnCollisionExit2D(Collision2D r){
@@ -140,8 +178,21 @@ public class EnemyController : MonoBehaviour
             r.otherRigidbody.freezeRotation = true;
     }
 
+    void OnTriggerEnter2D(Collider2D r){
+        if(r.tag == "catnip"){
+            StartCoroutine(Stun());
+        }
+
+    }
+
     void delay(){
         rb.velocity = Vector2.zero;
+    }
+
+    private string updateSprite(){
+        if (state == "Knockbacked") return "Enemy_Idle";
+        if (state == "Attack") return "Enemy_Attack";
+        return "Enemy_Move";
     }
 
 }

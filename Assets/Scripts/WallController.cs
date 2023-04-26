@@ -60,6 +60,7 @@ public class WallController : MonoBehaviour
 
         leftWall.transform.position = leftWallStartPosition;
         rightWall.transform.position = rightWallStartPosition;
+        yield return null;
     }
 
 

@@ -35,5 +35,6 @@ public class LeverRoomCamera : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        yield return null;
     }
 }

@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     public Animator transition;
     float transitionTime = 1f;
 
-    bool reloading = false;
+    public bool reloading = false;
 
     void Awake(){
         instance = this;
@@ -71,6 +71,7 @@ public class LevelManager : MonoBehaviour
                yield return new WaitForSeconds(transitionTime);
                reloading = false;
           }
+          yield return null;
      }
 
      IEnumerator loadScene(string i){
@@ -83,5 +84,6 @@ public class LevelManager : MonoBehaviour
                yield return new WaitForSeconds(transitionTime);
                reloading = false;
           }
+          yield return null;
      }
 }

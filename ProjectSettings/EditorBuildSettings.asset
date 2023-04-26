@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Nirav'sScene 1.unity
-    guid: 1470de08fa3ec614c8a2057347fc5e9b
+    path: Assets/Scenes/Start Menu.unity
+    guid: 2e2f245de5d8c934abfcfc680d09eaed
   - enabled: 1
     path: Assets/Scenes/CombatScene.unity
     guid: a17f81f9974c73f42853ebb8f63f4fa6
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/adri.unity
     guid: ee37d4a9b6921734299c27d6a296a6e7
+  - enabled: 1
+    path: Assets/Scenes/Nirav'sScene 1.unity
+    guid: 1470de08fa3ec614c8a2057347fc5e9b
   m_configObjects: {}
