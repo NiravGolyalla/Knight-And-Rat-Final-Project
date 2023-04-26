@@ -23,22 +23,25 @@ public class EnemyMovement : MonoBehaviour
     
     //Steering Behavior 
     Vector2 currentVelocity = Vector2.zero;
-    private float[] weights;
+    private float[] weights = {1f,.5f,3f,.4f,.4f,1f,1f};
     public float[] Weights{get{return weights;}}
 
     public float obstacleRadius = .7f;
     public float playerSpace = 1.5f;
+    public float enemySpace = 0.5f;
     public float searchRadius = 2f;
-
-
-
-    bool recalc = false;    
+    private int dir;
+    bool recalc = false;
+    private EnemyController ec;    
+    private float wanderAngle = 0f;
     
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
+        ec = GetComponent<EnemyController>();
+        dir = Random.Range(0, 2) * 2 - 1;
     }
 
     void FixedUpdate()
@@ -52,15 +55,18 @@ public class EnemyMovement : MonoBehaviour
 
     void CalculateMove(){
         Vector2 steering = Vector2.zero;
-        Vector2 tar = pathSeekBehavior() * 1f;
-        // steering += ((Vector2)target - rb.position).normalized * speed * Time.deltaTime;
-        steering += pathSeekBehavior();
-        steering += avoidObstaclesBehavior("Obstacle",obstacleRadius) * 2f;
-        steering += avoidObstaclesBehavior("Player",playerSpace) * 1.5f;
+        float distance = Vector2.Distance((Vector2)target,rb.position);
+        
+        // steering += pathSeekBehavior() * weights[0];
+        // steering += perpendicularBehavior() * weights[1]; 
+        // steering += avoidObstaclesBehavior("Obstacle",obstacleRadius) * weights[2];
+        // steering += avoidObstaclesBehavior("Enemy",enemySpace) * weights[3];
+        // steering += avoidObstaclesBehavior("Player",playerSpace) * weights[4];
+        // steering += knockBacked()* weights[5];
+        steering += wanderBehavior() * weights[6];
+
         // print(Mathf.Abs(((Vector2)target - rb.position).magnitude));
-        rb.position = Vector2.MoveTowards(rb.position, rb.position + steering , Time.deltaTime*speed);
-        // rb.position = (Mathf.Abs(((Vector2)target - rb.position).magnitude) <= 2f) ? rb.position : Vector2.MoveTowards(rb.position, rb.position + steering , Time.deltaTime*speed);
-        // rb.position = rb.position;
+        rb.position = Vector2.MoveTowards(rb.position, rb.position + steering , Time.deltaTime*speed*2);
     }
 
     Vector2 pathSeekBehavior(){
@@ -75,7 +81,11 @@ public class EnemyMovement : MonoBehaviour
                 }        
             }
         }
-        return target != null ? (desiredVector - rb.position).normalized : Vector2.zero;
+        float distance = 0;
+        if(target!= null){
+            distance = Vector2.Distance((Vector2)target,rb.position);
+        }
+        return target != null ? (desiredVector - rb.position).normalized  * (distance-playerSpace)/(playerSpace*5f) : Vector2.zero;
     }
 
     Vector2 avoidObstaclesBehavior(string name,float radius){
@@ -97,6 +107,29 @@ public class EnemyMovement : MonoBehaviour
             desiredVector /= nAvoid;
 
         return desiredVector.normalized;
+    }
+
+    Vector2 perpendicularBehavior(){
+        Vector2 DesiredVector = Vector2.zero;
+        if(target != null){
+            Vector2 currVector = ((Vector2)target - rb.position).normalized;
+            DesiredVector = Vector2.Perpendicular(currVector) * dir;
+            // DesiredVector = -1 * new Vector2(Random.Range(perVector.x, currVector.x), Random.Range(perVector.y, currVector.y));
+        }
+        return DesiredVector;
+    }
+
+    Vector2 knockBacked(){
+        return target != null ? -((Vector2)target - rb.position).normalized : Vector2.zero;
+    }
+
+    Vector2 wanderBehavior(){
+        Vector2 displacement = Vector2.zero;
+        displacement.x = Mathf.Cos(wanderAngle);
+        displacement.y = Mathf.Sin(wanderAngle);
+        wanderAngle += Random.Range(0f,10f);
+        print(displacement);
+        return (displacement-rb.position).normalized*10f;
     }
     List<Transform> GetNearbyObjects(string name)
     {

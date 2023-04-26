@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     
     //State Variables
-    private bool isKnightController = false;
+    static bool isKnightController = false;
     private bool isMoving = false;
     private bool isAttacking = false;
     private bool isDashing = false;
@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
     //Managing Animations
     private int currentState;
     private float lockedTimer;
-
     private float rIdleTime;
     private float rRunTime;
     private float kIdleTime;
@@ -78,8 +77,8 @@ public class PlayerController : MonoBehaviour
         rat.SetActive(!isKnightController);
         knight.SetActive(isKnightController);
         
-        currAnimator = ratAnimator;
-        currentState = R_Idle_LR;
+        currAnimator = isKnightController ? knightAnimator : ratAnimator;
+        currentState = isKnightController ? K_Idle_LR : R_Idle_LR;
         UpdateAnimClipTimes();
         
         healthBar.setMaxValue(health);
@@ -90,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(Time.timeScale != 0){
+        if(Time.timeScale != 0 || !LevelManager.instance.reloading){
             cInput();
             int state = updateSprite();
             if(state != currentState){
@@ -212,6 +211,9 @@ public class PlayerController : MonoBehaviour
     void OnCollisionStay2D(Collision2D col)
     {
         if(col.gameObject.CompareTag("Enemy")){
+            StartCoroutine(TakeDamage(2f));
+        }
+        if(col.gameObject.CompareTag("EnemyAttack")){
             StartCoroutine(TakeDamage(2f));
         }
     }

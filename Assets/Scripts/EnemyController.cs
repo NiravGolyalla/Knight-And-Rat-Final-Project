@@ -80,8 +80,6 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Approach(Transform target){
-        // Vector2 direction = (Vector2)target.position - rb.position;
-        // targetPosition = (Vector2)target.position - direction.normalized * distance;
         targetPosition = (Vector2)target.position;
         movement.setTarget(targetPosition);
         movement.speed = aggroSpeed;
@@ -122,9 +120,8 @@ public class EnemyController : MonoBehaviour
     public IEnumerator Attack(Transform player){
         if(!isAttacking){
             isAttacking = true;
-            // anim.CrossFade("Enemy_Attack",0,0);
-            StartCoroutine(player.parent.gameObject.GetComponent<PlayerController>().TakeDamage(2f));
-            yield return new WaitForSeconds(2f);
+            anim.CrossFade("Enemy_Attack",0,0);
+            yield return new WaitForSeconds(.5f);
             isAttacking = false;
         }
     }

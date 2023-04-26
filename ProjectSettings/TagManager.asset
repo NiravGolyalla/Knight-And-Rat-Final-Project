@@ -15,6 +15,7 @@ TagManager:
   - to_tutorial3
   - BARRELS
   - catnip
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX
