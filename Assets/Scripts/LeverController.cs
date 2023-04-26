@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class LeverController : MonoBehaviour
 {
@@ -21,21 +22,36 @@ public class LeverController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && withinRange)
+        if (withinRange)
         {
-            on = !on;
-            if (on)
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
-                gameObject.GetComponent<SpriteRenderer>().sprite = turnedOn;
-                flipLeverColliderLocation();
+                StartCoroutine(flipLever(true));
             }
-            else
+            else if (Input.GetKeyDown(KeyCode.E))
             {
-                
-                gameObject.GetComponent<SpriteRenderer>().sprite = turnedOff;
-                flipLeverColliderLocation();
+                StartCoroutine(flipLever(false));
             }
         }
+    }
+
+    
+    private IEnumerator flipLever(bool didAttack)
+    {
+        if (didAttack) {yield return new WaitForSeconds(0.75f);
+ }
+        on = !on;
+        if (on)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = turnedOn;
+            flipLeverColliderLocation();
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = turnedOff;
+            flipLeverColliderLocation();
+        }
+        yield return null;
     }
 
     public bool isOn() { return on; }
@@ -58,7 +74,8 @@ public class LeverController : MonoBehaviour
         }
     }
 
-    private void flipLeverColliderLocation() {
+    private void flipLeverColliderLocation()
+    {
         // We want the player actually move to where the lever to flip it
         Vector2 offset = leverCollider.offset;
         offset.x = -offset.x;
