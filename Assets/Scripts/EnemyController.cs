@@ -13,7 +13,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float aggroSpeed = 2f;
     [SerializeField] private float wanderRange = 5f;
     [SerializeField] private EnemyMovement movement;
-    
     private Vector3 startPosition,wanderPosition,targetPosition;
     Path path;
     bool reached = false;
@@ -24,8 +23,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float health = 5f;
     [SerializeField] private Bar_Controller healthBar;
     public Animator anim;
-    
-
     float Timer = 0;
 
     public bool stunned = false;
@@ -130,14 +127,9 @@ public class EnemyController : MonoBehaviour
 
     public void takeDamage(){
         if(!takingDamage){
-            // if(att != null) StopCoroutine(att); 
-            // isAttacking = false;
             takingDamage = true;
             healthBar.setValue(healthBar.getValue()-2f);
-            
-            Vector2 direction = ((Vector2)targetPosition - rb.position).normalized;
-            rb.AddForce(-direction*10f,ForceMode2D.Impulse);
-            Invoke("delay",1f);
+            StartCoroutine(KnockedBack());
             takingDamage = false;
         }
     }
@@ -149,6 +141,27 @@ public class EnemyController : MonoBehaviour
             state = "Aggro";
             yield return new WaitForSeconds(2f);
             isAttacking = false;
+        }
+        yield return null;
+    }
+
+    public IEnumerator Stun(Transform player){
+        if(!stunned){
+            stunned = true;
+            state = "Stunned";
+            yield return new WaitForSeconds(2f);
+            state = "Wander";
+            stunned = false;
+        }
+        yield return null;
+    }
+    public IEnumerator KnockedBack(){
+        if(!Knockbacked){
+            Knockbacked = true;
+            state = "Knockbacked";
+            yield return new WaitForSeconds(.5f);
+            state = "Wander";
+            Knockbacked = false;
         }
         yield return null;
     }
@@ -169,7 +182,6 @@ public class EnemyController : MonoBehaviour
     }
 
     private string updateSprite(){
-        
         if (state == "Knockbacked") return "Enemy_Idle";
         if (state == "Attack") return "Enemy_Attack";
         return "Enemy_Move";

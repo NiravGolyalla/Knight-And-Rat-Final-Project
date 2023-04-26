@@ -70,15 +70,15 @@ public class EnemyMovement : MonoBehaviour
                 } else{
                     steering += pathSeekBehaviorWander() * weights[0];
                 }
-                 
-                steering += avoidObstaclesBehavior("Obstacle",obstacleRadius) * weights[2];
-                steering += avoidObstaclesBehavior("Enemy",enemySpace) * weights[3];
                 // steering += avoidObstaclesBehavior("Player",playerSpace) * weights[4];
                 // steering += wanderBehavior() * weights[6];
                 // steering += spawnBehavior();
             }else{
                 steering += knockBacked()* weights[5];
             }
+            steering += avoidObstaclesBehavior("Obstacle",obstacleRadius) * weights[2];
+            steering += avoidObstaclesBehavior("Enemy",enemySpace) * weights[3];
+                
             rb.position = Vector2.MoveTowards(rb.position, rb.position + steering , Time.deltaTime*speed);
             float dis = ((Vector2)target-rb.position).x;
             if(dis != 0){
