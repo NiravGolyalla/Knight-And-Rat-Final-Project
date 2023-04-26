@@ -229,11 +229,11 @@ public class PlayerController : MonoBehaviour
             LevelManager.instance.LoadLevel("tutorial3");
         }
         else if(other.tag =="to_dungeon"){
-            LevelManager.instance.LoadLevel("Dungeon Level 1");
+            LevelManager.instance.LoadLevel("DungeonLevel2.0");
         }
         else if (other.tag == "to_circle")
         {
-            LevelManager.instance.LoadLevel("adri");
+            LevelManager.instance.LoadLevel("adri2.0");
         }
     }
 
