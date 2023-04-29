@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 105186378}
   - component: {fileID: 105186377}
   - component: {fileID: 105186376}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129315,8 +129315,8 @@ Tilemap:
   - first: {x: -3, y: 2, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 8
-      m_TileSpriteIndex: 7
+      m_TileIndex: 19
+      m_TileSpriteIndex: 19
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -137090,7 +137090,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: c3b6a91f6af50fa41a7e954bdcba1e42, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 10ad1c10f2c952b468b21690bad0cecb, type: 2}
@@ -137112,7 +137112,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 0dbc6b5edb50da04c93911d83cce7706, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: e45f01fd6ef90ba4d872aa664b1de5dc, type: 2}
-  - m_RefCount: 849
+  - m_RefCount: 850
     m_Data: {fileID: 11400000, guid: cd5d5e48b3a66f04c8d4bf84b768fdd5, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 8e4e2c95676d9b0419bee8557104d4db, type: 2}
@@ -137135,7 +137135,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data: {fileID: 1844164642, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 687800635, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
@@ -137159,7 +137159,7 @@ Tilemap:
     m_Data: {fileID: -1643578852, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
   - m_RefCount: 3803
     m_Data: {fileID: -1047754219, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
-  - m_RefCount: 849
+  - m_RefCount: 850
     m_Data: {fileID: 728094494, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1393072124, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
@@ -140520,7 +140520,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.020445824}
+  m_Offset: {x: 0.038603783, y: -0.34857655}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -140531,7 +140531,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.95910835}
+  m_Size: {x: 1.0772076, y: 1.6153698}
   m_EdgeRadius: 0
 --- !u!4 &2024603348
 Transform:

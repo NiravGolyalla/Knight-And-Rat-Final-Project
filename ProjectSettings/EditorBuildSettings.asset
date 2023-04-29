@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: 2e2f245de5d8c934abfcfc680d09eaed
   - enabled: 1
-    path: Assets/Scenes/CombatScene.unity
-    guid: a17f81f9974c73f42853ebb8f63f4fa6
-  - enabled: 1
     path: Assets/Scenes/tutorial.unity
     guid: 2208afc787b35e343b430f6d1797425f
   - enabled: 1
@@ -21,12 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/tutorial3.unity
     guid: 32097c89a9fafdb42922bb276a293696
   - enabled: 1
-    path: Assets/Scenes/Dungeon Level 1.unity
-    guid: 488cd81cdfda2b64a810ee46cad66ffd
+    path: Assets/Scenes/DungeonLevel2.0.unity
+    guid: 4fa9959217c67684da5f25ea48cc5541
   - enabled: 1
-    path: Assets/Scenes/adri.unity
-    guid: ee37d4a9b6921734299c27d6a296a6e7
+    path: Assets/Scenes/adri2.0.unity
+    guid: 52eea59ecbe2ad04286712d72943801b
   - enabled: 1
-    path: Assets/Scenes/Nirav'sScene 1.unity
-    guid: 1470de08fa3ec614c8a2057347fc5e9b
+    path: Assets/Scenes/CombatScene.unity
+    guid: a17f81f9974c73f42853ebb8f63f4fa6
   m_configObjects: {}

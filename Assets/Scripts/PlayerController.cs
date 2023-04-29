@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviour
                 currAnimator.CrossFade(state,0,0);
                 currentState = state;
             }
+            regenBar(healthBar,0.1f);
             regenBar(staminaBar,2f);
             regenBar(formBar,7f);
         }
