@@ -89,7 +89,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(Time.timeScale != 0 || !LevelManager.instance.reloading){
+        // if(Time.timeScale != 0 || !LevelManager.instance.reloading){
+        if(Time.timeScale != 0){
             cInput();
             int state = updateSprite();
             if(state != currentState){
