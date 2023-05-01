@@ -16,6 +16,7 @@ TagManager:
   - BARRELS
   - catnip
   - EnemyAttack
+  - Wall
   layers:
   - Default
   - TransparentFX
