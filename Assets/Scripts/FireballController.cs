@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FireballController : MonoBehaviour
@@ -10,21 +12,28 @@ public class FireballController : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("Rat") || collision.gameObject.CompareTag("Knight"))
+        if (collider.gameObject.CompareTag("Rat") || collider.gameObject.CompareTag("Knight"))
         {
-            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            PlayerController playerController = collider.gameObject.GetComponentInParent<PlayerController>();
             if (playerController != null)
             {
-                ApplyDamage(playerController, damage);
+                StartCoroutine(ApplyDamage(playerController, damage));
             }
             Destroy(gameObject);
         }
     }
 
-    private void ApplyDamage(PlayerController playerController, float damageAmount)
+    private IEnumerator ApplyDamage(PlayerController playerController, float damageAmount)
     {
-        StartCoroutine(playerController.TakeDamage(damageAmount));
+            playerController.takingDamage = true;
+            float take = PlayerController.isKnightController ? playerController.dmgTakeK * damageAmount : playerController.dmgTakeR * damageAmount;
+            playerController.healthBar.setValue(playerController.healthBar.getValue() - take);
+            playerController.health -= take;
+            playerController.UpdateHealth(damage); // Call the UpdateHealth() method on the player controller to update the UI
+            yield return new WaitForSeconds(0.5f);
+            playerController.takingDamage = false;
+        
     }
 }

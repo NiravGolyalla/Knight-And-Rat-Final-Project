@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Setup Variables")]
     [SerializeField] private GameObject rat;
     [SerializeField] private GameObject knight;
-    [SerializeField] private Bar_Controller healthBar;
+    [SerializeField] public Bar_Controller healthBar;
     [SerializeField] private Bar_Controller staminaBar;
     [SerializeField] private Bar_Controller formBar;
 
@@ -20,11 +20,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     
     //State Variables
-    static bool isKnightController = false;
+    public static bool isKnightController = false;
     private bool isMoving = false;
     private bool isAttacking = false;
     private bool isDashing = false;
-    private bool takingDamage = false;
+    public bool takingDamage = false;
     private bool canDash = true;
     private bool canMove = true;
     private bool Swaping = false;
@@ -35,10 +35,10 @@ public class PlayerController : MonoBehaviour
     private float verticalInput = 1f;
     
     [Header("Customizable Variables")]
-    [SerializeField] private float health = 10f;
+    [SerializeField] public float health = 10f;
     [SerializeField] private float stamina = 10f;
-    [SerializeField] private float dmgTakeR = 1f;
-    [SerializeField] private float dmgTakeK = 0.5f;
+    [SerializeField] public float dmgTakeR = 1f;
+    [SerializeField] public float dmgTakeK = 0.5f;
     [SerializeField] private float stmLostR = 1f;
     [SerializeField] private float stmLostK = 5f;
     [SerializeField] private float ratMoveSpeed = 10f;
@@ -271,7 +271,8 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    private int updateSprite(){
+    private int updateSprite()
+    {
         if(Time.time < lockedTimer){
             return currentState;
         }
@@ -296,5 +297,12 @@ public class PlayerController : MonoBehaviour
 
     void regenBar(Bar_Controller Bar,float rate = 1){
         Bar.setValue(Bar.getValue()+Time.deltaTime * rate);
-    }    
+    }   
+
+    public void UpdateHealth(float value)
+    {
+        healthBar.setValue(healthBar.getValue()-value);
+        health = health-value;
+    }
+
 }
