@@ -39,6 +39,7 @@ public class Manticore : MonoBehaviour
             fireballTimer = 0f;
             StartCoroutine(ShootFireballs());
         }
+
     }
 
     void ChasePlayer()

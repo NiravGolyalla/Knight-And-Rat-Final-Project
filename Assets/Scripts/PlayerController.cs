@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Bar_Controller healthBar;
     [SerializeField] private Bar_Controller staminaBar;
     [SerializeField] private Bar_Controller formBar;
+    [SerializeField] private Color damageColor = Color.red;
+    [SerializeField] private float damageIndicatorDuration = 0.5f;
+    [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
+    [SerializeField] private float shakeIntensity = 2f;
+    [SerializeField] private float shakeDuration = 0.2f;
 
     
     //Swaping variables
@@ -144,11 +150,20 @@ public class PlayerController : MonoBehaviour
         rb2d.velocity = (canMove) ?  movement * moveSpeed : rb2d.velocity;
     }
 
-    public IEnumerator TakeDamage(float dmg){
-        if(!takingDamage){
+    public IEnumerator TakeDamage(float dmg)
+    {
+        if (!takingDamage)
+        {
+
             takingDamage = true;
-            float take = isKnightController ? dmgTakeK*dmg : dmgTakeR*dmg;
-            healthBar.setValue(healthBar.getValue()-take);
+            float take = isKnightController ? dmgTakeK * dmg : dmgTakeR * dmg;
+            healthBar.setValue(healthBar.getValue() - take);
+            if (gameObject.CompareTag("Knight") || gameObject.CompareTag("Rat"))
+            {
+
+                Camera.main.GetComponent<CameraRumble>().ShakeScreen();
+                StartCoroutine(ShowDamageIndicator());
+            }
             yield return new WaitForSeconds(0.5f);
             takingDamage = false;
         }
@@ -301,8 +316,43 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateHealth(float value)
     {
-        healthBar.setValue(healthBar.getValue()-value);
-        health = health-value;
+        healthBar.setValue(healthBar.getValue() - value);
+        health = health - value;
+        StartCoroutine(ShowDamageIndicator()); 
+        Camera.main.GetComponent<CameraRumble>().ShakeScreen();
+        StartCoroutine(TakeDamage(value));
     }
+
+    private IEnumerator ShowDamageIndicator()
+    {
+        // Get the sprite renderer for the appropriate child object
+        SpriteRenderer spriteRenderer = isKnightController ? knight.GetComponent<SpriteRenderer>() : rat.GetComponent<SpriteRenderer>();
+
+        // Save the original color
+        Color originalColor = spriteRenderer.color;
+
+  
+
+        // Set the new color
+        spriteRenderer.color = damageColor;
+  
+
+        // Wait for the damage indicator duration
+        float elapsedTime = 0f;
+        while (elapsedTime < damageIndicatorDuration)
+        {
+            // Lerp between the damage color and the original color
+            float t = elapsedTime / damageIndicatorDuration;
+            spriteRenderer.color = Color.Lerp(damageColor, originalColor, t);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Reset the color
+        spriteRenderer.color = originalColor;
+
+    }
+
 
 }
