@@ -777,6 +777,12 @@ MonoBehaviour:
   healthBar: {fileID: 9194944115756170756}
   staminaBar: {fileID: 2863683379413550426}
   formBar: {fileID: 7514705982789012874}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  damageIndicatorDuration: 0.5
+  cinemachineVirtualCamera: {fileID: 5337757580123146295}
+  shakeIntensity: 2
+  shakeDuration: 0.2
+  takingDamage: 0
   health: 20
   stamina: 10
   dmgTakeR: 2
