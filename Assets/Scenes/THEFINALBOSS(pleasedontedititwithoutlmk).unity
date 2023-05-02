@@ -9677,15 +9677,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc31722acb2528479ed1a244b546f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  chaseDistance: 3
-  attackDistance: 1
+  moveSpeed: 20
+  chaseDistance: 1000
+  attackDistance: 50
   minDistanceFromPlayer: 2
   maxDistanceFromPlayer: 5
   animator: {fileID: 1857921539}
   fireballPrefab: {fileID: 4795326618939108119, guid: 34f4a0d324ad45f4f969a4d5344df4f0, type: 3}
   firePoint: {fileID: 1873021680}
-  fireballSpeed: 10
+  fireballSpeed: 125
 --- !u!1 &1873021679
 GameObject:
   m_ObjectHideFlags: 0
