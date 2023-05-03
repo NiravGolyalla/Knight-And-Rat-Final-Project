@@ -10,6 +10,11 @@ public class Respawner : MonoBehaviour
     bool respawning = false;
     GameObject curr = null;
 
+    void Start(){
+        Instantiate(poof, transform.position, Quaternion.identity);
+        curr = Instantiate(item, transform.position, Quaternion.identity);    
+    }
+    
     // Update is called once per frame
     void Update()
     {
