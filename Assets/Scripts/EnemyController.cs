@@ -151,7 +151,8 @@ public class EnemyController : MonoBehaviour
             stunned = true;
             state = "Stunned";
             print(state + "1");
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(5f);
+            print(state);
             state = "Wander";
             stunned = false;
         }
@@ -193,7 +194,7 @@ public class EnemyController : MonoBehaviour
     }
 
     private string updateSprite(){
-        if (state == "Knockbacked") return "Enemy_Idle";
+        if (state == "Knockbacked" || state == "Stunned") return "Enemy_Idle";
         if (state == "Attack") return "Enemy_Attack";
         return "Enemy_Move";
     }

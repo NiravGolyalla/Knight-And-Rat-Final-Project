@@ -124,8 +124,8 @@ MonoBehaviour:
   aggroRange: 5
   distance: 1.9
   state: Wander
-  wanderSpeed: 4
-  aggroSpeed: 5
+  wanderSpeed: 2
+  aggroSpeed: 3
   wanderRange: 5
   movement: {fileID: 6031438336009521729}
   health: 5
