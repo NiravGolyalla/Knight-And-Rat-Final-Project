@@ -4,23 +4,12 @@ using UnityEngine;
 
 public class CatnipController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public bool done = false;
     void Update()
     {
-        
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.tag == "Enemy")
-        {
-            gameObject.SetActive(false);
+        if(done){
+            Destroy(gameObject);
         }
     }
+
 }

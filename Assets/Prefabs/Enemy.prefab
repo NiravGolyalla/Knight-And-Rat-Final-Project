@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1400fb14ef9f2240bd58c2e8d6db7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   reachedEndOfPath: 0
   nextWaypointeDistance: 1
   graphics: {fileID: 1092750025894104919}
@@ -108,7 +108,7 @@ MonoBehaviour:
   enemySpace: 1.1
   searchRadius: 3
   center: {x: 0, y: 0}
-  radius: 15
+  knockStrength: 1.5
 --- !u!114 &2511165482302940963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,8 +124,8 @@ MonoBehaviour:
   aggroRange: 5
   distance: 1.9
   state: Wander
-  wanderSpeed: 4
-  aggroSpeed: 5
+  wanderSpeed: 2
+  aggroSpeed: 3
   wanderRange: 5
   movement: {fileID: 6031438336009521729}
   health: 5
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: -70
   m_Sprite: {fileID: -315635405, guid: a25bc6bcdea2deb4f85fa5709323834b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

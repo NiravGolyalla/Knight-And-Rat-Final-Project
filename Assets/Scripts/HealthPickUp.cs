@@ -6,22 +6,13 @@ public class HealthPickUp : MonoBehaviour
 {
     public float healthAmount = 5f;
 
-    void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnCollisionEnter(Collision other) {
-        if (other.gameObject.CompareTag("Player")) {
-            other.gameObject.GetComponent<PlayerController>().Heal(healthAmount);
+        if (other.CompareTag("Knight") || other.CompareTag("Rat"))
+        {
+            PlayerController.instantance.Heal(healthAmount);
             Destroy(gameObject);
+        }
     }
-}
 
 }

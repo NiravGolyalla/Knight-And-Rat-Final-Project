@@ -17,6 +17,7 @@ TagManager:
   - catnip
   - EnemyAttack
   - Wall
+  - NPC
   layers:
   - Default
   - TransparentFX
