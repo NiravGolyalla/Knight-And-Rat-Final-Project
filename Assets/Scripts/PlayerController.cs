@@ -165,12 +165,7 @@ public class PlayerController : MonoBehaviour
             takingDamage = true;
             float take = isKnightController ? dmgTakeK * dmg : dmgTakeR * dmg;
             healthBar.setValue(healthBar.getValue() - take);
-            if (gameObject.CompareTag("Knight") || gameObject.CompareTag("Rat"))
-            {
-
-                Camera.main.GetComponent<CameraRumble>().ShakeScreen();
-                StartCoroutine(ShowDamageIndicator());
-            }
+            StartCoroutine(ShowDamageIndicator());
             yield return new WaitForSeconds(0.5f);
             takingDamage = false;
         }
@@ -327,7 +322,6 @@ public class PlayerController : MonoBehaviour
         healthBar.setValue(healthBar.getValue() - value);
         health = health - value;
         StartCoroutine(ShowDamageIndicator()); 
-        Camera.main.GetComponent<CameraRumble>().ShakeScreen();
         StartCoroutine(TakeDamage(value));
     }
 
