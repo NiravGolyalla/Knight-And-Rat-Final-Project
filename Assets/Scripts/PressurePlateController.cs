@@ -32,6 +32,7 @@ public class PressurePlateController : MonoBehaviour
         else if(other.tag == "Barrel")
         {
             activate = true;
+            other.GetComponent<BarrelController>().solved = true;
         }
         //activate = (other.tag == "Knight" || other.tag == "Barrel") ? true: false;
         else {activate = false;}
@@ -44,5 +45,8 @@ public class PressurePlateController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         activate = false;
         gameObject.GetComponent<SpriteRenderer>().sprite = pressurePlateOff;
+        if(other.tag == "Barrel"){
+            other.GetComponent<BarrelController>().solved = false;
+        }
     }
 }
