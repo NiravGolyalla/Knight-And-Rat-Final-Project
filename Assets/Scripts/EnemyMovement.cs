@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
     
     //Steering Behavior 
     Vector2 currentVelocity = Vector2.zero;
-    private float[] weights = {1f,.5f,3f,.4f,.4f,1f,.2f};
+    private float[] weights = {1f,.5f,10f,.4f,.4f,1f,.2f};
     public float[] Weights{get{return weights;}}
 
     public float obstacleRadius = .7f;
@@ -36,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
     private EnemyController ec;    
     private float wanderAngle = 0f;
     public Vector2 center;
-    public float radius = 15f;
+    public float knockStrength = 2f;
 
     void Start()
     {
@@ -58,8 +58,9 @@ public class EnemyMovement : MonoBehaviour
 
     void CalculateMove(){
         Vector2 steering = Vector2.zero;
+        float extra = 0f;
         float distance = Vector2.Distance((Vector2)target,rb.position);
-        print(ec.state);
+        // print(ec.state);
         if(ec.state != "Stunned"){
             if(ec.state != "Knockbacked"){
                 if(ec.state == "Aggro"){
@@ -75,13 +76,15 @@ public class EnemyMovement : MonoBehaviour
                 // steering += spawnBehavior();
             }else{
                 steering += knockBacked()* weights[5];
+                extra = knockStrength;
+
             }
             steering += avoidObstaclesBehavior("Obstacle",obstacleRadius) * weights[2];
             steering += avoidObstaclesBehavior("Enemy",enemySpace) * weights[3];
                 
-            rb.position = Vector2.MoveTowards(rb.position, rb.position + steering , Time.deltaTime*speed);
+            rb.position = Vector2.MoveTowards(rb.position, rb.position + steering , Time.deltaTime*speed+Time.deltaTime*extra);
             float dis = ((Vector2)target-rb.position).x;
-            print(target);
+            // print(target);
             if(dis != 0){
                 graphics.localScale = new Vector3(Mathf.Sign(dis),1f,1f);    
             }   
@@ -169,7 +172,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     Vector2 knockBacked(){
-        return target != null ? -((Vector2)target - rb.position).normalized : Vector2.zero;
+        return target != null ? -((Vector2)target - rb.position).normalized: Vector2.zero;
     }
 
     Vector2 wanderBehavior(){
@@ -199,18 +202,6 @@ public class EnemyMovement : MonoBehaviour
         return desiredVelocity;
     }
 
-    
-    Vector2 spawnBehavior()
-    {
-        Vector2 centerOffset = center - rb.position;
-        float t = centerOffset.magnitude / radius;
-        if (t < 0.9f)
-        {
-            return Vector2.zero;
-        }
-
-        return centerOffset * t * t;
-    }
 
 
 

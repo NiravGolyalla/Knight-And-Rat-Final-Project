@@ -11,6 +11,8 @@ public class GateController : MonoBehaviour
     public PressurePlateController[] pressurePlates;
     public KeyController[] keys;
 
+    public EnemyController[] enemies;
+
     public Sprite gate_open;
     public Sprite gate_closed;
 
@@ -65,6 +67,12 @@ public class GateController : MonoBehaviour
         {
             if (!rope.hasBeenCut()) return false;
         }
+
+        foreach (EnemyController e in enemies)
+        {
+            if (e != null) return false;
+        }
+
         return true;
     }
 }

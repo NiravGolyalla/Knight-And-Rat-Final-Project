@@ -9,7 +9,7 @@ public class Sword : MonoBehaviour
             other.gameObject.GetComponent<EnemyController>().takeDamage();
         }
         if(other.tag == "BARRELS"){
-            Destroy(other.gameObject);
+            other.GetComponent<CNBController>().GotHit();
         }
     }
 }

@@ -777,6 +777,7 @@ MonoBehaviour:
   healthBar: {fileID: 9194944115756170756}
   staminaBar: {fileID: 2863683379413550426}
   formBar: {fileID: 7514705982789012874}
+  poof: {fileID: 8493872730611703165, guid: 36153cb8286a01b43bd22c5aab08bc72, type: 3}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageIndicatorDuration: 0.5
   cinemachineVirtualCamera: {fileID: 5337757580123146295}

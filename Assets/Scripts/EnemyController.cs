@@ -63,13 +63,14 @@ public class EnemyController : MonoBehaviour
         if(state == "Knockbacked" || state == "Stunned" || state == "Attack"){
             return;
         }
-        // if(cat){
-        //     state = "Cated";
-        //     movement.setTarget(cat.position);
-        // }
+        if(cat){
+            state = "Cated";
+            movement.setTarget(cat.position);
+        }
         else if(player){
             state = "Aggro";
             movement.setTarget(player.position);
+            movement.speed = aggroSpeed;
             StartCoroutine(Attack(player));
         } else{
             state = "Wander";
@@ -149,6 +150,7 @@ public class EnemyController : MonoBehaviour
         if(!stunned){
             stunned = true;
             state = "Stunned";
+            print(state + "1");
             yield return new WaitForSeconds(2f);
             state = "Wander";
             stunned = false;
@@ -178,12 +180,13 @@ public class EnemyController : MonoBehaviour
             r.otherRigidbody.freezeRotation = true;
     }
 
-    // void OnTriggerEnter2D(Collider2D r){
-    //     if(r.tag == "catnip"){
-    //         StartCoroutine(Stun());
-    //     }
+    void OnTriggerEnter2D(Collider2D r){
+        if(r.tag == "catnip"){
+            print("Stuneed");
+            StartCoroutine(Stun());
+        }
 
-    // }
+    }
 
     void delay(){
         rb.velocity = Vector2.zero;

@@ -6,12 +6,14 @@ using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instantance;
     [Header("Setup Variables")]
     [SerializeField] private GameObject rat;
     [SerializeField] private GameObject knight;
     [SerializeField] public Bar_Controller healthBar;
     [SerializeField] private Bar_Controller staminaBar;
     [SerializeField] private Bar_Controller formBar;
+    [SerializeField] private GameObject poof;
     [SerializeField] private Color damageColor = Color.red;
     [SerializeField] private float damageIndicatorDuration = 0.5f;
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
@@ -74,6 +76,9 @@ public class PlayerController : MonoBehaviour
     private static readonly int K_Dash_LR = Animator.StringToHash("K_Dash_LR");
     
     //Unity Functions
+    private void Awake(){
+        instantance = this;
+    }
     private void Start()
     {
         ratAnimator = rat.GetComponent<Animator>();
@@ -123,10 +128,12 @@ public class PlayerController : MonoBehaviour
         //Swap
         if (Input.GetKeyDown(KeyCode.Q) && formBar.getValue() == formBar.getMaxValue())
         {
+            Instantiate(poof, transform.position, Quaternion.identity);
             isKnightController = !isKnightController;
             rat.SetActive(!isKnightController);
             knight.SetActive(isKnightController);
             currAnimator = isKnightController ? knightAnimator : ratAnimator;
+            
             formBar.setValue(0f);
         }
 
@@ -191,6 +198,7 @@ public class PlayerController : MonoBehaviour
             rat.SetActive(!isKnightController);
             knight.SetActive(isKnightController);
             currAnimator = isKnightController ? knightAnimator : ratAnimator;
+            Instantiate(poof, transform.position, Quaternion.identity);
             formBar.setValue(0f);
             Swaping = false;
             canMove = true;

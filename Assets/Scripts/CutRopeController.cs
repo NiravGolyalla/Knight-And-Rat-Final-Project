@@ -38,7 +38,6 @@ public class CutRopeController : MonoBehaviour
     {
         if (other.tag == "Rat")
         {
-            print("oh yea");
             withinRange = true;
         }
 

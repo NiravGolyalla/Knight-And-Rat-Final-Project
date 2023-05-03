@@ -12,4 +12,10 @@ public class SpawnEnemy : MonoBehaviour
     public void ChangeMode(){
         EnemyMovement.movementType = !EnemyMovement.movementType; 
     }
+
+    void Update(){
+        if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.I)){
+            Spawn();
+        }
+    }
 }

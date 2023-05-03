@@ -7,9 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu instance;
     public bool isPaused = false;
-    bool animating = false;
     public Animator anim;
-    float transitionTime = 1f;
     void Awake()
     {
         instance = this;
