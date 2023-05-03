@@ -43,7 +43,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void MainMenu(){
-        SceneManager.LoadScene("Start Menu");
+        LevelManager.instance.LoadLevel("Start Menu");
         UnPaused();
     }
 

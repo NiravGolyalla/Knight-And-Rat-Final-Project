@@ -21,6 +21,9 @@ public class DialogueStart : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Rat") || other.gameObject.CompareTag("Knight"))
         {
+            if(DialogueManager.instance.speaking){
+                DialogueManager.instance.EndDialogue();
+            }
             isTargetInTrigger = false;
         }
     }
