@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5079854230937552068}
   - component: {fileID: 5369815027557533802}
   m_Layer: 0
-  m_Name: Dirt v2 Palette
+  m_Name: Forest Palette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
