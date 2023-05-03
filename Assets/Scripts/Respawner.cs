@@ -9,6 +9,7 @@ public class Respawner : MonoBehaviour
     public bool reseter = false;
     bool respawning = false;
     GameObject curr = null;
+    public float timer = 5f;
 
     void Start(){
         Instantiate(poof, transform.position, Quaternion.identity);
@@ -23,8 +24,9 @@ public class Respawner : MonoBehaviour
                 StartCoroutine(Delay());
             }
         } else{
-            float dis = Vector2.Distance(PlayerController.instantance.transform.position,transform.position);
-            if (dis > 10f && !curr.GetComponent<BarrelController>().solved){
+            float dis = Vector2.Distance(curr.transform.position,transform.position);
+            float dis1 = Vector2.Distance(PlayerController.instantance.transform.position,curr.transform.position);
+            if ((dis1 > 15f) && (dis > 1f) && !curr.GetComponent<BarrelController>().solved){
                 if(curr != null){
                     Destroy(curr);
                 }
@@ -37,7 +39,7 @@ public class Respawner : MonoBehaviour
     IEnumerator Delay(){
         if(!respawning){
             respawning = true;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(timer);
             Instantiate(poof, transform.position, Quaternion.identity);
             curr = Instantiate(item, transform.position, Quaternion.identity);
             respawning = false;

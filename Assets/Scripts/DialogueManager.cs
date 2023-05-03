@@ -65,8 +65,11 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
-	void EndDialogue()
+	public void EndDialogue()
 	{
+        while(sentences.Count > 0){
+            sentences.Dequeue();
+        }
         speaking = false;
 		anim.SetTrigger("Open");
         anim.ResetTrigger("Close");
