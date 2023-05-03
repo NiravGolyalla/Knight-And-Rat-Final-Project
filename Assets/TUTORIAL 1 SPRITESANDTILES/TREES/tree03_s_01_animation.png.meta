@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -108,10 +120,10 @@ TextureImporter:
       name: tree03_s_01_animation_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 492
-        width: 165
-        height: 207
+        x: 0
+        y: 480
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +141,10 @@ TextureImporter:
       name: tree03_s_01_animation_1
       rect:
         serializedVersion: 2
-        x: 198
-        y: 492
-        width: 168
-        height: 207
+        x: 192
+        y: 480
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +162,10 @@ TextureImporter:
       name: tree03_s_01_animation_2
       rect:
         serializedVersion: 2
-        x: 390
-        y: 492
-        width: 165
-        height: 207
+        x: 384
+        y: 480
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +183,10 @@ TextureImporter:
       name: tree03_s_01_animation_3
       rect:
         serializedVersion: 2
-        x: 582
-        y: 492
-        width: 165
-        height: 207
+        x: 576
+        y: 480
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +204,10 @@ TextureImporter:
       name: tree03_s_01_animation_4
       rect:
         serializedVersion: 2
-        x: 6
-        y: 252
-        width: 162
-        height: 207
+        x: 0
+        y: 240
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +225,10 @@ TextureImporter:
       name: tree03_s_01_animation_5
       rect:
         serializedVersion: 2
-        x: 198
-        y: 252
-        width: 162
-        height: 204
+        x: 192
+        y: 240
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +246,10 @@ TextureImporter:
       name: tree03_s_01_animation_6
       rect:
         serializedVersion: 2
-        x: 390
-        y: 252
-        width: 165
-        height: 204
+        x: 384
+        y: 240
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +267,10 @@ TextureImporter:
       name: tree03_s_01_animation_7
       rect:
         serializedVersion: 2
-        x: 582
-        y: 252
-        width: 168
-        height: 201
+        x: 576
+        y: 240
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,10 +288,10 @@ TextureImporter:
       name: tree03_s_01_animation_8
       rect:
         serializedVersion: 2
-        x: 9
-        y: 12
-        width: 165
-        height: 201
+        x: 0
+        y: 0
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +309,10 @@ TextureImporter:
       name: tree03_s_01_animation_9
       rect:
         serializedVersion: 2
-        x: 201
-        y: 12
-        width: 165
-        height: 201
+        x: 192
+        y: 0
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +330,10 @@ TextureImporter:
       name: tree03_s_01_animation_10
       rect:
         serializedVersion: 2
-        x: 396
-        y: 12
-        width: 162
-        height: 201
+        x: 384
+        y: 0
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,10 +351,10 @@ TextureImporter:
       name: tree03_s_01_animation_11
       rect:
         serializedVersion: 2
-        x: 585
-        y: 12
-        width: 165
-        height: 204
+        x: 576
+        y: 0
+        width: 192
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
