@@ -951,7 +951,7 @@ MonoBehaviour:
   dmgTakeK: 1
   stmLostR: 0.1
   stmLostK: 5
-  ratMoveSpeed: 10
+  ratMoveSpeed: 7
   knightMoveSpeed: 5
   runBonusMoveSpeed: 5
   dashAmount: 2

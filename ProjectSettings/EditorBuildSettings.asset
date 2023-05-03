@@ -16,7 +16,10 @@ EditorBuildSettings:
     guid: b6eb841b99316744890528b1eeecf702
   - enabled: 1
     path: Assets/Scenes/New_Tutorial_3.unity
-    guid: 4e6d793d5bfc350458d877ec20988487
+    guid: 5ba246aa0edeb0d41abd4ec4312e71c6
+  - enabled: 1
+    path: Assets/Scenes/Sewer Hub.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/DungeonLevel2.0.unity
     guid: 4fa9959217c67684da5f25ea48cc5541
@@ -26,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CombatScene.unity
     guid: a17f81f9974c73f42853ebb8f63f4fa6
+  - enabled: 1
+    path: Assets/Scenes/THEFINALBOSS(pleasedontedititwithoutlmk).unity
+    guid: d108fc43b00834463a6da92b0ea0800a
   m_configObjects: {}
