@@ -10,6 +10,7 @@ public class KeyController : MonoBehaviour
     public GameObject[] goals;
     private bool[] goals_complete;
     // Start is called before the first frame update
+    private BoxCollider2D key;
     
     public bool isAcquired() { return acquired; }
     
@@ -17,6 +18,8 @@ public class KeyController : MonoBehaviour
     {
         acquired = false;
         sprite = gameObject.GetComponent<SpriteRenderer>();
+        key = gameObject.GetComponent<BoxCollider2D>();
+
 
         goals_complete = new bool[goals.Length];
     }
@@ -24,11 +27,6 @@ public class KeyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (acquired)
-        {
-            sprite.sprite = null;
-        }
-
         for (int i = 0; i < goals.Length; i++)
         {
             if (goals[i].GetComponent<CutRopeController>() != null)
@@ -58,10 +56,18 @@ public class KeyController : MonoBehaviour
             cage.isTrigger = false;
             cage_sprite.sprite = Resources.Load<Sprite>("1_standard/Cage_grey_standard_hanging");
         }
+        if (acquired)
+        {
+            sprite.sprite = null;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
-        acquired = true;
+        if (hasAllGoalsBeenCompleted() && (collision.tag == "Knight" || collision.tag == "Rat"))
+        {
+            acquired = true;
+        }
+        
     }
 
     bool hasAllGoalsBeenCompleted() {
