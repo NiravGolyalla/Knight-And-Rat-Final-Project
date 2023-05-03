@@ -38,6 +38,15 @@ public class PauseMenu : MonoBehaviour
         anim.ResetTrigger("Close");
     }
 
+    public void LevelSelect(){
+
+    }
+
+    public void MainMenu(){
+        SceneManager.LoadScene("Start Menu");
+        UnPaused();
+    }
+
 
 }
 
