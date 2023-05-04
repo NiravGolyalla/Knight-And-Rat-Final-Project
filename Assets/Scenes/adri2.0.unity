@@ -16168,7 +16168,7 @@ PrefabInstance:
     - target: {fileID: 9078538188223456606, guid: ee8890d61eee81c4087e0f3066ae4c31, type: 3}
       propertyPath: lever
       value: 
-      objectReference: {fileID: 1233915490}
+      objectReference: {fileID: 980012725}
     - target: {fileID: 9078538188223456606, guid: ee8890d61eee81c4087e0f3066ae4c31, type: 3}
       propertyPath: turnedOnSprite
       value: 
@@ -73129,7 +73129,7 @@ PrefabInstance:
     - target: {fileID: 9078538188223456606, guid: ee8890d61eee81c4087e0f3066ae4c31, type: 3}
       propertyPath: lever
       value: 
-      objectReference: {fileID: 1233915490}
+      objectReference: {fileID: 1857375203}
     - target: {fileID: 9078538188223456606, guid: ee8890d61eee81c4087e0f3066ae4c31, type: 3}
       propertyPath: turnedOnSprite
       value: 
