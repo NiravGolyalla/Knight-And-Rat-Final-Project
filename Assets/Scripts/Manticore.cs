@@ -13,10 +13,13 @@ public class Manticore : MonoBehaviour
     public Transform firePoint;
     public float fireballSpeed = 10f;
 
+    public GameObject cutsceneTrigger;
+
     private Transform player;
     private bool isFacingRight = true;
     private float fireballTimer = 0f;
     private float fireballChance = 0.3f;
+    private bool isCutsceneActive = true;
 
     void Start()
     {
@@ -25,21 +28,28 @@ public class Manticore : MonoBehaviour
 
     void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        if (distanceToPlayer <= chaseDistance)
+        if (isCutsceneActive)
         {
-            ChasePlayer();
+            animator.SetBool("isFlying", true);
         }
-
-        fireballTimer += Time.deltaTime;
-
-        if (fireballTimer >= 1f)
+        else
         {
-            fireballTimer = 0f;
-            StartCoroutine(ShootFireballs());
-        }
+            animator.SetBool("isFlying", false);
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
+            if (distanceToPlayer <= chaseDistance)
+            {
+                ChasePlayer();
+            }
+
+            fireballTimer += Time.deltaTime;
+
+            if (fireballTimer >= 1f)
+            {
+                fireballTimer = 0f;
+                StartCoroutine(ShootFireballs());
+            }
+        }
     }
 
     void ChasePlayer()
@@ -70,7 +80,7 @@ public class Manticore : MonoBehaviour
         }
     }
 
-   IEnumerator ShootFireballs()
+    IEnumerator ShootFireballs()
     {
         animator.SetTrigger("shoot");
 
@@ -101,4 +111,16 @@ public class Manticore : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
     }
+
+    public bool IsCutsceneActive()
+    {
+        return isCutsceneActive;
+    }
+
+    public void EndCutscene()
+    {
+        isCutsceneActive = false;
+        animator.SetBool("isFlying", false);
+    }
+
 }
