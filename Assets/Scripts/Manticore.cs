@@ -13,45 +13,60 @@ public class Manticore : MonoBehaviour
     public Transform firePoint;
     public float fireballSpeed = 10f;
 
-    private Transform player;
+    public GameObject cutsceneTrigger;
+
+    private Transform target;
     private bool isFacingRight = true;
     private float fireballTimer = 0f;
     private float fireballChance = 0.3f;
+    private bool isCutsceneActive = true;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        UpdateTarget();
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        if (distanceToPlayer <= chaseDistance)
+        if (isCutsceneActive)
         {
-            ChasePlayer();
+            animator.SetBool("isFlying", true);
         }
-
-        fireballTimer += Time.deltaTime;
-
-        if (fireballTimer >= 1f)
+        else
         {
-            fireballTimer = 0f;
-            StartCoroutine(ShootFireballs());
-        }
+            UpdateTarget();
 
+            if (target != null)
+            {
+                animator.SetBool("isFlying", false);
+                float distanceToTarget = Vector2.Distance(transform.position, target.position);
+
+                if (distanceToTarget <= chaseDistance)
+                {
+                    ChasePlayer();
+                }
+
+                fireballTimer += Time.deltaTime;
+
+                if (fireballTimer >= 1f)
+                {
+                    fireballTimer = 0f;
+                    StartCoroutine(ShootFireballs());
+                }
+            }
+        }
     }
 
     void ChasePlayer()
     {
-        Vector2 direction = (player.position - transform.position).normalized;
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        Vector2 direction = (target.position - transform.position).normalized;
+        float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
-        if (distanceToPlayer < minDistanceFromPlayer)
+        if (distanceToTarget < minDistanceFromPlayer)
         {
             transform.position -= new Vector3(direction.x, direction.y, 0) * moveSpeed * Time.deltaTime;
         }
-        else if (distanceToPlayer > maxDistanceFromPlayer)
+        else if (distanceToTarget > maxDistanceFromPlayer)
         {
             transform.position += new Vector3(direction.x, direction.y, 0) * moveSpeed * Time.deltaTime;
         }
@@ -70,7 +85,7 @@ public class Manticore : MonoBehaviour
         }
     }
 
-   IEnumerator ShootFireballs()
+    IEnumerator ShootFireballs()
     {
         animator.SetTrigger("shoot");
 
@@ -79,7 +94,7 @@ public class Manticore : MonoBehaviour
         GameObject fireball = Instantiate(fireballPrefab, firePoint.position, firePoint.rotation);
         fireball.transform.position = firePoint.position;
 
-        Vector3 direction = (player.position - transform.position).normalized;
+        Vector3 direction = (target.position - firePoint.position).normalized; // Updated to use firePoint.position
 
         if (direction.x > 0 && !isFacingRight)
         {
@@ -89,8 +104,9 @@ public class Manticore : MonoBehaviour
         {
             Flip();
         }
-        fireball.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
 
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        fireball.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         fireball.GetComponent<Rigidbody2D>().velocity = direction * fireballSpeed;
     }
 
@@ -101,4 +117,50 @@ public class Manticore : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
     }
+
+    public bool IsCutsceneActive()
+    {
+        return isCutsceneActive;
+    }
+
+    public void EndCutscene()
+    {
+        isCutsceneActive = false;
+        animator.SetBool("isFlying", false);
+    }
+
+    void UpdateTarget()
+    {
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Rat");
+        GameObject[] knightTargets = GameObject.FindGameObjectsWithTag("Knight");
+        GameObject[] allTargets = new GameObject[targets.Length + knightTargets.Length];
+        targets.CopyTo(allTargets, 0);
+        knightTargets.CopyTo(allTargets, targets.Length);
+
+        float closestDistance = Mathf.Infinity;
+        GameObject closestTarget = null;
+
+        foreach (GameObject possibleTarget in allTargets)
+        {
+            if (possibleTarget.activeInHierarchy)
+            {
+                float distance = Vector2.Distance(transform.position, possibleTarget.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestTarget = possibleTarget;
+                }
+            }
+        }
+
+        if (closestTarget != null)
+        {
+            target = closestTarget.transform;
+        }
+        else
+        {
+            target = null;
+        }
+    }
 }
+

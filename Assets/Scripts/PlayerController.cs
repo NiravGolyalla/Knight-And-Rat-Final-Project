@@ -142,9 +142,8 @@ public class PlayerController : MonoBehaviour
             rat.SetActive(!isKnightController);
             knight.SetActive(isKnightController);
             currAnimator = isKnightController ? knightAnimator : ratAnimator;
-            
-            formBar.setValue(0f);
         }
+
 
         isAttacking = ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))  && isKnightController) || isAttacking;
         isMoving = (horizontalInput != 0 || verticalInput != 0); 

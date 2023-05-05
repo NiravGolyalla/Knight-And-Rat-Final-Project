@@ -50,6 +50,7 @@ MonoBehaviour:
   whichLeversToOpenGate: 
   pressurePlates: []
   keys: []
+  enemies: []
   gate_open: {fileID: -1109673001, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
   gate_closed: {fileID: -1481932020, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
   ropes: []
@@ -93,7 +94,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -88
   m_Sprite: {fileID: -1109673001, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 1758919239}
   - component: {fileID: 2113333517321969081}
   - component: {fileID: 2260565303939418128}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ MonoBehaviour:
   dmgTakeK: 1
   stmLostR: 0.1
   stmLostK: 5
-  ratMoveSpeed: 10
+  ratMoveSpeed: 7
   knightMoveSpeed: 5
   runBonusMoveSpeed: 5
   dashAmount: 2
@@ -975,7 +975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &627846976087027513
 Transform:
   m_ObjectHideFlags: 0
@@ -1229,7 +1229,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3313588456427989600
 Transform:
   m_ObjectHideFlags: 0

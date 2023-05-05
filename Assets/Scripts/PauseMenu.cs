@@ -39,7 +39,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LevelSelect(){
-
+        LevelManager.instance.LoadLevel("Sewer Hub");
+        UnPaused();
     }
 
     public void MainMenu(){
