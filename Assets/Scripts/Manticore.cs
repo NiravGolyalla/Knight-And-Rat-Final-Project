@@ -168,7 +168,7 @@ public class Manticore : MonoBehaviour
         fireball.GetComponent<Rigidbody2D>().velocity = direction * fireballSpeed;
     }
 
-    void Flip()
+    public void Flip()
     {
         isFacingRight = !isFacingRight;
         Vector3 scale = transform.localScale;

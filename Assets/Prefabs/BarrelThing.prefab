@@ -151,6 +151,7 @@ MonoBehaviour:
   catnip: {fileID: 8493872730611703165, guid: a1d16e8ba1114d04387d8fb74132b12f, type: 3}
   c: {fileID: 889719932613609407, guid: 6c8186437e63c45488279c3477156c51, type: 3}
   hasCatnip: 1
+  catnipTag: catnip
   fallDuration: 3
   startScale: 2
   endScale: 0.8
@@ -167,7 +168,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 15
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -175,4 +176,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
