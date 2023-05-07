@@ -1,0 +1,2653 @@
+fileFormatVersion: 2
+guid: 5e9b6c7478c954092a5d5920b5d389da
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_0
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 8637
+        width: 1179
+        height: 1032
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4bc19132d92400db650043144c7e92
+      internalID: 1115161527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_1
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 8637
+        width: 1194
+        height: 967
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 434a690f9e9fb47fbbcaabe62afcda31
+      internalID: -1638629880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_2
+      rect:
+        serializedVersion: 2
+        x: 3629
+        y: 8637
+        width: 1240
+        height: 1255
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1975124b3528845a2b9433e6f3947dee
+      internalID: -1452995189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_3
+      rect:
+        serializedVersion: 2
+        x: 5370
+        y: 8637
+        width: 1321
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95657e6e8c11d44cc876709225361bf9
+      internalID: -603570445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_4
+      rect:
+        serializedVersion: 2
+        x: 7086
+        y: 8637
+        width: 1205
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58af76a6272c24d3f97682a3640017a8
+      internalID: 1150961838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_5
+      rect:
+        serializedVersion: 2
+        x: 8286
+        y: 9148
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 725e0492768e84096b406fd61da7d763
+      internalID: -1510985533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_6
+      rect:
+        serializedVersion: 2
+        x: 8316
+        y: 9082
+        width: 41
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c22745975a7a4fd49119b573ca7284b
+      internalID: 910667725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_7
+      rect:
+        serializedVersion: 2
+        x: 8382
+        y: 9006
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b502f7b8a570412b9a662c30155c64c
+      internalID: 404462426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_8
+      rect:
+        serializedVersion: 2
+        x: 8382
+        y: 8956
+        width: 116
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa50f2f0d7a4484f8bc39130104579f
+      internalID: 1164981531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_9
+      rect:
+        serializedVersion: 2
+        x: 8443
+        y: 8925
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d4561c3c4557436a999e2e502b04827
+      internalID: -1212974387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_10
+      rect:
+        serializedVersion: 2
+        x: 8316
+        y: 8875
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50fdc6282444940b188d0c0e0d229be0
+      internalID: 1367528638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_11
+      rect:
+        serializedVersion: 2
+        x: 8265
+        y: 8829
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a3b0a35671c48089827fcb15fb5731
+      internalID: -1178169013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_12
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 6905
+        width: 1240
+        height: 1306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3d579524014470a81d1ae0fac3369b
+      internalID: 1781602867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_13
+      rect:
+        serializedVersion: 2
+        x: 1913
+        y: 6905
+        width: 1321
+        height: 1337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5a3d7385a28481aa09ddd3cfe241ae
+      internalID: 828699153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_14
+      rect:
+        serializedVersion: 2
+        x: 3629
+        y: 6905
+        width: 1205
+        height: 1337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e2e3c202fb84e418c6d4230f20fe86
+      internalID: 904064394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_15
+      rect:
+        serializedVersion: 2
+        x: 4829
+        y: 7422
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69594c2e97ca415ebcd59cb17173081
+      internalID: 2116296544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_16
+      rect:
+        serializedVersion: 2
+        x: 5340
+        y: 6905
+        width: 1240
+        height: 1306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4847b6c38bcf14d1a9579476324fb15c
+      internalID: -1253729171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_17
+      rect:
+        serializedVersion: 2
+        x: 7101
+        y: 6905
+        width: 1321
+        height: 1337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b02366afc07b249d4a6e46469d6b4dbf
+      internalID: -1472281474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_18
+      rect:
+        serializedVersion: 2
+        x: 4859
+        y: 7356
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d03a39e8788ae4c14b92ecd21ebaa47f
+      internalID: 1054386971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_19
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 7275
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c960dfa2d5f404ef0b1942c85911dee5
+      internalID: -1670126212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_20
+      rect:
+        serializedVersion: 2
+        x: 4925
+        y: 7275
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af57e8af2464c4cec9bd99b601dc35e6
+      internalID: -1376835924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_21
+      rect:
+        serializedVersion: 2
+        x: 6651
+        y: 7275
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7dd993f1751c4622a7ca9e8613a424f
+      internalID: 233871310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_22
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 7229
+        width: 121
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa69acd87a05444e89b8c956487003a
+      internalID: 1503798735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_23
+      rect:
+        serializedVersion: 2
+        x: 4925
+        y: 7229
+        width: 121
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1a381f6c753451b9157b616e6bac6e
+      internalID: -310041077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_24
+      rect:
+        serializedVersion: 2
+        x: 6651
+        y: 7229
+        width: 121
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2931debcace3b4cb9900144cfff78833
+      internalID: -2142778854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_25
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 7194
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1515f7bb2998e46519d04b9e137367ea
+      internalID: 960158619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_26
+      rect:
+        serializedVersion: 2
+        x: 4986
+        y: 7194
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d3c2c2585ab48bebc6f011d4410a89
+      internalID: 1694517696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_27
+      rect:
+        serializedVersion: 2
+        x: 6717
+        y: 7194
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e896c9232994bb4908c293414e1cd8
+      internalID: 1362538473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_28
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 7148
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4dca5b5d860d414fa12d9dc49cb7c3d
+      internalID: 1628826961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_29
+      rect:
+        serializedVersion: 2
+        x: 4859
+        y: 7148
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a372f4155c2439bae1b1448aa69abe
+      internalID: -2036616344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_30
+      rect:
+        serializedVersion: 2
+        x: 6590
+        y: 7148
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009a135683203454d821d6791ee7a4e2
+      internalID: -514292688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_31
+      rect:
+        serializedVersion: 2
+        x: 4813
+        y: 7098
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00172e9925888447b9cb189b14dffb11
+      internalID: 709436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_32
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 5179
+        width: 1210
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a1b7150934b94748b72b4ed86602290
+      internalID: -545389647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_33
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 5690
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b3435d3a4245421c818c68a45eb5ef6
+      internalID: -1693411645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_34
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 5179
+        width: 1240
+        height: 1306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4ca2b1b1e69244cdb1bb2297fb88e4a
+      internalID: 464481304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_35
+      rect:
+        serializedVersion: 2
+        x: 3644
+        y: 5179
+        width: 1321
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 277f65e03dec04b4f970c6361daa3fc8
+      internalID: 1607102787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_36
+      rect:
+        serializedVersion: 2
+        x: 5355
+        y: 5179
+        width: 1210
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376a674b0318f45df8097ac6477a9765
+      internalID: -383853616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_37
+      rect:
+        serializedVersion: 2
+        x: 6555
+        y: 5690
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77332d4c00b2d4c97b930295431c2477
+      internalID: 1454326252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_38
+      rect:
+        serializedVersion: 2
+        x: 7066
+        y: 5179
+        width: 1240
+        height: 1306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec345f84ff864647bbc6f809d18903c
+      internalID: 1672336147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_39
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 5629
+        width: 41
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dee361e0fe5004e36a10dcf1294a0bcc
+      internalID: 460771706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_40
+      rect:
+        serializedVersion: 2
+        x: 6590
+        y: 5629
+        width: 41
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb88a1cd9f14741b48c6b0b93d0c77d8
+      internalID: 1186280081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_41
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 5548
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bda92dd0c4c14b98a383a8831a1b470
+      internalID: 813564191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_42
+      rect:
+        serializedVersion: 2
+        x: 3194
+        y: 5548
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 404a382c9356348a7aef780eb8746b19
+      internalID: -1586035011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_43
+      rect:
+        serializedVersion: 2
+        x: 6651
+        y: 5548
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c024a8f3c8cd4643a3fbbed048cf58e
+      internalID: -1796820379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_44
+      rect:
+        serializedVersion: 2
+        x: 8382
+        y: 5548
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67dc5af705204d579085b83ff5f9a9a
+      internalID: 2021408428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_45
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 5498
+        width: 121
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b683a991abde4e0086571e7d0cf0918
+      internalID: -569724948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_46
+      rect:
+        serializedVersion: 2
+        x: 3194
+        y: 5498
+        width: 121
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3246aaedb53124b5db995680613792f4
+      internalID: -1558828533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_47
+      rect:
+        serializedVersion: 2
+        x: 6651
+        y: 5498
+        width: 121
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f6e9129416443678a8209f52b0b367
+      internalID: 329032468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_48
+      rect:
+        serializedVersion: 2
+        x: 8382
+        y: 5498
+        width: 116
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3592082ac5dbe45e397d511dec7aea25
+      internalID: 2015586818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_49
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 5467
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79164245e6434413f99190bc234a9143
+      internalID: 1875361844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_50
+      rect:
+        serializedVersion: 2
+        x: 3260
+        y: 5467
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6e34b53de5ab422a87eeca83ec06960
+      internalID: 983991560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_51
+      rect:
+        serializedVersion: 2
+        x: 6717
+        y: 5467
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b92116a8cf64d168f65f64d88c9b23
+      internalID: -1597955596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_52
+      rect:
+        serializedVersion: 2
+        x: 8443
+        y: 5467
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8b3d7aa6c3b749f388f62dd1227b3c8
+      internalID: 59706911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_53
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 5422
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: befe69924abf74efe89b6f0fc66a16e5
+      internalID: 1154447777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_54
+      rect:
+        serializedVersion: 2
+        x: 3133
+        y: 5422
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e70fd6d2d99471faaa24107c232c41
+      internalID: 725848309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_55
+      rect:
+        serializedVersion: 2
+        x: 6590
+        y: 5422
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64062868d2164eb2bdf4e84c8e4f96a
+      internalID: -706532827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_56
+      rect:
+        serializedVersion: 2
+        x: 8316
+        y: 5422
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04da42844baf74c5fb40e76905e7dfa6
+      internalID: 993264079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_57
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 5371
+        width: 41
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4997b6acfd9f94252a6e785101f2c430
+      internalID: -25227255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_58
+      rect:
+        serializedVersion: 2
+        x: 6539
+        y: 5371
+        width: 41
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24452664e49a7401ea1960fba9260004
+      internalID: 2093518904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_59
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 3453
+        width: 1321
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 712871e57552d4cfb916654e8805a004
+      internalID: -1110603421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_60
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 3453
+        width: 1210
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a89ea0edd23a4027937bbc3a9a40455
+      internalID: 1438859302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_61
+      rect:
+        serializedVersion: 2
+        x: 3098
+        y: 3964
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff36551c5ef54da98e94033f197e6f6
+      internalID: -2016609042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_62
+      rect:
+        serializedVersion: 2
+        x: 3614
+        y: 3453
+        width: 1240
+        height: 1306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2a7a788c21e42358a770bcfa54c9c4
+      internalID: 182615792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_63
+      rect:
+        serializedVersion: 2
+        x: 5370
+        y: 3453
+        width: 1321
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96187f44d81845a6ba366b5cbab3fee
+      internalID: -98665520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_64
+      rect:
+        serializedVersion: 2
+        x: 7086
+        y: 3453
+        width: 1205
+        height: 1336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9bb27e0d3c5b4adfb842379518bde5d
+      internalID: -1728529216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_65
+      rect:
+        serializedVersion: 2
+        x: 8286
+        y: 3964
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ac877659c2542fab60d7210ee4d3e0
+      internalID: 1579991254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_66
+      rect:
+        serializedVersion: 2
+        x: 3133
+        y: 3898
+        width: 41
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4d8584d4d1c044979c860bdecc7ed2b
+      internalID: 1131151623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_67
+      rect:
+        serializedVersion: 2
+        x: 8316
+        y: 3898
+        width: 41
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e57af7dd903ab4258ba34c28dfe7ab59
+      internalID: -1617897214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_68
+      rect:
+        serializedVersion: 2
+        x: 3194
+        y: 3822
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2578408b120d446cfa0105218c758887
+      internalID: -1604302616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_69
+      rect:
+        serializedVersion: 2
+        x: 4925
+        y: 3822
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76874d314830841d1ac7a6de564c4c6a
+      internalID: 1936819343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_70
+      rect:
+        serializedVersion: 2
+        x: 8382
+        y: 3822
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e602ad1c7cbd470eacc2025c3ba2914
+      internalID: -1467972255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_71
+      rect:
+        serializedVersion: 2
+        x: 3194
+        y: 3772
+        width: 121
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1a8d329cbb6d4f919fbe20f94038bb3
+      internalID: -317890473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_72
+      rect:
+        serializedVersion: 2
+        x: 4925
+        y: 3772
+        width: 121
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328e05aff951a4a6fb30960eef186929
+      internalID: 685544933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_73
+      rect:
+        serializedVersion: 2
+        x: 8382
+        y: 3772
+        width: 116
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78b00e8f76414caa90700f1335b6927
+      internalID: -1646068905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_74
+      rect:
+        serializedVersion: 2
+        x: 3260
+        y: 3741
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70de54feacba541d5888aa7bf9526ee8
+      internalID: -1486772889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_75
+      rect:
+        serializedVersion: 2
+        x: 4986
+        y: 3741
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e80d5770f494744298beb201be9e1b2d
+      internalID: -1614764329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_76
+      rect:
+        serializedVersion: 2
+        x: 8443
+        y: 3741
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6b8433b2308c4b65b1bb2c245ad50ab
+      internalID: 2104985878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_77
+      rect:
+        serializedVersion: 2
+        x: 3133
+        y: 3691
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201019c4cad81438fbb2ac5c4efdb19d
+      internalID: 1417510889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_78
+      rect:
+        serializedVersion: 2
+        x: 4859
+        y: 3691
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe7c81f5b6187475d830d6dbc46e31b5
+      internalID: -376735059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_79
+      rect:
+        serializedVersion: 2
+        x: 8316
+        y: 3691
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a755dd0bbd629439f90ce25b42c8da91
+      internalID: 71678566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_80
+      rect:
+        serializedVersion: 2
+        x: 3082
+        y: 3645
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7707fdca7e74bd48493599cac3d654
+      internalID: 295540234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_81
+      rect:
+        serializedVersion: 2
+        x: 8265
+        y: 3645
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c022925dd6517469fbd9002c0abb3660
+      internalID: 546899386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_82
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 1721
+        width: 1240
+        height: 1306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b04ece1fbac4fa9979ad0a11591026
+      internalID: -346438892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_83
+      rect:
+        serializedVersion: 2
+        x: 1913
+        y: 1721
+        width: 1321
+        height: 1337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f727aa8c62cec447d91b7e5cd2098adf
+      internalID: 526695793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_84
+      rect:
+        serializedVersion: 2
+        x: 3629
+        y: 1721
+        width: 1205
+        height: 1337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c102e434428e4a4fb34a99cb1156035
+      internalID: -292841667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_85
+      rect:
+        serializedVersion: 2
+        x: 4829
+        y: 2238
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8342b5173251d4dc3aca0384fd556a83
+      internalID: 645996595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_86
+      rect:
+        serializedVersion: 2
+        x: 5340
+        y: 1721
+        width: 1240
+        height: 1306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d427383286f4ed9b740b24ff466cb0
+      internalID: 702546461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_87
+      rect:
+        serializedVersion: 2
+        x: 7101
+        y: 1721
+        width: 1321
+        height: 1337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1151868aab67a4e1c870395e64b86f9f
+      internalID: 633723021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_88
+      rect:
+        serializedVersion: 2
+        x: 4859
+        y: 2172
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa7d2f0b45604a70b791b4def0c767d
+      internalID: -774350279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_89
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 2091
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a920b75e76ac646ddb4bf0b29d82fb74
+      internalID: 2120648773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_90
+      rect:
+        serializedVersion: 2
+        x: 4925
+        y: 2091
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7670b1f4b06ec415495e37c50523d2ac
+      internalID: 850612804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_91
+      rect:
+        serializedVersion: 2
+        x: 6651
+        y: 2091
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1070b06f4a82a43a89448d44c1ff66b8
+      internalID: -1747079115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_92
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 2045
+        width: 121
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9b4ca77e6624bfa9d2f29eb32cad39
+      internalID: 1640993002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_93
+      rect:
+        serializedVersion: 2
+        x: 4925
+        y: 2045
+        width: 121
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19efc0e5120f740bca53b2019223589a
+      internalID: -1685986359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_94
+      rect:
+        serializedVersion: 2
+        x: 6651
+        y: 2045
+        width: 121
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96254915a652e48a983c6ad94291e91d
+      internalID: -116990122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_95
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 2010
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c9b9a20634641c58818b9c51a6223a
+      internalID: -1132293859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_96
+      rect:
+        serializedVersion: 2
+        x: 4986
+        y: 2010
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b778b20d6bc42b2b6372d2cf8df61b
+      internalID: -362758798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_97
+      rect:
+        serializedVersion: 2
+        x: 6717
+        y: 2010
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a549d109a4f546a1ae79ceb14f848c8
+      internalID: 1693245573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_98
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 1964
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfa97e630dd0a4ba79d992b5a2d1d4cd
+      internalID: -1605243115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_99
+      rect:
+        serializedVersion: 2
+        x: 4859
+        y: 1964
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4996d1f58961b410d9ec667f4e471f65
+      internalID: -1891008935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_100
+      rect:
+        serializedVersion: 2
+        x: 6590
+        y: 1964
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad81e871a39914f3da55edc4849abcfa
+      internalID: 1129313961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_101
+      rect:
+        serializedVersion: 2
+        x: 4813
+        y: 1914
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d675f78dbe1c64a69808e734a627bcdc
+      internalID: -814175811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_102
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 0
+        width: 1210
+        height: 1331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac1dc16a1ff8443d3b4b6d498df3a16c
+      internalID: 366064140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_103
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 506
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eccad208c1f0e423cafdf00143690d51
+      internalID: -830981054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_104
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 0
+        width: 1240
+        height: 1301
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1364f20401fb442538d0e782bc4cc2a7
+      internalID: -2126275767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_105
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 445
+        width: 41
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19db2e46e592c45919d4f829a06ca38e
+      internalID: 2016345652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_106
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 364
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1981b91fdfd4bd598ad7629c532371
+      internalID: -288044089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_107
+      rect:
+        serializedVersion: 2
+        x: 3194
+        y: 364
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f256e0cb9ad347ee8805ed25d50ab19
+      internalID: -1616740387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_108
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 314
+        width: 121
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6b5059dba3e460d8f7c3145c798707
+      internalID: -280740681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_109
+      rect:
+        serializedVersion: 2
+        x: 3194
+        y: 314
+        width: 121
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c010d3be5b54b62afa9fc5485832f2
+      internalID: 1209189826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_110
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 283
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0108a9635722c4c0ab32aafec2d7edb1
+      internalID: 1541196339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_111
+      rect:
+        serializedVersion: 2
+        x: 3260
+        y: 283
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ad30ef471a14794bc1b56e5a125fff
+      internalID: -110861948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_112
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 238
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117e1100223284db282f8c9f3a7f82e3
+      internalID: 833218718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_113
+      rect:
+        serializedVersion: 2
+        x: 3133
+        y: 238
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad46a86ca22e0460fb1af5226f0abdf2
+      internalID: 473853517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Manticore_Flamethrower_114
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 187
+        width: 41
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f112531accd47caa37e6ae1ddc13b5
+      internalID: 229335511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Manticore_Flamethrower_0: 1115161527
+      Manticore_Flamethrower_1: -1638629880
+      Manticore_Flamethrower_10: 1367528638
+      Manticore_Flamethrower_100: 1129313961
+      Manticore_Flamethrower_101: -814175811
+      Manticore_Flamethrower_102: 366064140
+      Manticore_Flamethrower_103: -830981054
+      Manticore_Flamethrower_104: -2126275767
+      Manticore_Flamethrower_105: 2016345652
+      Manticore_Flamethrower_106: -288044089
+      Manticore_Flamethrower_107: -1616740387
+      Manticore_Flamethrower_108: -280740681
+      Manticore_Flamethrower_109: 1209189826
+      Manticore_Flamethrower_11: -1178169013
+      Manticore_Flamethrower_110: 1541196339
+      Manticore_Flamethrower_111: -110861948
+      Manticore_Flamethrower_112: 833218718
+      Manticore_Flamethrower_113: 473853517
+      Manticore_Flamethrower_114: 229335511
+      Manticore_Flamethrower_12: 1781602867
+      Manticore_Flamethrower_13: 828699153
+      Manticore_Flamethrower_14: 904064394
+      Manticore_Flamethrower_15: 2116296544
+      Manticore_Flamethrower_16: -1253729171
+      Manticore_Flamethrower_17: -1472281474
+      Manticore_Flamethrower_18: 1054386971
+      Manticore_Flamethrower_19: -1670126212
+      Manticore_Flamethrower_2: -1452995189
+      Manticore_Flamethrower_20: -1376835924
+      Manticore_Flamethrower_21: 233871310
+      Manticore_Flamethrower_22: 1503798735
+      Manticore_Flamethrower_23: -310041077
+      Manticore_Flamethrower_24: -2142778854
+      Manticore_Flamethrower_25: 960158619
+      Manticore_Flamethrower_26: 1694517696
+      Manticore_Flamethrower_27: 1362538473
+      Manticore_Flamethrower_28: 1628826961
+      Manticore_Flamethrower_29: -2036616344
+      Manticore_Flamethrower_3: -603570445
+      Manticore_Flamethrower_30: -514292688
+      Manticore_Flamethrower_31: 709436
+      Manticore_Flamethrower_32: -545389647
+      Manticore_Flamethrower_33: -1693411645
+      Manticore_Flamethrower_34: 464481304
+      Manticore_Flamethrower_35: 1607102787
+      Manticore_Flamethrower_36: -383853616
+      Manticore_Flamethrower_37: 1454326252
+      Manticore_Flamethrower_38: 1672336147
+      Manticore_Flamethrower_39: 460771706
+      Manticore_Flamethrower_4: 1150961838
+      Manticore_Flamethrower_40: 1186280081
+      Manticore_Flamethrower_41: 813564191
+      Manticore_Flamethrower_42: -1586035011
+      Manticore_Flamethrower_43: -1796820379
+      Manticore_Flamethrower_44: 2021408428
+      Manticore_Flamethrower_45: -569724948
+      Manticore_Flamethrower_46: -1558828533
+      Manticore_Flamethrower_47: 329032468
+      Manticore_Flamethrower_48: 2015586818
+      Manticore_Flamethrower_49: 1875361844
+      Manticore_Flamethrower_5: -1510985533
+      Manticore_Flamethrower_50: 983991560
+      Manticore_Flamethrower_51: -1597955596
+      Manticore_Flamethrower_52: 59706911
+      Manticore_Flamethrower_53: 1154447777
+      Manticore_Flamethrower_54: 725848309
+      Manticore_Flamethrower_55: -706532827
+      Manticore_Flamethrower_56: 993264079
+      Manticore_Flamethrower_57: -25227255
+      Manticore_Flamethrower_58: 2093518904
+      Manticore_Flamethrower_59: -1110603421
+      Manticore_Flamethrower_6: 910667725
+      Manticore_Flamethrower_60: 1438859302
+      Manticore_Flamethrower_61: -2016609042
+      Manticore_Flamethrower_62: 182615792
+      Manticore_Flamethrower_63: -98665520
+      Manticore_Flamethrower_64: -1728529216
+      Manticore_Flamethrower_65: 1579991254
+      Manticore_Flamethrower_66: 1131151623
+      Manticore_Flamethrower_67: -1617897214
+      Manticore_Flamethrower_68: -1604302616
+      Manticore_Flamethrower_69: 1936819343
+      Manticore_Flamethrower_7: 404462426
+      Manticore_Flamethrower_70: -1467972255
+      Manticore_Flamethrower_71: -317890473
+      Manticore_Flamethrower_72: 685544933
+      Manticore_Flamethrower_73: -1646068905
+      Manticore_Flamethrower_74: -1486772889
+      Manticore_Flamethrower_75: -1614764329
+      Manticore_Flamethrower_76: 2104985878
+      Manticore_Flamethrower_77: 1417510889
+      Manticore_Flamethrower_78: -376735059
+      Manticore_Flamethrower_79: 71678566
+      Manticore_Flamethrower_8: 1164981531
+      Manticore_Flamethrower_80: 295540234
+      Manticore_Flamethrower_81: 546899386
+      Manticore_Flamethrower_82: -346438892
+      Manticore_Flamethrower_83: 526695793
+      Manticore_Flamethrower_84: -292841667
+      Manticore_Flamethrower_85: 645996595
+      Manticore_Flamethrower_86: 702546461
+      Manticore_Flamethrower_87: 633723021
+      Manticore_Flamethrower_88: -774350279
+      Manticore_Flamethrower_89: 2120648773
+      Manticore_Flamethrower_9: -1212974387
+      Manticore_Flamethrower_90: 850612804
+      Manticore_Flamethrower_91: -1747079115
+      Manticore_Flamethrower_92: 1640993002
+      Manticore_Flamethrower_93: -1685986359
+      Manticore_Flamethrower_94: -116990122
+      Manticore_Flamethrower_95: -1132293859
+      Manticore_Flamethrower_96: -362758798
+      Manticore_Flamethrower_97: 1693245573
+      Manticore_Flamethrower_98: -1605243115
+      Manticore_Flamethrower_99: -1891008935
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

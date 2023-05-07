@@ -38,6 +38,8 @@ public class Manticore : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
+    private bool hasDescended = false;
+
 
     void Start()
     {
@@ -101,6 +103,7 @@ public class Manticore : MonoBehaviour
                     detectedCatnip = catnip;
                 }
             }
+            hasDescended = false;
         }
         else
         {
@@ -219,7 +222,10 @@ public class Manticore : MonoBehaviour
     }
     IEnumerator ChaseCatnip(GameObject catnip)
     {
+        animator.SetBool("isChasingCatnip", true);
+        animator.SetBool("isFlying", true);
         isChasingCatnip = true;
+        fireballTimer = 0f; 
         Vector2 direction = (catnip.transform.position - transform.position).normalized;
         transform.position += new Vector3(direction.x, direction.y, 0) * moveSpeed * catnipChaseSpeedMultiplier * Time.deltaTime;
 
@@ -230,10 +236,13 @@ public class Manticore : MonoBehaviour
 
         yield return null;
         isChasingCatnip = false;
+        animator.SetBool("isChasingCatnip", false);
+        animator.SetBool("isFlying", false);
     }
 
     IEnumerator ConsumeCatnip()
     {
+        if (hasDescended) yield break;
         isConsumingCatnip = true;
 
         // Disable fireball shooting
@@ -254,7 +263,7 @@ public class Manticore : MonoBehaviour
 
         // Add hitbox
         hitboxCollider.enabled = true;
-
+        hasDescended = true;
         // Consume catnip
         yield return new WaitForSeconds(catnipConsumptionDuration);
         // Remove hitbox
@@ -278,6 +287,7 @@ public class Manticore : MonoBehaviour
 
         isConsumingCatnip = false;
     }
+
 
     void OnTriggerEnter2D(Collider2D collision)
     {
