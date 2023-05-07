@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [Header("Setup Variables")]
     [SerializeField] private GameObject rat;
     [SerializeField] private GameObject knight;
+    [SerializeField] private Sword sw;
     [SerializeField] public Bar_Controller healthBar;
     [SerializeField] private Bar_Controller staminaBar;
     [SerializeField] private Bar_Controller formBar;
@@ -32,10 +33,17 @@ public class PlayerController : MonoBehaviour
     private bool isMoving = false;
     private bool isAttacking = false;
     private bool isDashing = false;
-    public bool takingDamage = false;
+    private bool isRecovering = false;
+    private bool isHeld = false;
+
     private bool canDash = true;
     private bool canMove = true;
-    private bool Swaping = false;
+    private bool canAttack = true;
+    private bool canHold = false;
+    public bool takingDamage = false;
+
+    private float inputBuffer = 0.0f;
+    private float cooldownBuffer;
 
 
     //movement variables
@@ -56,24 +64,32 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashDur = 0.5f;
     [SerializeField] private float dashCooldown = 2f;
     
-    
-
     //Managing Animations
     private int currentState;
     private float lockedTimer;
-    private float rIdleTime;
-    private float rRunTime;
-    private float kIdleTime;
-    private float kWalkTime;
-    private float kAttackTime;
-    private float kDashTime;
-    
+    private float RIdle;
+    private float RMove;
+    private float KIdle;
+    private float KMove;
+    private float KDash;
+    private float KRecover;
+    private float KAttack;
+    private float KHoldAttack;
+    private float KAttackWalk;
+    private float KHoldAttackWalk;
     private static readonly int R_Idle_LR = Animator.StringToHash("R_Idle_LR");
     private static readonly int R_Move_LR = Animator.StringToHash("R_Move_LR");
     private static readonly int K_Idle_LR = Animator.StringToHash("K_Idle_LR");
     private static readonly int K_Move_LR = Animator.StringToHash("K_Move_LR");
-    private static readonly int K_Attack_LR = Animator.StringToHash("K_Attack_LR");
     private static readonly int K_Dash_LR = Animator.StringToHash("K_Dash_LR");
+    private static readonly int K_Recover_LR = Animator.StringToHash("K_Recover_LR");
+    private static readonly int K_Attack_LR = Animator.StringToHash("K_Attack_LR");
+    private static readonly int K_HoldAttack_LR = Animator.StringToHash("K_HoldAttack_LR");
+    private static readonly int K_AttackWalk_LR = Animator.StringToHash("K_AttackWalk_LR");
+    private static readonly int K_HoldAttackWalk_LR = Animator.StringToHash("K_HoldAttackWalk_LR");
+    
+
+    
     
     //Unity Functions
     private void Awake(){
@@ -112,7 +128,7 @@ public class PlayerController : MonoBehaviour
             regenBar(staminaBar,2f);
             regenBar(formBar,7f);
         }
-
+        cooldownBuffer += Time.deltaTime;
         if(healthBar.getValue()<= 0f){LevelManager.instance.Reload();}
     }
 
@@ -125,6 +141,13 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        isAttacking = ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))  && isKnightController);
+        isMoving = (horizontalInput != 0 || verticalInput != 0); 
+        isDashing = (Input.GetKey(KeyCode.LeftShift) && canDash);
+        isHeld = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || cooldownBuffer < inputBuffer);
+        cooldownBuffer = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) ? 0f : cooldownBuffer;
+
+
         //Swap
         if (Input.GetKeyDown(KeyCode.Q) && formBar.getValue() == formBar.getMaxValue())
         {
@@ -133,15 +156,7 @@ public class PlayerController : MonoBehaviour
             rat.SetActive(!isKnightController);
             knight.SetActive(isKnightController);
             currAnimator = isKnightController ? knightAnimator : ratAnimator;
-        }
-
-
-        isAttacking = ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))  && isKnightController) || isAttacking;
-        isMoving = (horizontalInput != 0 || verticalInput != 0); 
-        isDashing = (Input.GetKey(KeyCode.LeftShift) && canDash);
-        
-        if(rb2d.velocity.x != 0f && canMove && !isAttacking){
-            transform.localScale = new Vector3(Mathf.Sign(rb2d.velocity.x), 1, 1);
+            formBar.setValue(0f);
         }
     }
 
@@ -150,17 +165,24 @@ public class PlayerController : MonoBehaviour
         movement.Normalize();
         float moveSpeed = isKnightController ? knightMoveSpeed : ratMoveSpeed;
         moveSpeed += (!isKnightController && isDashing && staminaBar.getValue() > .2f) ? runBonusMoveSpeed : 0f;
+        
         if(isDashing){
             StartCoroutine(Dash());
+        }
+        if(isAttacking){
+            StartCoroutine(Attack());
         } 
+        
         rb2d.velocity = (canMove) ?  movement * moveSpeed : rb2d.velocity;
+        if(rb2d.velocity.x != 0f && canMove && !isAttacking){
+            transform.localScale = new Vector3(Mathf.Sign(rb2d.velocity.x), 1, 1);
+        }
     }
 
     public IEnumerator TakeDamage(float dmg)
     {
         if (!takingDamage)
         {
-
             takingDamage = true;
             float take = isKnightController ? dmgTakeK * dmg : dmgTakeR * dmg;
             healthBar.setValue(healthBar.getValue() - take);
@@ -172,33 +194,30 @@ public class PlayerController : MonoBehaviour
     }
 
     public IEnumerator Attack(){
-        if(isAttacking){
-            rb2d.velocity = new Vector2(0f, 0f);
+        if(isAttacking && canAttack){
+            canAttack = false;
+            if(isMoving){
+                yield return new WaitForSeconds(KAttackWalk);
+            } else{
+                yield return new WaitForSeconds(KAttack);
+            }
+            canHold = true;
+            while(isHeld || !sw.exitFrame){
+                yield return null;
+            }
+            canHold = false;
+            isRecovering = true;
             canMove = false;
-            yield return new WaitForSeconds(kAttackTime);
-            isAttacking = false;
+            rb2d.velocity = new Vector2(0f,0f);
+            yield return new WaitForSeconds(KRecover);
+            isRecovering = false;
+            canAttack = true;
             canMove = true;
         }
         yield return null;
     }
 
     public void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
-    public IEnumerator Swap(){
-        if(!Swaping){
-            Swaping = true;
-            canMove = false;
-            yield return new WaitForSeconds(0.5f);
-            isKnightController = !isKnightController;
-            rat.SetActive(!isKnightController);
-            knight.SetActive(isKnightController);
-            currAnimator = isKnightController ? knightAnimator : ratAnimator;
-            Instantiate(poof, transform.position, Quaternion.identity);
-            formBar.setValue(0f);
-            Swaping = false;
-            canMove = true;
-        }
-        yield return null;
-    }
     
     private IEnumerator Dash(){
         float take = isKnightController ? stmLostK : stmLostR;
@@ -264,26 +283,38 @@ public class PlayerController : MonoBehaviour
         foreach(AnimationClip clip in rclips){
             switch(clip.name){
                 case "R_Idle_LR":
-                    rIdleTime = clip.length;
+                    RIdle = clip.length;
                     break;
                 case "R_Move_LR":
-                    rRunTime = clip.length;
+                    RMove = clip.length;
                     break;
             }
         }
         foreach(AnimationClip clip in kclips){
             switch(clip.name){
                 case "K_Idle_LR":
-                    kIdleTime = clip.length;
+                    KIdle = clip.length-0.017f;
                     break;
                 case "K_Move_LR":
-                    kWalkTime = clip.length;
-                    break;
-                case "K_Attack_LR":
-                    kAttackTime = clip.length;
+                    KMove = clip.length-0.017f;
                     break;
                 case "K_Dash_LR":
-                    kDashTime = clip.length;
+                    KDash = clip.length-0.017f;
+                    break;
+                case "K_Recover_LR":
+                    KRecover = clip.length-0.017f;
+                    break;
+                case "K_Attack_LR":
+                    KAttack = clip.length-0.017f;
+                    break;
+                case "K_HoldAttack_LR":
+                    KHoldAttack = clip.length-0.017f;
+                    break;
+                case "K_AttackWalk_LR":
+                    KAttackWalk = clip.length-0.017f;
+                    break;
+                case "K_HoldAttackWalk_LR":
+                    KHoldAttackWalk = clip.length-0.017f;
                     break;
             }
         }
@@ -295,11 +326,18 @@ public class PlayerController : MonoBehaviour
         }
 
         if(isKnightController){
-            if (isDashing) return lockState(K_Dash_LR,dashDur);
-            if (isAttacking){
-                StartCoroutine(Attack());
-                return lockState(K_Attack_LR,kAttackTime);
+            if(isRecovering) return lockState(K_Recover_LR,KRecover);
+            if(isHeld && canHold && isMoving) return lockState(K_HoldAttackWalk_LR,KAttack);
+            if(isHeld && canHold) return lockState(K_HoldAttack_LR,KAttack);
+            
+            if (!canAttack && isMoving){
+                return K_AttackWalk_LR;
+            }
+            if (!canAttack){
+                return K_Attack_LR;
             } 
+            if (isDashing) return lockState(K_Dash_LR,dashDur);
+            print("Reached");
             if (isMoving) return K_Move_LR;
             else return K_Idle_LR;
         } else{
@@ -307,7 +345,7 @@ public class PlayerController : MonoBehaviour
             else return R_Idle_LR;
         }
         int lockState(int s,float t){
-            lockedTimer = Time.time + t+0.1f;
+            lockedTimer = Time.time + t;
             return s;
         }
     }

@@ -21,9 +21,33 @@ public class Manticore : MonoBehaviour
     private float fireballChance = 0.3f;
     private bool isCutsceneActive = true;
 
+    public float catnipDetectionRange = 10f;
+    public float catnipChaseSpeedMultiplier = 3f;
+    public float catnipConsumptionDuration = 1f;
+    public float descendDuration = 1.5f;
+    public float ascendDuration = 0.3f;
+    public int health = 120;
+    public int damagePerHit = 20;
+
+    private bool isChasingCatnip = false;
+    private bool isConsumingCatnip = false;
+    private GameObject detectedCatnip = null;
+    private CircleCollider2D hitboxCollider;
+
+    public float invincibilityDuration = 0.2f;
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+
+    private bool hasDescended = false;
+
+
     void Start()
     {
         UpdateTarget();
+        hitboxCollider = GetComponent<CircleCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+
     }
 
     void Update()
@@ -35,8 +59,14 @@ public class Manticore : MonoBehaviour
         else
         {
             UpdateTarget();
+            DetectCatnip();
 
-            if (target != null)
+            if (detectedCatnip != null && !isConsumingCatnip)
+            {
+                StartCoroutine(ChaseCatnip(detectedCatnip));
+            }
+
+            if (target != null && !isChasingCatnip && !isConsumingCatnip)
             {
                 animator.SetBool("isFlying", false);
                 float distanceToTarget = Vector2.Distance(transform.position, target.position);
@@ -53,6 +83,34 @@ public class Manticore : MonoBehaviour
                     fireballTimer = 0f;
                     StartCoroutine(ShootFireballs());
                 }
+            }
+        }
+    }
+
+    void DetectCatnip()
+    {
+        if (detectedCatnip == null)
+        {
+            GameObject[] catnips = GameObject.FindGameObjectsWithTag("catnip");
+            float closestDistance = Mathf.Infinity;
+
+            foreach (GameObject catnip in catnips)
+            {
+                float distance = Vector2.Distance(transform.position, catnip.transform.position);
+                if (distance < catnipDetectionRange && distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    detectedCatnip = catnip;
+                }
+            }
+            hasDescended = false;
+        }
+        else
+        {
+            CatnipController catnipController = detectedCatnip.GetComponent<CatnipController>();
+            if (catnipController.done)
+            {
+                detectedCatnip = null;
             }
         }
     }
@@ -162,5 +220,97 @@ public class Manticore : MonoBehaviour
             target = null;
         }
     }
-}
+    IEnumerator ChaseCatnip(GameObject catnip)
+    {
+        animator.SetBool("isChasingCatnip", true);
+        animator.SetBool("isFlying", true);
+        isChasingCatnip = true;
+        fireballTimer = 0f; 
+        Vector2 direction = (catnip.transform.position - transform.position).normalized;
+        transform.position += new Vector3(direction.x, direction.y, 0) * moveSpeed * catnipChaseSpeedMultiplier * Time.deltaTime;
 
+        if (Vector2.Distance(transform.position, catnip.transform.position) <= 0.1f)
+        {
+            StartCoroutine(ConsumeCatnip());
+        }
+
+        yield return null;
+        isChasingCatnip = false;
+        animator.SetBool("isChasingCatnip", false);
+        animator.SetBool("isFlying", false);
+    }
+
+    IEnumerator ConsumeCatnip()
+    {
+        if (hasDescended) yield break;
+        isConsumingCatnip = true;
+
+        // Disable fireball shooting
+        fireballTimer = -1f;
+
+        // Start descending
+        float elapsed = 0;
+        Vector3 startScale = transform.localScale;
+        Vector3 targetScale = startScale * 0.8f; // You can modify the scaling value here
+
+        while (elapsed < descendDuration)
+        {
+            elapsed += Time.deltaTime;
+            float progress = elapsed / descendDuration;
+            transform.localScale = Vector3.Lerp(startScale, targetScale, progress);
+            yield return null;
+        }
+
+        // Add hitbox
+        hitboxCollider.enabled = true;
+        hasDescended = true;
+        // Consume catnip
+        yield return new WaitForSeconds(catnipConsumptionDuration);
+        // Remove hitbox
+        hitboxCollider.enabled = false;
+
+        // Start ascending
+        elapsed = 0;
+        while (elapsed < ascendDuration)
+        {
+            elapsed += Time.deltaTime;
+            float progress = elapsed / ascendDuration;
+            transform.localScale = Vector3.Lerp(targetScale, startScale, progress);
+            yield return null;
+        }
+
+        // Reset scale
+        transform.localScale = startScale;
+
+        // Resume fireball shooting
+        fireballTimer = 0f;
+
+        isConsumingCatnip = false;
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Sword"))
+        {
+            TakeDamage(damagePerHit);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (!isConsumingCatnip || !hitboxCollider.enabled) return;
+
+        health -= damage;
+        StartCoroutine(ShowDamageTaken());
+
+    }
+
+    IEnumerator ShowDamageTaken()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(invincibilityDuration);
+        spriteRenderer.color = originalColor;
+    }
+
+}
