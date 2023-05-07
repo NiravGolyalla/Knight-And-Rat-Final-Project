@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     private bool canHold = false;
     public bool takingDamage = false;
 
-    private float inputBuffer = 0.2f;
+    private float inputBuffer = 0.0f;
     private float cooldownBuffer;
 
 
