@@ -7955,6 +7955,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1284082064 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+  m_PrefabInstance: {fileID: 414068378236680221}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50902d1426d73224abb03183d2e07414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1311459325
 GameObject:
   m_ObjectHideFlags: 0
@@ -74701,6 +74712,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: cutscene
+      value: 
+      objectReference: {fileID: 1284082064}
+    - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: fallingBarrelSpawner
+      value: 
+      objectReference: {fileID: 961720887}
     - target: {fileID: 414068379943000604, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -74748,6 +74767,108 @@ PrefabInstance:
     - target: {fileID: 414068379943000605, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: m_Name
       value: FINAL BOSS
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214321, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.318
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214321, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.179
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: fallingBarrelSpawner
+      value: 
+      objectReference: {fileID: 961720887}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[0].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5e078e62c07a91f49b7dc9032ab4a6a6, type: 3}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[0].name
+      value: Manticore
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[1].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 735e780527a780547ae70dff320e5e29, type: 3}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[1].name
+      value: Princess Ratiana
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[2].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5e078e62c07a91f49b7dc9032ab4a6a6, type: 3}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[2].name
+      value: Manticore
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[3].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5e078e62c07a91f49b7dc9032ab4a6a6, type: 3}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[3].name
+      value: Manticore
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[1].sentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[2].sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[0]
+      value: I see your finally here... took you long enough
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[0].sentences.Array.data[1]
+      value: We've been waiting for you
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[1].sentences.Array.data[0]
+      value: HELP MEE!!!!!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[2].sentences.Array.data[0]
+      value: Silence rat....
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[2].sentences.Array.data[1]
+      value: Now...
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[2].sentences.Array.data[2]
+      value: Let us begin
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.data[0]
+      value: Fool
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.data[1]
+      value: You really think you can hit me with a puny sword while I am flying
+        up high?
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.data[2]
+      value: You're going to need something really intriguing to make me come down
+        there...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295ae4b26434a294d87bb73246c27791, type: 3}

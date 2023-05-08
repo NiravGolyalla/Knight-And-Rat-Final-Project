@@ -54,7 +54,6 @@ public class FireBreathManticore : MonoBehaviour
         {
             manticore.Flip();
         }
-
         animator.SetTrigger("FireBreath");
     }
 

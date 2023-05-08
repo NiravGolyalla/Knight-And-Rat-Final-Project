@@ -7,10 +7,11 @@ public class FallingBarrelSpawner : MonoBehaviour
     [SerializeField] private float spawnRadius = 5f;
     [SerializeField] private int spawnCount = 10;
     [SerializeField] private float spawnInterval = 2f;
+    private Coroutine spawnBarrelsCoroutine;
 
-    private void Start()
+    public void StartSpawningBarrels()
     {
-        StartCoroutine(SpawnBarrels());
+        spawnBarrelsCoroutine = StartCoroutine(SpawnBarrels());
     }
 
     private IEnumerator SpawnBarrels()
@@ -22,4 +23,14 @@ public class FallingBarrelSpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }
+
+    public void StopSpawningBarrels()
+    {
+        if (spawnBarrelsCoroutine != null)
+        {
+            StopCoroutine(spawnBarrelsCoroutine);
+            spawnBarrelsCoroutine = null;
+        }
+    }
+    
 }

@@ -42,6 +42,10 @@ public class Manticore : MonoBehaviour
 
     public int stage = 1;
 
+    public Cutscene cutscene;
+
+    private bool fightStarted = false;
+    public FallingBarrelSpawner fallingBarrelSpawner;
 
     void Start()
     {
@@ -49,14 +53,22 @@ public class Manticore : MonoBehaviour
         hitboxCollider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+        Flip();
 
     }
 
     void Update()
     {
+        
+        if (!fightStarted)
+        {
+            return;
+            
+        }
 
         if (stage == 2)
         {
+            fallingBarrelSpawner.StopSpawningBarrels();
             return; 
         }
 
@@ -195,12 +207,6 @@ public class Manticore : MonoBehaviour
         return isCutsceneActive;
     }
 
-    public void EndCutscene()
-    {
-        isCutsceneActive = false;
-        animator.SetBool("isFlying", false);
-    }
-
     void UpdateTarget()
     {
         GameObject[] targets = GameObject.FindGameObjectsWithTag("Rat");
@@ -337,5 +343,9 @@ public class Manticore : MonoBehaviour
         return isFacingRight;
     }
 
-
+    public void StartFight()
+    {
+        fightStarted = true;
+        isCutsceneActive = false;
+    }
 }
