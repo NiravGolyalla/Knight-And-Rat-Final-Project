@@ -16,34 +16,34 @@ public class LevelManager : MonoBehaviour
     }
 
     void Update(){
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-             instance.LoadLevel(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-             instance.LoadLevel(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-             instance.LoadLevel(3);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-             instance.LoadLevel(5);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-             instance.LoadLevel(6);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-             instance.LoadLevel(7);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-             instance.LoadLevel(8);
-        }
+     //    if (Input.GetKeyDown(KeyCode.Alpha1))
+     //    {
+     //         instance.LoadLevel(1);
+     //    }
+     //    if (Input.GetKeyDown(KeyCode.Alpha2))
+     //    {
+     //         instance.LoadLevel(2);
+     //    }
+     //    if (Input.GetKeyDown(KeyCode.Alpha3))
+     //    {
+     //         instance.LoadLevel(3);
+     //    }
+     //    if (Input.GetKeyDown(KeyCode.Alpha4))
+     //    {
+     //         instance.LoadLevel(5);
+     //    }
+     //    if (Input.GetKeyDown(KeyCode.Alpha5))
+     //    {
+     //         instance.LoadLevel(6);
+     //    }
+     //    if (Input.GetKeyDown(KeyCode.Alpha6))
+     //    {
+     //         instance.LoadLevel(7);
+     //    }
+     //    if (Input.GetKeyDown(KeyCode.Alpha7))
+     //    {
+     //         instance.LoadLevel(8);
+     //    }
         if (Input.GetKeyDown(KeyCode.R))
         {
              Reload();
