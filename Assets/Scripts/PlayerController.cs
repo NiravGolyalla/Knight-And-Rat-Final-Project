@@ -371,7 +371,10 @@ public class PlayerController : MonoBehaviour
 
         // Save the original color
         Color originalColor = spriteRenderer.color;
-
+        if (originalColor == damageColor) 
+        {
+            yield break;
+        }
   
 
         // Set the new color
