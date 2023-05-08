@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/THEFINALBOSS(pleasedontedititwithoutlmk).unity
     guid: d108fc43b00834463a6da92b0ea0800a
+  - enabled: 1
+    path: Assets/Scenes/Dungeon1.unity
+    guid: c89373e679ca5bb4798351c272f398d7
   m_configObjects: {}
