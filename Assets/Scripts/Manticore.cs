@@ -303,15 +303,13 @@ public class Manticore : MonoBehaviour
             yield return null;
             
         }
-        animator.SetBool("isFlying", false);
-        // Reset scale
         transform.localScale = startScale;
-
-        // Resume fireball shooting
-        fireballTimer = 0f;
-
         isConsumingCatnip = false;
 
+        fireballTimer = 0f;
+        yield return new WaitForSeconds(5.5f);
+        animator.SetBool("isFlying", false);
+        
     }
 
 
