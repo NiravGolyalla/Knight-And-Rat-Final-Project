@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4486162197653719089}
-  m_LocalRotation: {x: -0, y: 0.003383106, z: -0, w: 0.9999943}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0.388, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4427272962621611863
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b2f3f38eadde3eb49a65ab41adc9ddb9, type: 3}
+  m_Sprite: {fileID: 1801830131, guid: b2f3f38eadde3eb49a65ab41adc9ddb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.52, y: 2.08}
+  m_Size: {x: 0.4375, y: 0.40625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92499c2fc197424a94bc8eed86e036d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnedOff: {fileID: 21300000, guid: b2f3f38eadde3eb49a65ab41adc9ddb9, type: 3}
-  turnedOn: {fileID: 21300000, guid: b24bcaadca5987442ba9ee666a7941bb, type: 3}
+  turnedOff: {fileID: 1801830131, guid: b2f3f38eadde3eb49a65ab41adc9ddb9, type: 3}
+  turnedOn: {fileID: -1693003284, guid: b2f3f38eadde3eb49a65ab41adc9ddb9, type: 3}
 --- !u!61 &1022794262210841407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -114,18 +114,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.284089, y: -0.49520326}
+  m_Offset: {x: -0.66246986, y: 0.013394177}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.52, y: 2.08}
-    newSize: {x: 3.52, y: 2.08}
+    oldSize: {x: 0.875, y: 0.8125}
+    newSize: {x: 0.4375, y: 0.40625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95182204, y: 0.39802435}
+  m_Size: {x: 0.34150517, y: 0.5336503}
   m_EdgeRadius: 0
 --- !u!68 &1305044799406746173
 EdgeCollider2D:
@@ -143,15 +143,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.082832456, y: -0.24930295}
-  - {x: -0.005024638, y: -0.24930297}
-  - {x: 0.2790487, y: -0.2740967}
-  - {x: 0.48864168, y: -0.46488643}
-  - {x: 0.83637416, y: -1.0311818}
-  - {x: -0.8305495, y: -1.0362607}
-  - {x: -0.5852461, y: -0.56416124}
-  - {x: -0.32582498, y: -0.31168008}
-  - {x: -0.064486265, y: -0.24930298}
+  - {x: -0.4411959, y: -0.38315904}
+  - {x: -0.2873853, y: -0.1182069}
+  - {x: 0.31938598, y: -0.13291633}
+  - {x: 0.4079672, y: -0.3942963}
+  - {x: -0.43467736, y: -0.38625038}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
