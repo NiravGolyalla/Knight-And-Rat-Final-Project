@@ -1039,7 +1039,7 @@ MonoBehaviour:
   stamina: 10
   dmgTakeR: 2
   dmgTakeK: 1
-  stmLostR: 0.1
+  stmLostR: 0.05
   stmLostK: 5
   ratMoveSpeed: 7
   knightMoveSpeed: 5

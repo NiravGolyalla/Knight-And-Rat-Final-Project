@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
         isAttacking = ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))  && isKnightController);
         isMoving = (horizontalInput != 0 || verticalInput != 0); 
         isDashing = (Input.GetKey(KeyCode.LeftShift) && canDash);
-        isHeld = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || cooldownBuffer < inputBuffer);
+        isHeld = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || cooldownBuffer < inputBuffer);
         cooldownBuffer = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) ? 0f : cooldownBuffer;
 
 
@@ -204,7 +204,8 @@ public class PlayerController : MonoBehaviour
                 yield return new WaitForSeconds(KAttack);
             }
             canHold = true;
-            while(isHeld || !sw.exitFrame){
+            while((isHeld || !sw.exitFrame) && 0 < staminaBar.getValue()){
+                regenBar(staminaBar,-12f);
                 yield return null;
             }
             canHold = false;
