@@ -223,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758919238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.904664, y: 12.370558, z: -9.972459}
+  m_LocalPosition: {x: -0.31941247, y: 0.15940845, z: -9.972459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -240,7 +240,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1033,6 +1033,7 @@ MonoBehaviour:
   cinemachineVirtualCamera: {fileID: 5337757580123146295}
   shakeIntensity: 2
   shakeDuration: 0.2
+  isAttacking: 0
   takingDamage: 0
   health: 20
   stamina: 10
