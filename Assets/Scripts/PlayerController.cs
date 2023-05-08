@@ -129,14 +129,12 @@ public class PlayerController : MonoBehaviour
             regenBar(healthBar,0.1f);
             regenBar(staminaBar,2f);
             regenBar(formBar,7f);
+            Movement();
         }
         cooldownBuffer += Time.deltaTime;
         if(healthBar.getValue()<= 0f){LevelManager.instance.Reload();}
     }
 
-    private void FixedUpdate(){
-        if(Time.timeScale != 0){Movement();}
-    }
 
     //Actions
     private void cInput(){
