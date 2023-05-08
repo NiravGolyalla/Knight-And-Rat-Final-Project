@@ -40,6 +40,8 @@ public class Manticore : MonoBehaviour
 
     private bool hasDescended = false;
 
+    public int stage = 1;
+
 
     void Start()
     {
@@ -52,6 +54,12 @@ public class Manticore : MonoBehaviour
 
     void Update()
     {
+
+        if (stage == 2)
+        {
+            return; 
+        }
+
         if (isCutsceneActive)
         {
             animator.SetBool("isFlying", true);
@@ -145,6 +153,12 @@ public class Manticore : MonoBehaviour
 
     IEnumerator ShootFireballs()
     {
+
+        if (stage == 2)
+        {
+            yield break; // Disable shooting fireballs in stage 2
+        }
+
         animator.SetTrigger("shoot");
 
         yield return new WaitForSeconds(0.5f);
@@ -222,6 +236,11 @@ public class Manticore : MonoBehaviour
     }
     IEnumerator ChaseCatnip(GameObject catnip)
     {
+
+        if (stage == 2)
+        {
+            yield break; // Disable chasing catnip in stage 2
+        }
         animator.SetBool("isChasingCatnip", true);
         animator.SetBool("isFlying", true);
         isChasingCatnip = true;
@@ -312,5 +331,11 @@ public class Manticore : MonoBehaviour
         yield return new WaitForSeconds(invincibilityDuration);
         spriteRenderer.color = originalColor;
     }
+
+    public bool IsFacingRight()
+    {
+        return isFacingRight;
+    }
+
 
 }
