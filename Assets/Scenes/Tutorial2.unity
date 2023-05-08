@@ -128,17 +128,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3897601729798812414, guid: 8708baa6e1e5625479457f3e5321faed, type: 3}
   m_PrefabInstance: {fileID: 1872984268}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &155455289 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4580140223358831498, guid: c9fe6a4819acb3641891dab7d3178e35, type: 3}
-  m_PrefabInstance: {fileID: 539171578}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71770e367e46f4c42aa03271efb0253a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &182186571
 GameObject:
   m_ObjectHideFlags: 0
@@ -25092,7 +25081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6226814294000774425, guid: 6188637dd7ef6af44b868d1e38153276, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.875
+      value: 2.52
       objectReference: {fileID: 0}
     - target: {fileID: 6226814294000774425, guid: 6188637dd7ef6af44b868d1e38153276, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25134,14 +25123,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6922803112923158087, guid: 6188637dd7ef6af44b868d1e38153276, type: 3}
-      propertyPath: pressurePlates.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6922803112923158087, guid: 6188637dd7ef6af44b868d1e38153276, type: 3}
-      propertyPath: pressurePlates.Array.data[0]
-      value: 
-      objectReference: {fileID: 155455289}
     - target: {fileID: 7522485465173051814, guid: 6188637dd7ef6af44b868d1e38153276, type: 3}
       propertyPath: m_Name
       value: Barrier
@@ -35377,7 +35358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 979742455295241456, guid: 7686e537eb178f442a1f1732c52ef244, type: 3}
       propertyPath: nextLevel
-      value: Sewer Hub
+      value: Tutorial3
       objectReference: {fileID: 0}
     - target: {fileID: 979742455295241469, guid: 7686e537eb178f442a1f1732c52ef244, type: 3}
       propertyPath: m_Name
