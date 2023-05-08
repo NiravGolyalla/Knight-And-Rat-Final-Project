@@ -38,7 +38,7 @@ public class LeverController : MonoBehaviour
     
     private IEnumerator flipLever(bool didAttack)
     {
-        if (didAttack) {yield return new WaitForSeconds(0.75f);
+        if (didAttack) {yield return new WaitForSeconds(0.5f);
  }
         on = !on;
         if (on)
