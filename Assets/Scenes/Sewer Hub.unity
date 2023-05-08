@@ -3771,7 +3771,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 979742455295241456, guid: 7686e537eb178f442a1f1732c52ef244, type: 3}
       propertyPath: nextLevel
-      value: New_Tutorial_1
+      value: Tutorial1
       objectReference: {fileID: 0}
     - target: {fileID: 979742455295241469, guid: 7686e537eb178f442a1f1732c52ef244, type: 3}
       propertyPath: m_Name
