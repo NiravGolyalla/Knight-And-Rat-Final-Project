@@ -38,17 +38,13 @@ public class Cutscene : MonoBehaviour
     IEnumerator TriggerCutsceneSequence()
     {
         // Disable player movement
-        PlayerController.instantance.enabled = false;
-        PlayerController.instantance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         // Destroy the bridge
         DestroyBridge();
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.1f);
 
-        // Enable player movement
-        PlayerController.instantance.enabled = true;
 
         // Trigger the first dialogue
         start_ += 1;
@@ -72,7 +68,7 @@ public class Cutscene : MonoBehaviour
 
         bridgeTilemap = bridgeTransform.GetComponent<Tilemap>();
         bridgeTransform.gameObject.SetActive(false);
-        Instantiate(explosionPrefab, bridgeTransform.position, Quaternion.identity, bridgeTransform).transform.localScale *= 5;
+        
 
         // Activate the "SW" tile
         Tilemap[] tilemaps = grid.GetComponentsInChildren<Tilemap>(true);

@@ -76118,7 +76118,7 @@ PrefabInstance:
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.data[1].icon
       value: 
-      objectReference: {fileID: 21300000, guid: 735e780527a780547ae70dff320e5e29, type: 3}
+      objectReference: {fileID: 21300000, guid: 91b04b5a240cd46bdb107379710478a8, type: 3}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.data[1].name
       value: Princess Ratiana
