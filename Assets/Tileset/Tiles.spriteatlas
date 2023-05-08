@@ -32,7 +32,6 @@ SpriteAtlas:
     secondaryTextureSettings: {}
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
     - {fileID: 2800000, guid: 857cc6051bd0f6f4db0614e1136421be, type: 3}
     - {fileID: 2800000, guid: 6405bc8c96e54cf42bfd7df8ec56315f, type: 3}
     - {fileID: 2800000, guid: 8386ec2975a18bd4393fc8095d8d99fa, type: 3}
@@ -129,34 +128,6 @@ SpriteAtlas:
   - {fileID: 1344441471, guid: 6405bc8c96e54cf42bfd7df8ec56315f, type: 3}
   - {fileID: 1783458243, guid: 6405bc8c96e54cf42bfd7df8ec56315f, type: 3}
   - {fileID: 533431318, guid: 6405bc8c96e54cf42bfd7df8ec56315f, type: 3}
-  - {fileID: -366763524, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -1337770755, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -264432226, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -1618344649, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 181456238, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -720156342, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 572283970, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 1173102367, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -1989933793, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -1283935633, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 1726399532, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 1977932672, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 1515970478, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 1353676058, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 1055808203, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -2136483321, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 1509342415, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -353391728, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 666097285, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 1491473439, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 192048125, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -1595561551, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 1722799384, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 1157943224, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -1188394666, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: -1219977772, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 251742984, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
-  - {fileID: 200728312, guid: 5e34140f9b3f91f47ba21d85c5fff69e, type: 3}
   m_PackedSpriteNamesToIndex:
   - dirt_tiles_v2_13
   - dirt_tiles_v2_12
@@ -246,34 +217,6 @@ SpriteAtlas:
   - sewer tileset_8
   - sewer tileset_9
   - sewer tileset_10
-  - dirt_tiles_9
-  - dirt_tiles_8
-  - dirt_tiles_3
-  - dirt_tiles_2
-  - dirt_tiles_1
-  - dirt_tiles_0
-  - dirt_tiles_7
-  - dirt_tiles_6
-  - dirt_tiles_5
-  - dirt_tiles_4
-  - dirt_tiles_23
-  - dirt_tiles_22
-  - dirt_tiles_18
-  - dirt_tiles_21
-  - dirt_tiles_19
-  - dirt_tiles_20
-  - dirt_tiles_16
-  - dirt_tiles_27
-  - dirt_tiles_17
-  - dirt_tiles_26
-  - dirt_tiles_14
-  - dirt_tiles_25
-  - dirt_tiles_15
-  - dirt_tiles_24
-  - dirt_tiles_12
-  - dirt_tiles_13
-  - dirt_tiles_10
-  - dirt_tiles_11
   m_RenderDataMap: {}
   m_Tag: Tiles
   m_IsVariant: 0
