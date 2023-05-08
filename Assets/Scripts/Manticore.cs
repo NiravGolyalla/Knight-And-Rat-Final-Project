@@ -347,4 +347,12 @@ public class Manticore : MonoBehaviour
         fightStarted = true;
         isCutsceneActive = false;
     }
+
+    public void FaceRight()
+    {
+        if (!isFacingRight)
+        {
+            Flip();
+        }
+    }
 }

@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: FX_Fire00_FlameCartoon_L01_7x1_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 18
+        width: 45
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71604ca57d46c4a4582bcd4e359b16be
+      internalID: -2082830362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_Fire00_FlameCartoon_L01_7x1_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 18
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b10c89fbedcf0f340a74f4a8f16be532
+      internalID: 160047318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_Fire00_FlameCartoon_L01_7x1_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 18
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b58f9118f5a3c46ab866c77c0bdce3
+      internalID: 1353682403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_Fire00_FlameCartoon_L01_7x1_3
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 18
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a000cfdc3c2411499385bc581dcbb59
+      internalID: 1287213686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_Fire00_FlameCartoon_L01_7x1_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 18
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517b1b9d079054d44958408a0c964d89
+      internalID: 540613477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_Fire00_FlameCartoon_L01_7x1_5
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 18
+        width: 45
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fad78815f5a3d4ebcc7d7483517d8a
+      internalID: 235622214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_Fire00_FlameCartoon_L01_7x1_6
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 19
+        width: 46
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bed60c6e4d32aa8458dc53db7bb5ff4a
+      internalID: -359359355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +261,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FX_Fire00_FlameCartoon_L01_7x1_0: -2082830362
+      FX_Fire00_FlameCartoon_L01_7x1_1: 160047318
+      FX_Fire00_FlameCartoon_L01_7x1_2: 1353682403
+      FX_Fire00_FlameCartoon_L01_7x1_3: 1287213686
+      FX_Fire00_FlameCartoon_L01_7x1_4: 540613477
+      FX_Fire00_FlameCartoon_L01_7x1_5: 235622214
+      FX_Fire00_FlameCartoon_L01_7x1_6: -359359355
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

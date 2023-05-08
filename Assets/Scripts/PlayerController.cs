@@ -87,10 +87,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int K_HoldAttack_LR = Animator.StringToHash("K_HoldAttack_LR");
     private static readonly int K_AttackWalk_LR = Animator.StringToHash("K_AttackWalk_LR");
     private static readonly int K_HoldAttackWalk_LR = Animator.StringToHash("K_HoldAttackWalk_LR");
-    
-
-    
-    
+        
     //Unity Functions
     private void Awake(){
         instantance = this;
