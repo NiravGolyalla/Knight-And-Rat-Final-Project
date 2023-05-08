@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressurePlateOn: {fileID: -1511275645, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
-  pressurePlateOff: {fileID: -97770318, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
+  pressurePlateOff: {fileID: 1893449757, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
 --- !u!61 &5522903545351751859
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -87
-  m_Sprite: {fileID: -97770318, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
+  m_Sprite: {fileID: 1893449757, guid: 953a37fdfa9dd4845b7af116d48ad329, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

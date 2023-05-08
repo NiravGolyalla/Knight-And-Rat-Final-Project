@@ -19,6 +19,7 @@ public class GateController : MonoBehaviour
     public CutRopeController[] ropes;
     private BoxCollider2D gate;
     private SpriteRenderer gate_sprite;
+    [SerializeField] private bool open_toggle = true;
 
 
     // Start is called before the first frame update
@@ -33,14 +34,14 @@ public class GateController : MonoBehaviour
     {
         if (hasAllGoalsBeenCompleted())
         {
-            gate.isTrigger = true;
-            gate_sprite.sprite = gate_open;
+            gate.isTrigger = open_toggle;
+            gate_sprite.sprite = (open_toggle) ? gate_open:gate_closed;
            
         }
         else
         {
-            gate.isTrigger = false; 
-            gate_sprite.sprite = gate_closed;
+            gate.isTrigger = !open_toggle; 
+            gate_sprite.sprite = (open_toggle) ? gate_closed:gate_open;
         }
 
     }
