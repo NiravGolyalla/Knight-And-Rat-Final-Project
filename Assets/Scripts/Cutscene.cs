@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Cutscene : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class Cutscene : MonoBehaviour
     private bool fightStarted = false;
     private bool lastSentenceShown = false;
     public FallingBarrelSpawner fallingBarrelSpawner;
+    public GameObject explosionPrefab;
+    private bool bridgeDestroyed = false;
+    public Tilemap bridgeTilemap;
+    public GameObject grid;
+    public Tilemap swTilemap;
 
     void Start()
     {
@@ -25,8 +31,69 @@ public class Cutscene : MonoBehaviour
     {
         if ((other.gameObject.CompareTag("Rat") || other.gameObject.CompareTag("Knight")) && start_ == 0)
         {
-            start_ += 1;
+            StartCoroutine(TriggerCutsceneSequence());
         }
+    }
+
+    IEnumerator TriggerCutsceneSequence()
+    {
+        // Disable player movement
+        PlayerController.instantance.enabled = false;
+        PlayerController.instantance.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        // Destroy the bridge
+        DestroyBridge();
+
+        // Wait for 2 seconds
+        yield return new WaitForSeconds(2.0f);
+
+        // Enable player movement
+        PlayerController.instantance.enabled = true;
+
+        // Trigger the first dialogue
+        start_ += 1;
+    }
+
+    private void DestroyBridge()
+    {
+        grid = GameObject.Find("Grid");
+        if (grid == null)
+        {
+            Debug.LogError("Grid object not found in the scene.");
+            return;
+        }
+
+        Transform bridgeTransform = grid.transform.Find("BRIDGE");
+        if (bridgeTransform == null)
+        {
+            Debug.LogError("Bridge object not found in the scene.");
+            return;
+        }
+
+        bridgeTilemap = bridgeTransform.GetComponent<Tilemap>();
+        bridgeTransform.gameObject.SetActive(false);
+        Instantiate(explosionPrefab, bridgeTransform.position, Quaternion.identity, bridgeTransform).transform.localScale *= 5;
+
+        // Activate the "SW" tile
+        Tilemap[] tilemaps = grid.GetComponentsInChildren<Tilemap>(true);
+        Tilemap swTilemapComponent = null;
+
+        foreach (Tilemap tilemap in tilemaps)
+        {
+            if (tilemap.gameObject.name == "sw")
+            {
+                swTilemapComponent = tilemap;
+                break;
+            }
+        }
+
+        if (swTilemapComponent == null)
+        {
+            Debug.LogError("sw Tilemap not found in the scene.");
+            return;
+        }
+
+        swTilemapComponent.gameObject.SetActive(true);
     }
 
     void Update()
@@ -98,3 +165,4 @@ public class Cutscene : MonoBehaviour
         }
     }
 }
+
