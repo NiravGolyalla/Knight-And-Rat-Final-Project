@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  catnip: {fileID: 8493872730611703165, guid: a1d16e8ba1114d04387d8fb74132b12f, type: 3}
+  catnip: {fileID: 8493872730611703165, guid: f878f892ccd5642a1b1af0a1e9da4737, type: 3}
   c: {fileID: 889719932613609407, guid: 6c8186437e63c45488279c3477156c51, type: 3}
   hasCatnip: 1
   catnipTag: catnip
