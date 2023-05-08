@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524287311848206255, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}
       propertyPath: sounds.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2524287311848206255, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}
       propertyPath: sounds.Array.data[0].clip
@@ -175,6 +175,18 @@ PrefabInstance:
       value: DungeonBGM
       objectReference: {fileID: 0}
     - target: {fileID: 2524287311848206255, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 00379ff33019bab4c9495c70aa3c3ff7, type: 3}
+    - target: {fileID: 2524287311848206255, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}
+      propertyPath: sounds.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524287311848206255, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: BossMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524287311848206255, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}
       propertyPath: sounds.Array.data[0].pitch
       value: 1
       objectReference: {fileID: 0}
@@ -187,6 +199,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2524287311848206255, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524287311848206255, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}
       propertyPath: sounds.Array.data[0].volume
       value: 1
       objectReference: {fileID: 0}
@@ -196,6 +212,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524287311848206255, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}
       propertyPath: sounds.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524287311848206255, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}
+      propertyPath: sounds.Array.data[3].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3446244695826469075, guid: 677aa675218ca8240b7d494b85ec0982, type: 3}

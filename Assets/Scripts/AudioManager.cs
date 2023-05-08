@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
     }
 
     void Update() {
-        if (SceneManager.GetActiveScene().name == "Dungeon1" && !onDungeon) {
+        if ((SceneManager.GetActiveScene().name == "Dungeon1" || SceneManager.GetActiveScene().name == "DungeonLevel2.0") && !onDungeon) {
             Sound s = Array.Find(sounds, sound => sound.name == "DungeonBGM");
             // Stops the tutorial music 
             StopByName("TutorialBGM");
