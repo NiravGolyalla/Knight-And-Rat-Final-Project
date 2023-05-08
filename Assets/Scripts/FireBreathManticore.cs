@@ -186,7 +186,7 @@ public class FireBreathManticore : MonoBehaviour
 
             if (hits >= 2)
             {
-                 animator.SetTrigger("Death");
+        
                 StartCoroutine(DestroyAfterAnimation());
             }
 
@@ -225,8 +225,10 @@ public class FireBreathManticore : MonoBehaviour
     }
     IEnumerator DestroyAfterAnimation()
     {
-        yield return new WaitForSeconds(1f);
+        animator.SetTrigger("Death");
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
+        LevelManager.instance.LoadLevel("Start Menu");
     }
 
 }

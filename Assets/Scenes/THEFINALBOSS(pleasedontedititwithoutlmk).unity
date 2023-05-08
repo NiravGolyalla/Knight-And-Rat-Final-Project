@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &56335720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 56335721}
+  m_Layer: 0
+  m_Name: StupidObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &56335721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56335720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.23, y: 5.67, z: 0.330914}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &88793209
 GameObject:
   m_ObjectHideFlags: 0
@@ -75916,7 +75947,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1758919240, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: orthographic size
-      value: 6.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 1758919241, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75936,7 +75967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5337757580123146295, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 6.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 5722823206311332007, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_SortingOrder
@@ -76106,7 +76137,7 @@ PrefabInstance:
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: grid
       value: 
-      objectReference: {fileID: 582342026}
+      objectReference: {fileID: 582342025}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: swTilemap
       value: 
@@ -76121,7 +76152,7 @@ PrefabInstance:
       objectReference: {fileID: 8493872730611703165, guid: 858588f2a25364c3cb1cbf354e562553, type: 3}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: fallingBarrelSpawner
@@ -76160,6 +76191,14 @@ PrefabInstance:
       value: Manticore
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[4].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5e078e62c07a91f49b7dc9032ab4a6a6, type: 3}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[4].name
+      value: Manticore
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.data[0].sentences.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -76173,6 +76212,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.data[3].sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
@@ -76212,6 +76255,18 @@ PrefabInstance:
       propertyPath: dialogue.Array.data[3].sentences.Array.data[2]
       value: You're going to need something really intriguing to make me come down
         there...
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.data[0]
+      value: You insolent peasant!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.data[1]
+      value: Why do you keep fighting for her?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[4].sentences.Array.data[2]
+      value: I'll show you something...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
