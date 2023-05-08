@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [Header("Setup Variables")]
     [SerializeField] private GameObject rat;
     [SerializeField] private GameObject knight;
+    [SerializeField] private GameObject ratIcon;
+    [SerializeField] private GameObject knightIcon;
     [SerializeField] private Sword sw;
     [SerializeField] public Bar_Controller healthBar;
     [SerializeField] private Bar_Controller staminaBar;
@@ -103,6 +105,9 @@ public class PlayerController : MonoBehaviour
 
         rat.SetActive(!isKnightController);
         knight.SetActive(isKnightController);
+
+        ratIcon.SetActive(!isKnightController);
+        knightIcon.SetActive(isKnightController);
         
         currAnimator = isKnightController ? knightAnimator : ratAnimator;
         currentState = isKnightController ? K_Idle_LR : R_Idle_LR;
@@ -155,6 +160,8 @@ public class PlayerController : MonoBehaviour
             isKnightController = !isKnightController;
             rat.SetActive(!isKnightController);
             knight.SetActive(isKnightController);
+            ratIcon.SetActive(!isKnightController);
+            knightIcon.SetActive(isKnightController);
             currAnimator = isKnightController ? knightAnimator : ratAnimator;
             formBar.setValue(0f);
         }
