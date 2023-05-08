@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5467637521746252432}
   - component: {fileID: 2687932284416911608}
+  - component: {fileID: 2771517621064028586}
   - component: {fileID: 3903750148133673029}
   - component: {fileID: 1908960735988924814}
   m_Layer: 0
-  m_Name: poof
-  m_TagString: Untagged
+  m_Name: bosscatnip
+  m_TagString: catnip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 250
-  m_Sprite: {fileID: 1933276810, guid: 65ee15084f7c26f46b660d5933a76da3, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1310088117, guid: 7a63ee2282ab2944bb9c42f39935b203, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,6 +87,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &2771517621064028586
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8493872730611703165}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!95 &3903750148133673029
 Animator:
   serializedVersion: 5
@@ -96,7 +113,7 @@ Animator:
   m_GameObject: {fileID: 8493872730611703165}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 86b3d20d7da4fdc4eaa8f0f8e0c56daf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 27f83c1b1eeaa44f5a2fa134f50e97fe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

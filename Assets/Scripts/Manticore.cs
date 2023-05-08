@@ -262,7 +262,9 @@ public class Manticore : MonoBehaviour
         isChasingCatnip = false;
         animator.SetBool("isChasingCatnip", false);
         animator.SetBool("isFlying", false);
+    
     }
+    
 
     IEnumerator ConsumeCatnip()
     {

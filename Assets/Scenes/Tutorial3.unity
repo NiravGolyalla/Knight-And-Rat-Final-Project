@@ -393,7 +393,7 @@ Transform:
   - {fileID: 1978016984}
   - {fileID: 66867502}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &182186571
 GameObject:
@@ -1032,7 +1032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 181790219069183562, guid: 221e536ba69192949991152e32f28fda, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 181790219069183562, guid: 221e536ba69192949991152e32f28fda, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36185,6 +36185,20 @@ PrefabInstance:
       value: I advise speaking to the Scientist above before leaving. When you're
         ready, hit that lever and save the Princess!
       objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_text
+      value: 'Commander Rat
+
+        ''e'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSize
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
 --- !u!4 &1978016984 stripped
@@ -54254,6 +54268,20 @@ PrefabInstance:
       value: I advise speaking to the Scientist above before leaving. When you're
         ready, hit that lever and save the Princess!
       objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_text
+      value: 'Scientist Rat
+
+        ''e'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSize
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
 --- !u!4 &2037794180 stripped
@@ -54405,15 +54433,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.83
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.83
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.83
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalPosition.x

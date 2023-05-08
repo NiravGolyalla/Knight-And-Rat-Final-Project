@@ -332,6 +332,20 @@ PrefabInstance:
       propertyPath: dialogue.sentences.Array.data[3]
       value: 'THEY"RE TELLING '
       objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_text
+      value: 'Helper Rat
+
+        ''e'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSize
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.38
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
 --- !u!4 &57578624 stripped
@@ -1756,15 +1770,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4087,6 +4101,24 @@ PrefabInstance:
     - target: {fileID: 4788574083380285263, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
       value: If you REALLY messed up, press (R) to restart the level from the beginning.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_text
+      value: 'Soldier Rat
+
+        ''e'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSize
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
@@ -10962,15 +10994,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6449215851763475385, guid: a272ffdab867874439ba205b8277692e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -48354,6 +48386,20 @@ PrefabInstance:
       propertyPath: dialogue.sentences.Array.data[3]
       value: 'THEY"RE TELLING '
       objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_text
+      value: 'Scout Rat
+
+        ''e'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSize
+      value: 0.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.44
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
 --- !u!4 &1892164466 stripped
@@ -49165,6 +49211,20 @@ PrefabInstance:
     - target: {fileID: 4788574083380285263, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
       propertyPath: dialogue.sentences.Array.data[3]
       value: 'THEY"RE TELLING '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_text
+      value: 'Cowardly Rat
+
+        ''e'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSize
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
@@ -50613,6 +50673,20 @@ PrefabInstance:
     - target: {fileID: 4788574083380285263, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
       value: If you REALLY messed up, press (R) to restart the level from the beginning.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_text
+      value: 'Helper Rat
+
+        ''e'''
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSize
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4788574084648627307, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.39
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f2a40cd441fb14aa5f38af7dbcff51, type: 3}

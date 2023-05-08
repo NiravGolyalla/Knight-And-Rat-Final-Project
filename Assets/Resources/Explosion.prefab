@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3903750148133673029}
   - component: {fileID: 1908960735988924814}
   m_Layer: 0
-  m_Name: poof
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 250
-  m_Sprite: {fileID: 1933276810, guid: 65ee15084f7c26f46b660d5933a76da3, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -1567136156, guid: ad3760b01dedd4fe092a0ec21fbbcca5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 8493872730611703165}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 86b3d20d7da4fdc4eaa8f0f8e0c56daf, type: 2}
+  m_Controller: {fileID: 9100000, guid: c7b9b7256b93e40ea8f6e32333a94cbb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
