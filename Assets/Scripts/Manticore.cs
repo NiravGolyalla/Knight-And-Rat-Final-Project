@@ -18,7 +18,6 @@ public class Manticore : MonoBehaviour
     private Transform target;
     private bool isFacingRight = true;
     private float fireballTimer = 0f;
-    private float fireballChance = 0.3f;
     private bool isCutsceneActive = true;
 
     public float catnipDetectionRange = 10f;
@@ -40,6 +39,12 @@ public class Manticore : MonoBehaviour
 
     private bool hasDescended = false;
 
+    public int stage = 1;
+
+    public Cutscene cutscene;
+
+    private bool fightStarted = false;
+    public FallingBarrelSpawner fallingBarrelSpawner;
 
     void Start()
     {
@@ -47,11 +52,25 @@ public class Manticore : MonoBehaviour
         hitboxCollider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
+        Flip();
 
     }
 
     void Update()
     {
+        
+        if (!fightStarted)
+        {
+            return;
+            
+        }
+
+        if (stage == 2)
+        {
+            fallingBarrelSpawner.StopSpawningBarrels();
+            return; 
+        }
+
         if (isCutsceneActive)
         {
             animator.SetBool("isFlying", true);
@@ -145,6 +164,12 @@ public class Manticore : MonoBehaviour
 
     IEnumerator ShootFireballs()
     {
+
+        if (stage == 2)
+        {
+            yield break; // Disable shooting fireballs in stage 2
+        }
+
         animator.SetTrigger("shoot");
 
         yield return new WaitForSeconds(0.5f);
@@ -168,7 +193,7 @@ public class Manticore : MonoBehaviour
         fireball.GetComponent<Rigidbody2D>().velocity = direction * fireballSpeed;
     }
 
-    void Flip()
+    public void Flip()
     {
         isFacingRight = !isFacingRight;
         Vector3 scale = transform.localScale;
@@ -179,12 +204,6 @@ public class Manticore : MonoBehaviour
     public bool IsCutsceneActive()
     {
         return isCutsceneActive;
-    }
-
-    public void EndCutscene()
-    {
-        isCutsceneActive = false;
-        animator.SetBool("isFlying", false);
     }
 
     void UpdateTarget()
@@ -222,6 +241,11 @@ public class Manticore : MonoBehaviour
     }
     IEnumerator ChaseCatnip(GameObject catnip)
     {
+
+        if (stage == 2)
+        {
+            yield break; // Disable chasing catnip in stage 2
+        }
         animator.SetBool("isChasingCatnip", true);
         animator.SetBool("isFlying", true);
         isChasingCatnip = true;
@@ -313,4 +337,14 @@ public class Manticore : MonoBehaviour
         spriteRenderer.color = originalColor;
     }
 
+    public bool IsFacingRight()
+    {
+        return isFacingRight;
+    }
+
+    public void StartFight()
+    {
+        fightStarted = true;
+        isCutsceneActive = false;
+    }
 }

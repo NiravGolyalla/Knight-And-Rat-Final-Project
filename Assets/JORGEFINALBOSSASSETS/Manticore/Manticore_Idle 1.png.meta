@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2a0659794ae9f874291d06861c459153
+guid: f24b37027735a9c4bb3162cdd83444e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -108,10 +108,10 @@ TextureImporter:
       name: Manticore_Idle_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
         y: 0
-        width: 108
-        height: 108
+        width: 80
+        height: 68
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +129,10 @@ TextureImporter:
       name: Manticore_Idle_1
       rect:
         serializedVersion: 2
-        x: 108
+        x: 118
         y: 0
-        width: 108
-        height: 108
+        width: 77
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: Manticore_Idle_2
       rect:
         serializedVersion: 2
-        x: 216
+        x: 232
         y: 0
-        width: 108
-        height: 108
+        width: 71
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: Manticore_Idle_3
       rect:
         serializedVersion: 2
-        x: 324
+        x: 333
         y: 0
-        width: 108
-        height: 108
+        width: 78
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: Manticore_Idle_4
       rect:
         serializedVersion: 2
-        x: 432
+        x: 438
         y: 0
-        width: 108
-        height: 108
+        width: 81
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
