@@ -100,9 +100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd731f7adf86474aad9c4c46b7fb01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   catnip: {fileID: 8493872730611703165, guid: a1d16e8ba1114d04387d8fb74132b12f, type: 3}
   c: {fileID: 5144844752741041135}
   hasCatnip: 1
+  catnipTag: catnip
 --- !u!95 &2321301495744908961
 Animator:
   serializedVersion: 5
@@ -150,6 +152,10 @@ PrefabInstance:
     - target: {fileID: 889719932613609407, guid: 6c8186437e63c45488279c3477156c51, type: 3}
       propertyPath: m_Name
       value: Catnip_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 889719932613609407, guid: 6c8186437e63c45488279c3477156c51, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4780887104747893130, guid: 6c8186437e63c45488279c3477156c51, type: 3}
       propertyPath: m_RootOrder

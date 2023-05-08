@@ -89,10 +89,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int K_HoldAttack_LR = Animator.StringToHash("K_HoldAttack_LR");
     private static readonly int K_AttackWalk_LR = Animator.StringToHash("K_AttackWalk_LR");
     private static readonly int K_HoldAttackWalk_LR = Animator.StringToHash("K_HoldAttackWalk_LR");
-    
-
-    
-    
+        
     //Unity Functions
     private void Awake(){
         instantance = this;
@@ -132,14 +129,12 @@ public class PlayerController : MonoBehaviour
             regenBar(healthBar,0.1f);
             regenBar(staminaBar,2f);
             regenBar(formBar,7f);
+            Movement();
         }
         cooldownBuffer += Time.deltaTime;
         if(healthBar.getValue()<= 0f){LevelManager.instance.Reload();}
     }
 
-    private void FixedUpdate(){
-        if(Time.timeScale != 0){Movement();}
-    }
 
     //Actions
     private void cInput(){

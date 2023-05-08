@@ -8721,6 +8721,11 @@ Transform:
   m_Father: {fileID: 1900726407}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1641656882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 414068379924624114, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+  m_PrefabInstance: {fileID: 414068378236680221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1814636620
 GameObject:
   m_ObjectHideFlags: 0
@@ -74705,6 +74710,11 @@ MonoBehaviour:
   animator: {fileID: 1984028798}
   targetObject: {fileID: 438042345}
   runSpeed: 5
+  firePoint: {fileID: 1641656882}
+  fireProjectilePrefab: {fileID: 3902199642617433380, guid: 2b7e175e310db484e8487712de269484, type: 3}
+  fireProjectileCount: 20
+  fireProjectileInterval: 0.05
+  fireProjectileAngleRange: 90
 --- !u!1001 &414068378236680221
 PrefabInstance:
   m_ObjectHideFlags: 0

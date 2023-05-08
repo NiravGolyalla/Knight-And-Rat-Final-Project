@@ -108,7 +108,7 @@ MonoBehaviour:
   enemySpace: 1.1
   searchRadius: 3
   center: {x: 0, y: 0}
-  knockStrength: 1.5
+  knockStrength: 3
 --- !u!114 &2511165482302940963
 MonoBehaviour:
   m_ObjectHideFlags: 0
