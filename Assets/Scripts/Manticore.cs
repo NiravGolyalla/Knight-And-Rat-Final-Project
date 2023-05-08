@@ -241,13 +241,12 @@ public class Manticore : MonoBehaviour
     }
     IEnumerator ChaseCatnip(GameObject catnip)
     {
-
         if (stage == 2)
         {
             yield break; // Disable chasing catnip in stage 2
         }
-        animator.SetBool("isChasingCatnip", true);
         animator.SetBool("isFlying", true);
+        animator.ResetTrigger("shoot");
         isChasingCatnip = true;
         fireballTimer = 0f; 
         Vector2 direction = (catnip.transform.position - transform.position).normalized;
@@ -260,8 +259,7 @@ public class Manticore : MonoBehaviour
 
         yield return null;
         isChasingCatnip = false;
-        animator.SetBool("isChasingCatnip", false);
-        animator.SetBool("isFlying", false);
+
     
     }
     
@@ -303,8 +301,9 @@ public class Manticore : MonoBehaviour
             float progress = elapsed / ascendDuration;
             transform.localScale = Vector3.Lerp(targetScale, startScale, progress);
             yield return null;
+            
         }
-
+        animator.SetBool("isFlying", false);
         // Reset scale
         transform.localScale = startScale;
 
@@ -312,6 +311,7 @@ public class Manticore : MonoBehaviour
         fireballTimer = 0f;
 
         isConsumingCatnip = false;
+
     }
 
 

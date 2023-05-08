@@ -7974,6 +7974,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Respawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3418045282222039462, guid: 101b65fcb0e4db049938d2eea6bfa07c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 3418045282222039463, guid: 101b65fcb0e4db049938d2eea6bfa07c, type: 3}
       propertyPath: item
       value: 
@@ -9880,6 +9884,10 @@ PrefabInstance:
     - target: {fileID: 3418045282222039460, guid: 101b65fcb0e4db049938d2eea6bfa07c, type: 3}
       propertyPath: m_Name
       value: Respawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418045282222039462, guid: 101b65fcb0e4db049938d2eea6bfa07c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3418045282222039463, guid: 101b65fcb0e4db049938d2eea6bfa07c, type: 3}
       propertyPath: item
@@ -76005,7 +76013,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: health
-      value: 240
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: cutscene
@@ -76020,12 +76028,24 @@ PrefabInstance:
       value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: ascendDuration
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: descendDuration
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: fallingBarrelSpawner
       value: 
       objectReference: {fileID: 961720887}
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: catnipConsumptionDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: catnipChaseSpeedMultiplier
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 414068379943000604, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: m_RootOrder
