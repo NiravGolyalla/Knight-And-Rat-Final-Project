@@ -76017,7 +76017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: fireballSpeed
-      value: 100
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: fallingBarrelSpawner
@@ -76025,7 +76025,7 @@ PrefabInstance:
       objectReference: {fileID: 961720887}
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: catnipChaseSpeedMultiplier
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 414068379943000604, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: m_RootOrder
