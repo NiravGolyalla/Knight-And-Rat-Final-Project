@@ -18,7 +18,6 @@ public class Manticore : MonoBehaviour
     private Transform target;
     private bool isFacingRight = true;
     private float fireballTimer = 0f;
-    private float fireballChance = 0.3f;
     private bool isCutsceneActive = true;
 
     public float catnipDetectionRange = 10f;
