@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     //State Variables
     public static bool isKnightController = false;
     private bool isMoving = false;
-    private bool isAttacking = false;
+    public bool isAttacking = false;
     private bool isDashing = false;
     private bool isRecovering = false;
     private bool isHeld = false;
