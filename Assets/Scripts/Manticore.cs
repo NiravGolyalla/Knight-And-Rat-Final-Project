@@ -25,7 +25,7 @@ public class Manticore : MonoBehaviour
     public float catnipConsumptionDuration = 1f;
     public float descendDuration = 1.5f;
     public float ascendDuration = 0.3f;
-    public int health = 120;
+    public int health = 240;
     public int damagePerHit = 20;
 
     private bool isChasingCatnip = false;
@@ -325,6 +325,12 @@ public class Manticore : MonoBehaviour
     {
         if (!isConsumingCatnip || !hitboxCollider.enabled) return;
 
+        health -= damage;
+        StartCoroutine(ShowDamageTaken());
+
+    }
+    public void TakeDamage2(int damage)
+    {
         health -= damage;
         StartCoroutine(ShowDamageTaken());
 

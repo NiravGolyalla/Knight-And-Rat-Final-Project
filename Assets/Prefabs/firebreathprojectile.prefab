@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6072947160666742396}
   - component: {fileID: -5251409967024344917}
   - component: {fileID: 4573785527951934202}
+  - component: {fileID: -5555501484067503864}
   m_Layer: 0
   m_Name: firebreathprojectile
   m_TagString: Untagged
@@ -142,6 +143,20 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010947347, y: -0.010947168}
+  m_Offset: {x: -0.0010483414, y: -0.0055476725}
   serializedVersion: 2
-  m_Radius: 0.167939
+  m_Radius: 0.11664511
+--- !u!114 &-5555501484067503864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3902199642617433380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43aa2d497dbe7144a6b2b7c9806bf87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.2
+  lifeTime: 15

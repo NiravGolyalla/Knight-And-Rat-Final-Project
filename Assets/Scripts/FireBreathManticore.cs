@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireBreathManticore : MonoBehaviour
 {
     public Animator animator;
-    private Manticore manticore;
+    public Manticore manticore;
     private bool stage2Started = false;
     public GameObject targetObject;
     public float runSpeed = 10f;
@@ -16,17 +16,23 @@ public class FireBreathManticore : MonoBehaviour
     public float fireProjectileInterval = 0.05f;
     public float fireProjectileAngleRange = 90f;
 
+    public GameObject bouncePoint;
+    public int hits = 0;
+    private CircleCollider2D hitboxCollider;
+
     void Start()
     {
         manticore = GetComponent<Manticore>();
+        hitboxCollider = GetComponent<CircleCollider2D>();
     }
 
     void Update()
     {
-        if (manticore.health <= 60 && !stage2Started)
+        if (manticore.health <= 150 && !stage2Started)
         {
             manticore.stage = 2;
             stage2Started = true;
+            hits = 0;
             StartCoroutine(Stage2Sequence());
         }
     }
@@ -35,6 +41,7 @@ public class FireBreathManticore : MonoBehaviour
     {
         // Check if Manticore is initially facing right and store this information
         bool initiallyFacingRight = manticore.IsFacingRight();
+        hits = 0;
 
         // If Manticore is initially facing left, flip the sprite before the tired animation
         if (!initiallyFacingRight)
@@ -54,18 +61,31 @@ public class FireBreathManticore : MonoBehaviour
 
         animator.SetBool("Running", true);
         yield return StartCoroutine(RunTowardsTarget());
+        animator.SetBool("Running", false);
 
         if (initiallyFacingRight)
         {
             manticore.Flip();
         }
-        // Ensure Manticore is facing right before the fire breath attack
-        animator.SetTrigger("FireBreath");
-        yield return StartCoroutine(FireBreathAttack());
-        yield return new WaitForSeconds(3f); // Manticore tired for 3 seconds
+        hits = 0;
+        if (!initiallyFacingRight)
+        {
+                manticore.Flip();
+        }
+        StartCoroutine(RepeatedFireBreathAttack());
         animator.SetTrigger("Tired");
+        hitboxCollider.enabled = false;
+        yield return new WaitForSeconds(4f);
     }
-
+    IEnumerator RepeatedFireBreathAttack()
+    {
+        while (hits < 2)
+        { 
+            animator.SetTrigger("FireBreath");
+            yield return StartCoroutine(FireBreathAttack());
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
     IEnumerator RunTowardsTarget()
     {
         // Wait for the running animation to start
@@ -95,24 +115,33 @@ public class FireBreathManticore : MonoBehaviour
             yield return null;
         }
     }
-
     IEnumerator FireBreathAttack()
     {
+        // Turn on the hitbox collider
+        hitboxCollider.enabled = true;
         
-        for (int i = 0; i < 2; i++) // Two instances of the fire breath attack
-        {
-            float startAngle = (i == 0) ? -45f : 45f;
-            float angleStep = fireProjectileAngleRange / (fireProjectileCount - 1);
+        // Spawn fire projectiles
+        float startAngle = -45f;
+        float angleStep = fireProjectileAngleRange / (fireProjectileCount - 1);
 
-            for (int j = 0; j < fireProjectileCount; j++)
+        int missingFireballsStartIndex = Random.Range(0, fireProjectileCount - 5);
+
+        for (int j = 0; j < fireProjectileCount; j++)
+        {
+            if (j < missingFireballsStartIndex || j >= missingFireballsStartIndex + 5)
             {
                 float angle = startAngle + angleStep * j;
                 SpawnFireProjectile(angle);
-                yield return new WaitForSeconds(fireProjectileInterval);
             }
-
-            yield return new WaitForSeconds(2.75f); // Time between fire breath attacks
+            yield return new WaitForSeconds(fireProjectileInterval);
         }
+
+        // Wait for some time before turning off the collider
+        yield return new WaitForSeconds(0.55f);
+        
+        // Turn off the hitbox collider
+         hitboxCollider.enabled = false;
+        
     }
 
     void SpawnFireProjectile(float angle)
@@ -122,6 +151,35 @@ public class FireBreathManticore : MonoBehaviour
         GameObject fireProjectile = Instantiate(fireProjectilePrefab, firePoint.transform.position, Quaternion.identity);
         fireProjectile.GetComponent<Rigidbody2D>().velocity = direction * runSpeed;
         Destroy(fireProjectile, 5f);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Sword") && hitboxCollider.enabled && stage2Started)
+        {
+            Debug.Log("Sword hit Manticore");
+            // Take damage from the sword
+            manticore.TakeDamage2(20);
+            
+            // Start knockback coroutine for the player
+            StartCoroutine(KnockbackPlayer(collision.gameObject));
+        }
+    }
+
+    IEnumerator KnockbackPlayer(GameObject player)
+    {
+        Vector3 originalPosition = player.transform.position;
+        float knockbackTime = 0.25f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < knockbackTime)
+        {
+            player.transform.position = Vector3.Lerp(originalPosition, bouncePoint.transform.position, elapsedTime / knockbackTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        player.transform.position = bouncePoint.transform.position;
     }
 
 }
