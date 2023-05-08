@@ -126,11 +126,11 @@ public class FireBreathManticore : MonoBehaviour
         float startAngle = -45f;
         float angleStep = fireProjectileAngleRange / (fireProjectileCount - 1);
 
-        int missingFireballsStartIndex = Random.Range(0, fireProjectileCount - 5);
+        int missingFireballsStartIndex = Random.Range(0, fireProjectileCount - 8);
 
         for (int j = 0; j < fireProjectileCount; j++)
         {
-            if (j < missingFireballsStartIndex || j >= missingFireballsStartIndex + 5)
+            if (j < missingFireballsStartIndex || j >= missingFireballsStartIndex + 8)
             {
                 float angle = startAngle + angleStep * j;
                 SpawnFireProjectile(angle);
@@ -186,8 +186,8 @@ public class FireBreathManticore : MonoBehaviour
 
             if (hits >= 2)
             {
-                stopFireBreathAttack = true;
-                animator.SetBool("Running", true);
+                 animator.SetTrigger("Death");
+                StartCoroutine(DestroyAfterAnimation());
             }
 
         }
@@ -222,6 +222,11 @@ public class FireBreathManticore : MonoBehaviour
 
         Vector3 B = uu * p0 + 2 * u * t * p1 + tt * p2;
         return B;
+    }
+    IEnumerator DestroyAfterAnimation()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
 }

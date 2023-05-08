@@ -74892,9 +74892,9 @@ MonoBehaviour:
   runSpeed: 5
   firePoint: {fileID: 491551931}
   fireProjectilePrefab: {fileID: 3902199642617433380, guid: 2b7e175e310db484e8487712de269484, type: 3}
-  fireProjectileCount: 45
+  fireProjectileCount: 40
   fireProjectileInterval: 0.05
-  fireProjectileAngleRange: 160
+  fireProjectileAngleRange: 130
   bouncePoint: {fileID: 343020876}
   hits: 0
 --- !u!114 &1984028804 stripped
