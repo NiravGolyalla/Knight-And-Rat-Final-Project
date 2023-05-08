@@ -14,7 +14,7 @@ public class CutRopeController : MonoBehaviour
     public bool hasBeenCut() { return isCut; }
     void Start()
     {
-        numOfCuts = 3;
+        numOfCuts = 1;
     }
 
     // Update is called once per frame
