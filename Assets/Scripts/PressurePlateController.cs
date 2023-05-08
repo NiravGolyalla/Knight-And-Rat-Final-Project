@@ -5,7 +5,7 @@ using UnityEngine;
 public class PressurePlateController : MonoBehaviour
 {
     
-    bool activate;
+    public bool activate;
 
     public Sprite pressurePlateOn;
     public Sprite pressurePlateOff;

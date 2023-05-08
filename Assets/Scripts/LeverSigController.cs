@@ -9,6 +9,8 @@ public class LeverSigController : MonoBehaviour
     public Sprite turnedOnSprite;
 
     public LeverController lever;
+    public PressurePlateController pre;
+    [SerializeField] private bool pred = false;
     private SpriteRenderer sr;
 
     // Start is called before the first frame update
@@ -21,13 +23,24 @@ public class LeverSigController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lever.isOn())
-        {
-            sr.sprite = turnedOnSprite;
+        if(pred){
+            if(pre.activate){
+                sr.sprite = turnedOnSprite;
+            }
+            else
+            {
+                sr.sprite = turnedOffSprite;
+            }
+        } else{
+            if (lever.isOn())
+            {
+                sr.sprite = turnedOnSprite;
+            }
+            else
+            {
+                sr.sprite = turnedOffSprite;
+            }
         }
-        else
-        {
-            sr.sprite = turnedOffSprite;
-        }
+        
     }
 }

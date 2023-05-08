@@ -131616,6 +131616,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 979742455295241456, guid: 7686e537eb178f442a1f1732c52ef244, type: 3}
+      propertyPath: nextLevel
+      value: Dungeon3
+      objectReference: {fileID: 0}
     - target: {fileID: 979742455295241469, guid: 7686e537eb178f442a1f1732c52ef244, type: 3}
       propertyPath: m_Name
       value: SceneSwap_HitBox
@@ -134443,11 +134447,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9194944115906116528, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.4
+      value: -22.6
       objectReference: {fileID: 0}
     - target: {fileID: 9194944115906116528, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.3
+      value: -8.4
       objectReference: {fileID: 0}
     - target: {fileID: 9194944115906116528, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_LocalPosition.z
