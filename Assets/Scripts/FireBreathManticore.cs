@@ -19,6 +19,7 @@ public class FireBreathManticore : MonoBehaviour
     public GameObject bouncePoint;
     public int hits = 0;
     private CircleCollider2D hitboxCollider;
+    private bool stopFireBreathAttack = false;
 
     void Start()
     {
@@ -79,7 +80,8 @@ public class FireBreathManticore : MonoBehaviour
     }
     IEnumerator RepeatedFireBreathAttack()
     {
-        while (hits < 2)
+        stopFireBreathAttack = false;
+        while (hits < 2 && !stopFireBreathAttack)
         { 
             animator.SetTrigger("FireBreath");
             yield return StartCoroutine(FireBreathAttack());
@@ -160,26 +162,66 @@ public class FireBreathManticore : MonoBehaviour
             Debug.Log("Sword hit Manticore");
             // Take damage from the sword
             manticore.TakeDamage2(20);
-            
-            // Start knockback coroutine for the player
-            StartCoroutine(KnockbackPlayer(collision.gameObject));
+
+            // Find the parent GameObject with the "Knight" or "Rat" tag
+            Transform currentParent = collision.transform.parent;
+            GameObject playerContainer = null;
+
+            while (currentParent != null)
+            {
+                if (currentParent.CompareTag("Knight") || currentParent.CompareTag("Rat"))
+                {
+                    playerContainer = currentParent.parent.gameObject;
+                    break;
+                }
+                currentParent = currentParent.parent;
+            }
+
+            if (playerContainer != null)
+            {
+                // Start knockback coroutine for the player container
+                StartCoroutine(KnockbackPlayer(playerContainer));
+            }
+            hits++;
+
+            if (hits >= 2)
+            {
+                stopFireBreathAttack = true;
+                animator.SetBool("Running", true);
+            }
+
         }
     }
 
     IEnumerator KnockbackPlayer(GameObject player)
     {
         Vector3 originalPosition = player.transform.position;
-        float knockbackTime = 0.25f;
+        Vector3 peakPosition = originalPosition + (bouncePoint.transform.position - originalPosition) / 2 + Vector3.up * 2f; // Adjust the "2f" value to control the height of the bounce
+        Vector3 finalPosition = bouncePoint.transform.position;
+
+        float knockbackTime = 1f; // Increase the knockback time for a more subtle effect
         float elapsedTime = 0f;
+        float t;
 
         while (elapsedTime < knockbackTime)
         {
-            player.transform.position = Vector3.Lerp(originalPosition, bouncePoint.transform.position, elapsedTime / knockbackTime);
+            t = elapsedTime / knockbackTime;
+            player.transform.position = CalculateBezierPoint(t, originalPosition, peakPosition, finalPosition);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        player.transform.position = bouncePoint.transform.position;
+        player.transform.position = finalPosition;
+    }
+
+    Vector3 CalculateBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
+    {
+        float u = 1 - t;
+        float tt = t * t;
+        float uu = u * u;
+
+        Vector3 B = uu * p0 + 2 * u * t * p1 + tt * p2;
+        return B;
     }
 
 }
