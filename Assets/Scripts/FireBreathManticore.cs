@@ -37,7 +37,7 @@ public class FireBreathManticore : MonoBehaviour
 
     void Update()
     {
-        if (manticore.health <= 60 && !stage2Started)
+        if (manticore.health <= 100 && !stage2Started)
         {
             manticore.stage = 2;
             stage2Started = true;
@@ -54,7 +54,7 @@ public class FireBreathManticore : MonoBehaviour
     {
         bool initiallyFacingRight = manticore.IsFacingRight();
         hits = 0;
-
+        hitboxCollider.enabled = false;
         // If initially facing right.
         if (initiallyFacingRight)
         {
@@ -78,6 +78,7 @@ public class FireBreathManticore : MonoBehaviour
             yield return StartCoroutine(RunTowardsTarget());
             animator.SetBool("Running", false);
         }
+        hitboxCollider.enabled = true;
         manticore.Flip();
         animator.SetTrigger("FireBreath");
 
@@ -124,7 +125,7 @@ public class FireBreathManticore : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Sword") && hitboxCollider.enabled && stage2Started && animator.GetCurrentAnimatorStateInfo(0).IsName("FireBreath"))
+        if (collision.gameObject.CompareTag("Sword") && hitboxCollider.enabled && stage2Started)
         {
             Debug.Log("Sword hit Manticore");
             manticore.TakeDamage2(20);
@@ -143,23 +144,18 @@ public class FireBreathManticore : MonoBehaviour
             }
 
             if (playerContainer != null)
-            {
+            { 
                 StartCoroutine(KnockbackPlayer(playerContainer));
             }
             hits++;
-
-            if (manticore.health <= 0)
-            {
-                StartCoroutine(DestroyAfterAnimation());
-            }
         }
     }
-    IEnumerator DestroyAfterAnimation()
-    {      
-        Camera.main.orthographicSize = 10f;  
+    public IEnumerator DestroyAfterAnimation()
+    {    
         animator.SetTrigger("Death");
-        yield return new WaitForSeconds(2f);    
+        yield return new WaitForSeconds(6); 
         Destroy(gameObject);    
+        LevelManager.instance.LoadLevel("Start Menu");
     }
 
     IEnumerator KnockbackPlayer(GameObject player)

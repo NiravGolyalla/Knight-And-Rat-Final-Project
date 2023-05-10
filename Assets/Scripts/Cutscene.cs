@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class Cutscene : MonoBehaviour
 {
     public Manticore manticore;
+    public FireBreathManticore manticores;
     public List<Dialogue> dialogue;
     private int start_ = 0;
     private Queue<Dialogue> dialouges;
@@ -20,11 +21,7 @@ public class Cutscene : MonoBehaviour
 
     void Start()
     {
-        dialouges = new Queue<Dialogue>();
-        foreach (Dialogue d in dialogue)
-        {
-            dialouges.Enqueue(d);
-        }
+        dialouges = new Queue<Dialogue>(dialogue);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -45,9 +42,8 @@ public class Cutscene : MonoBehaviour
         // Wait for 2 seconds
         yield return new WaitForSeconds(0.1f);
 
-
         // Trigger the first dialogue
-        start_ += 1;
+        start_++;
     }
 
     private void DestroyBridge()
@@ -68,7 +64,6 @@ public class Cutscene : MonoBehaviour
 
         bridgeTilemap = bridgeTransform.GetComponent<Tilemap>();
         bridgeTransform.gameObject.SetActive(false);
-        
 
         // Activate the "SW" tile
         Tilemap[] tilemaps = grid.GetComponentsInChildren<Tilemap>(true);
@@ -100,7 +95,7 @@ public class Cutscene : MonoBehaviour
             {
                 Dialogue d = dialouges.Dequeue();
                 DialogueManager.instance.StartDialogue(d);
-                start_ += 1;
+                start_++;
             }
         }
         else if (start_ == 4 && !DialogueManager.instance.speaking && !fightStarted && dialouges.Count > 0)
@@ -116,36 +111,33 @@ public class Cutscene : MonoBehaviour
         else if (start_ == 5 && lastSentenceShown && !DialogueManager.instance.speaking && !fightStarted)
         {
             fightStarted = true;
+            lastSentenceShown = false;
             // Start the fight here
             manticore.StartFight();
             fallingBarrelSpawner.StartSpawningBarrels();
+            start_ += 1;
+
         }
-        else if (fightStarted)
+        else if (start_ == 6 && !DialogueManager.instance.speaking && manticore.health <=100)
         {
-            // Check Manticore's health and trigger dialogues based on health
-            if (manticore.health == 0 && start_ == 5 && !DialogueManager.instance.speaking && dialouges.Count > 0)
-            {
-                Dialogue d = dialouges.Dequeue();
-                DialogueManager.instance.StartDialogue(d);
-                start_ += 1;
-            }
-            else if (start_ == 7 && !DialogueManager.instance.speaking && dialouges.Count > 0)
-            {
-                Dialogue d = dialouges.Dequeue();
-                DialogueManager.instance.StartDialogue(d);
-                start_ += 1;
-            }
-            else if (start_ == 8 && !DialogueManager.instance.speaking && dialouges.Count > 0)
-            {
-                Dialogue d = dialouges.Dequeue();
-                DialogueManager.instance.StartDialogue(d);
-                start_ += 1;
-            }
-            else if (start_ == 9 && !DialogueManager.instance.speaking && dialouges.Count > 0)
-            {
-                // LevelManager.instance.LoadLevel("Start Menu");
-            }
+            Dialogue d = dialouges.Dequeue();
+            DialogueManager.instance.StartDialogue(d);
+            start_ += 1;
+
         }
+        else if (start_ == 7 && !DialogueManager.instance.speaking && manticore.health == 0)
+        {
+            Dialogue d = dialouges.Dequeue();
+            DialogueManager.instance.StartDialogue(d);
+            start_ += 1;
+            lastSentenceShown = true;
+            fightStarted = false;
+        }
+        else if (start_ == 8 && lastSentenceShown && !DialogueManager.instance.speaking && !fightStarted)
+        {
+            manticores.StartCoroutine(manticores.DestroyAfterAnimation());
+        }
+
 
         if (DialogueManager.instance.speaking && Input.GetKeyDown(KeyCode.E))
         {
@@ -161,4 +153,3 @@ public class Cutscene : MonoBehaviour
         }
     }
 }
-

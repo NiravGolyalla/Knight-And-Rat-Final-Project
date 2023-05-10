@@ -2721,14 +2721,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491551931}
-  m_LocalRotation: {x: 0, y: -0, z: -0.014320485, w: 0.9998975}
-  m_LocalPosition: {x: 0.251, y: -0.388, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.8836908, w: 0.46807128}
+  m_LocalPosition: {x: 0.33, y: -0.46, z: 0}
   m_LocalScale: {x: 0.16666667, y: 0.16666667, z: 0.16666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1984028805}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -124.182}
 --- !u!1 &582342025
 GameObject:
   m_ObjectHideFlags: 0
@@ -76043,7 +76043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1092750025038004921, guid: b3d7b605c571a4f67b40f02084eedc4b, type: 3}
   spawnPoint: {fileID: 1619276312}
-  spawnInterval: 6.5
+  spawnInterval: 10
 --- !u!61 &1900726411
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76105,10 +76105,10 @@ MonoBehaviour:
   missingFireballsCount: 8
   bouncePoint: {fileID: 343020876}
   hits: 0
-  grid: {fileID: 0}
+  grid: {fileID: 582342025}
   initialFireColor: {r: 0, g: 0, b: 0, a: 0}
   finalFireColor: {r: 1, g: 0, b: 0, a: 1}
-  arenaRightMost: 10
+  arenaRightMost: 1000
 --- !u!114 &1984028804 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
@@ -76132,9 +76132,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 104536180, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_SortingOrder
+      value: 32767
+      objectReference: {fileID: 0}
     - target: {fileID: 1758919240, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: orthographic size
       value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758919240, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758919240, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758919240, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1758919241, guid: 5ae63a01faf84f74caeae7d1082cc435, type: 3}
       propertyPath: m_LocalPosition.x
@@ -76231,7 +76247,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: health
-      value: 180
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: cutscene
@@ -76338,6 +76354,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 321301616}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: manticores
+      value: 
+      objectReference: {fileID: 1984028801}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: bridgeTilemap
       value: 
       objectReference: {fileID: 1291197884}
@@ -76347,7 +76367,7 @@ PrefabInstance:
       objectReference: {fileID: 8493872730611703165, guid: 858588f2a25364c3cb1cbf354e562553, type: 3}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: fallingBarrelSpawner
@@ -76394,6 +76414,14 @@ PrefabInstance:
       value: Manticore
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[5].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5e078e62c07a91f49b7dc9032ab4a6a6, type: 3}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[5].name
+      value: Manticore
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.data[0].sentences.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -76411,6 +76439,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.data[4].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[5].sentences.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
@@ -76452,16 +76484,33 @@ PrefabInstance:
         there...
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[3].sentences.Array.data[3]
+      value: You're going to need something really intriguing to make me come down
+        there...
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.data[4].sentences.Array.data[0]
-      value: You insolent peasant!!!
+      value: How dare you hit me as I descend on beauty?
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.data[4].sentences.Array.data[1]
-      value: Why do you keep fighting for her?!
+      value: You will learn the true fury of my might now...
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: dialogue.Array.data[4].sentences.Array.data[2]
-      value: I'll show you something...
+      value: You will pay for this...
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[5].sentences.Array.data[0]
+      value: You insolent peasant!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[5].sentences.Array.data[1]
+      value: Why do you keep fighting for her?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068380089214323, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: dialogue.Array.data[5].sentences.Array.data[2]
+      value: You will pay for this...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
