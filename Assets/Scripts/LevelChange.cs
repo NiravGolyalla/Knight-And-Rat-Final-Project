@@ -15,4 +15,7 @@ public class LevelChange : MonoBehaviour
             LevelManager.instance.LoadLevel(nextLevel);
         }
     }
+    public void Pause(){
+        PauseMenu.instance.Paused();
+    }
 }
