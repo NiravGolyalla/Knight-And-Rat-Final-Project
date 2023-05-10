@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
@@ -7,9 +8,11 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     public static AudioManager instance;
     
-    private bool onTutorial;
-    private bool onDungeon;
-    private bool onBoss;
+    string curr_scene = "NULL";
+    string[] dungeon_levels = {"Dungeon1","Dungeon2","Dungeon3"};
+    string[] tutorial_levels = {"Tutorial1","Tutorial2","Tutorial3"};
+    string[] boss_levels = {"THEFINALBOSS(pleasedontedititwithoutlmk)"};
+    
 
     void Awake() {
         if (instance == null)
@@ -32,44 +35,45 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
     }
-    void Start() {
-        Play("StartMenuMusic");
-    }
 
     void Update() {
-        if ((SceneManager.GetActiveScene().name == "Dungeon1" || SceneManager.GetActiveScene().name == "DungeonLevel2.0") && !onDungeon) {
-            Sound s = Array.Find(sounds, sound => sound.name == "DungeonBGM");
-            // Stops the tutorial music 
-            StopByName("TutorialBGM");
-            StopByName("BossMusic");
-            
-            Play("DungeonBGM");
-            onTutorial = false;
-            onDungeon = true;
-            onBoss = false;
-        }
-        else if (SceneManager.GetActiveScene().name == "Tutorial1" && !onTutorial) {
-            StopByName("StartMenuMusic");
-            StopByName("BossMusic");
-            StopByName("DungeonBGM");
+        updateBGM();
+    }
 
-            Play("TutorialBGM");
-            onTutorial = true;
-            onDungeon = false;
-            onBoss = false;
-           
-        }
-        else if (SceneManager.GetActiveScene().name == "THEFINALBOSS(pleasedontedititwithoutlmk)" && !onBoss)
-        {
-            StopByName("DungeonBGM");
-            StopByName("StartMenuMusic");
-            StopByName("TutorialBGM");
+    void updateBGM(){
+        string active_scene = SceneManager.GetActiveScene().name; 
+        if(curr_scene != active_scene){
+            if (dungeon_levels.Contains(active_scene)) {
+                StopByName("StartMenuMusic");
+                StopByName("BossMusic");
+                StopByName("TutorialBGM");
 
-            Play("BossMusic");
-            onTutorial = false;
-            onDungeon = false;
-            onBoss = true;
+                Play("DungeonBGM");
+            }
+            else if (tutorial_levels.Contains(active_scene)) {
+                StopByName("StartMenuMusic");
+                StopByName("BossMusic");
+                StopByName("DungeonBGM");
+
+                Play("TutorialBGM");
             
+            }
+            else if (boss_levels.Contains(active_scene))
+            {
+                StopByName("DungeonBGM");
+                StopByName("StartMenuMusic");
+                StopByName("TutorialBGM");
+
+                Play("BossMusic");
+            } else{
+                StopByName("DungeonBGM");
+                StopByName("StartMenuMusic");
+                StopByName("TutorialBGM");
+                StopByName("BossMusic");
+
+                Play("StartMenuMusic");
+            }
+            curr_scene = active_scene;
         }
     }
     
