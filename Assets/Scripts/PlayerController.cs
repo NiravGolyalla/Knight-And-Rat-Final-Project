@@ -105,6 +105,8 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         UpdateAnimClipTimes();
         FindAnyObjectByType<AudioManager>().Play("KnightWalk");
+        FindAnyObjectByType<AudioManager>().Play("KnightSprint");
+
         Setup();
     }
 
@@ -165,13 +167,26 @@ public class PlayerController : MonoBehaviour
         {
             Swap();
         }
-        if (isMoving)
+        if (isDashing)
         {
-            FindAnyObjectByType<AudioManager>().SetSoundVolume("KnightWalk", 1f);
+            FindAnyObjectByType<AudioManager>().SetSoundVolume("KnightWalk", 0f);
+            FindAnyObjectByType<AudioManager>().SetSoundVolume("KnightSprint", 1f);
+
         }
         else
         {
-            FindAnyObjectByType<AudioManager>().SetSoundVolume("KnightWalk", 0f);
+            if (isMoving)
+            {
+            FindAnyObjectByType<AudioManager>().SetSoundVolume("KnightWalk", 1f);
+            FindAnyObjectByType<AudioManager>().SetSoundVolume("KnightSprint", 0f);
+                
+            }
+            else
+            {
+                FindAnyObjectByType<AudioManager>().SetSoundVolume("KnightWalk", 0f);
+                FindAnyObjectByType<AudioManager>().SetSoundVolume("KnightSprint", 0f);
+                
+            }
         }
     }
 

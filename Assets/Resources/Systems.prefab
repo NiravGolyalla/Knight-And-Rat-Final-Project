@@ -182,30 +182,30 @@ MonoBehaviour:
   sounds:
   - name: StartMenuMusic
     clip: {fileID: 8300000, guid: 033766cc31c97904bae4404b8a079544, type: 3}
-    volume: 1
+    volume: 0.15
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: TutorialBGM
     clip: {fileID: 8300000, guid: 67b2c9de31a741c409c8e3fa5d05221a, type: 3}
-    volume: 1
+    volume: 0.15
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: DungeonBGM
     clip: {fileID: 8300000, guid: 3eb3349832ee15c448a05bfcd3a8fbce, type: 3}
-    volume: 1
+    volume: 0.15
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: BossMusic
     clip: {fileID: 8300000, guid: 00379ff33019bab4c9495c70aa3c3ff7, type: 3}
-    volume: 1
+    volume: 0.15
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: KnightWalk
-    clip: {fileID: 8300000, guid: 41b5781294b7da44ebaad3bd7be35926, type: 3}
+    clip: {fileID: 8300000, guid: 557e96b16076cb84285c90941906b44c, type: 3}
     volume: 1
     pitch: 1
     loop: 1
@@ -251,6 +251,24 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: Transform
+    clip: {fileID: 8300000, guid: 490bfbc72255342408984f60044487de, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BarrelBreak
+    clip: {fileID: 8300000, guid: 96724b51f3d1f7242943f41b5dea654b, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: KnightSprint
+    clip: {fileID: 8300000, guid: 82b9e7907a6c3154b86a53c1be46ff71, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!1 &1145224059109080183
 GameObject:
