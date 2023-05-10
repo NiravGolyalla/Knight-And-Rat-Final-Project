@@ -12,26 +12,6 @@ public class DialogueStart : MonoBehaviour {
     [SerializeField]private bool isTargetInTrigger;
     [SerializeField]private Canvas mess;
 
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Rat") || other.gameObject.CompareTag("Knight"))
-        {
-            isTargetInTrigger = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Rat") || other.gameObject.CompareTag("Knight"))
-        {
-            if(DialogueManager.instance.speaking){
-                DialogueManager.instance.EndDialogue();
-            }
-            isTargetInTrigger = false;
-        }
-    }
-
     void Update(){
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 3f,p);
         isTargetInTrigger = colliders.Length > 0;
@@ -54,7 +34,6 @@ public class DialogueStart : MonoBehaviour {
             mess.gameObject.SetActive(false);
         }
         cooldown -= (cooldown > 0) ? Time.deltaTime : cooldown;
-        
     }
 
 

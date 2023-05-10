@@ -11,6 +11,8 @@ public class CutRopeController : MonoBehaviour
 
     private int numOfCuts;
 
+    [SerializeField] private Popup message;
+    [SerializeField] private Sprite cutRopeSprite ;
     public bool hasBeenCut() { return isCut; }
     void Start()
     {
@@ -29,8 +31,9 @@ public class CutRopeController : MonoBehaviour
         {
 
             SpriteRenderer sprite = gameObject.GetComponent<SpriteRenderer>();
-            Sprite cutRopeSprite = Resources.Load<Sprite>("rope_cut");
+            
             sprite.sprite = cutRopeSprite;
+            message.active = false;
         }
     }
 
