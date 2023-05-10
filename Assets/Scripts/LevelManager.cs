@@ -52,9 +52,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void Reload(){instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);}
-     
-
+    public void Reload(){StartCoroutine(reloadScene());}
 
      public void LoadLevel(string i){
           StartCoroutine(loadScene(i)); 
@@ -83,6 +81,19 @@ public class LevelManager : MonoBehaviour
                yield return new WaitForSeconds(transitionTime);
                SceneManager.LoadScene(i);
                transition.CrossFade("SceneChange_End",0,0);
+               yield return new WaitForSeconds(transitionTime);
+               reloading = false;
+          }
+          yield return null;
+     }
+
+     IEnumerator reloadScene(){
+          if(!reloading){
+               reloading = true;
+               transition.CrossFade("Fade_Start",0,0);
+               yield return new WaitForSeconds(transitionTime);
+               SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+               transition.CrossFade("Fade_End",0,0);
                yield return new WaitForSeconds(transitionTime);
                reloading = false;
           }

@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     private bool canSwap = true;
     public bool takingDamage = false;
 
-    private float inputBuffer = 0.0f;
+    private float inputBuffer = 0.4f;
     private float cooldownBuffer;
 
     //movement variables
@@ -99,6 +99,11 @@ public class PlayerController : MonoBehaviour
         ratAnimator = rat.GetComponent<Animator>();
         knightAnimator = knight.GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        Setup();
+    }
+
+    void Setup(){
+        
 
         rat.SetActive(!isKnightController);
         knight.SetActive(isKnightController);
@@ -108,7 +113,7 @@ public class PlayerController : MonoBehaviour
         
         currAnimator = isKnightController ? knightAnimator : ratAnimator;
         currentState = isKnightController ? K_Idle_LR : R_Idle_LR;
-        UpdateAnimClipTimes();
+        
         
         healthBar.setMaxValue(health);
         healthBar.setValue(health);
@@ -144,9 +149,8 @@ public class PlayerController : MonoBehaviour
         isAttacking = ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))  && isKnightController);
         isMoving = (horizontalInput != 0 || verticalInput != 0); 
         isDashing = (Input.GetKey(KeyCode.LeftShift) && canDash);
-        isHeld = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || cooldownBuffer < inputBuffer);
-        cooldownBuffer = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) ? 0f : cooldownBuffer;
-
+        isHeld = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space));
+        
         //Swap
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -189,6 +193,7 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Attack(){
         if(isAttacking && canAttack){
+            cooldownBuffer = 0;
             canAttack = false;
             if(isMoving){
                 yield return new WaitForSeconds(KAttackWalk);
@@ -197,7 +202,9 @@ public class PlayerController : MonoBehaviour
             }
             canHold = true;
             while((isHeld || !sw.exitFrame) && 0 < staminaBar.getValue()){
-                regenBar(staminaBar,-12f);
+                if(cooldownBuffer > inputBuffer){
+                    regenBar(staminaBar,-12f);
+                }
                 yield return null;
             }
             canHold = false;
@@ -208,6 +215,7 @@ public class PlayerController : MonoBehaviour
             isRecovering = false;
             canAttack = true;
             canMove = true;
+            
         }
         yield return null;
     }
@@ -231,7 +239,7 @@ public class PlayerController : MonoBehaviour
         float take = isKnightController ? stmLostK : stmLostR;
         if(canDash && take < staminaBar.getValue() && !isAttacking){
             canDash = false;
-            
+            print(isKnightController);
             if(isKnightController){
                 canMove = false;
                 if(!(horizontalInput == 0 && verticalInput == 0)){
@@ -248,7 +256,7 @@ public class PlayerController : MonoBehaviour
             } else{
                 isDashing = false;
                 canDash = true;
-                regenBar(staminaBar,-take);
+                staminaBar.setValue(staminaBar.getValue()-take*400*Time.deltaTime);
                 yield return new WaitForSeconds(0.1f);
             }
             canDash = true;
