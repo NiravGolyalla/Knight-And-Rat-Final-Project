@@ -35433,6 +35433,10 @@ PrefabInstance:
       propertyPath: nextLevel
       value: Sewer Hub
       objectReference: {fileID: 0}
+    - target: {fileID: 979742455295241456, guid: 7686e537eb178f442a1f1732c52ef244, type: 3}
+      propertyPath: endTutorial
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 979742455295241469, guid: 7686e537eb178f442a1f1732c52ef244, type: 3}
       propertyPath: m_Name
       value: SceneSwap_HitBox (1)
