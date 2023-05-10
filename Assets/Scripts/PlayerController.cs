@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject poof;
     [SerializeField] private Color damageColor = Color.red;
     [SerializeField] private float damageIndicatorDuration = 0.5f;
+    [SerializeField] private bool isShowingDamageIndicator = false;
     [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
     [SerializeField] private float shakeIntensity = 2f;
     [SerializeField] private float shakeDuration = 0.2f;
@@ -184,7 +185,13 @@ public class PlayerController : MonoBehaviour
             takingDamage = true;
             float take = isKnightController ? dmgTakeK * dmg : dmgTakeR * dmg;
             healthBar.setValue(healthBar.getValue() - take);
-            StartCoroutine(ShowDamageIndicator());
+
+            if (!isShowingDamageIndicator)
+            {
+                isShowingDamageIndicator = true;
+                StartCoroutine(ShowDamageIndicator());
+            }
+
             yield return new WaitForSeconds(0.5f);
             takingDamage = false;
         }
@@ -374,6 +381,10 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ShowDamageIndicator()
     {
+        if (isShowingDamageIndicator) yield break;
+        
+        isShowingDamageIndicator = true;
+        
         // Get the sprite renderer for the appropriate child object
         SpriteRenderer spriteRenderer = isKnightController ? knight.GetComponent<SpriteRenderer>() : rat.GetComponent<SpriteRenderer>();
 
@@ -381,13 +392,14 @@ public class PlayerController : MonoBehaviour
         Color originalColor = spriteRenderer.color;
         if (originalColor == damageColor) 
         {
+            isShowingDamageIndicator = false;
             yield break;
         }
-  
+    
 
         // Set the new color
         spriteRenderer.color = damageColor;
-  
+    
 
         // Wait for the damage indicator duration
         float elapsedTime = 0f;
@@ -403,8 +415,8 @@ public class PlayerController : MonoBehaviour
 
         // Reset the color
         spriteRenderer.color = originalColor;
-
+        
+        isShowingDamageIndicator = false;
     }
-
 
 }

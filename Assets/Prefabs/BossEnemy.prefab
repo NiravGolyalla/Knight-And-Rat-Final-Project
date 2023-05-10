@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2511165482302940963}
   - component: {fileID: 1987249390270468978}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: BossEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,14 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1400fb14ef9f2240bd58c2e8d6db7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.25
   reachedEndOfPath: 0
   nextWaypointeDistance: 1
   graphics: {fileID: 1092750025894104919}
   obstacleRadius: 1
   playerSpace: 1.5
   enemySpace: 1.1
-  searchRadius: 3
+  searchRadius: 10
   center: {x: 0, y: 0}
   knockStrength: 3
 --- !u!114 &2511165482302940963
@@ -121,11 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c98e56dd1c45545b2ffce627070700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 5
+  aggroRange: 15
   distance: 1.9
   state: Wander
   wanderSpeed: 2
-  aggroSpeed: 3
+  aggroSpeed: 4
   wanderRange: 5
   movement: {fileID: 6031438336009521729}
   health: 5
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -87
+  m_SortingOrder: 100
   m_Sprite: {fileID: -315635405, guid: a25bc6bcdea2deb4f85fa5709323834b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
