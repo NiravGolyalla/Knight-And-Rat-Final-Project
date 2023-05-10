@@ -18,6 +18,7 @@ public class CNBController : MonoBehaviour
 
     virtual public void GotHit(){
         animator.CrossFade("break",0,0);
+        FindAnyObjectByType<AudioManager>().Play("BarrelBreak");
         GetComponent<Collider2D>().enabled = false;
         StartCoroutine(FadeOut());
     }
