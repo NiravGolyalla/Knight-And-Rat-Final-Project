@@ -1219,14 +1219,14 @@ MonoBehaviour:
   stamina: 10
   dmgTakeR: 2
   dmgTakeK: 1
-  stmLostR: 0.05
-  stmLostK: 5
+  stmLostR: 5
+  stmLostK: 7
   ratMoveSpeed: 7
   knightMoveSpeed: 5
   runBonusMoveSpeed: 5
   dashAmount: 2
   dashDur: 0.2
-  dashCooldown: 2
+  dashCooldown: 1
 --- !u!1 &5832464266642264643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,6 +1840,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevel: New_Tutorial_2
+  endTutorial: 0
+  endDungeon: 0
 --- !u!1 &9194944115906116541
 GameObject:
   m_ObjectHideFlags: 0

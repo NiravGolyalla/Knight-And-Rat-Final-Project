@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
     public Animator transition;
     float transitionTime = 1f;
+    public bool FinishTutorial = false;
+    public bool FinishDungeon = false;
 
     public bool reloading = false;
 

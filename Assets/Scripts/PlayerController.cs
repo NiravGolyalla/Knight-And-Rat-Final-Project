@@ -231,7 +231,6 @@ public class PlayerController : MonoBehaviour
         float take = isKnightController ? stmLostK : stmLostR;
         if(canDash && take < staminaBar.getValue() && !isAttacking){
             canDash = false;
-            staminaBar.setValue(staminaBar.getValue()-take);
             
             if(isKnightController){
                 canMove = false;
@@ -241,6 +240,7 @@ public class PlayerController : MonoBehaviour
                     rb2d.velocity = new Vector3(-Mathf.Sign(transform.localScale.x)*dashAmount*knightMoveSpeed/2f,0f,0f);
                     transform.localScale = new Vector3(-Mathf.Sign(rb2d.velocity.x), 1, 1);
                 }
+                staminaBar.setValue(staminaBar.getValue()-take);
                 yield return new WaitForSeconds(dashDur);
                 canMove = true;
                 isDashing = false;
@@ -248,6 +248,7 @@ public class PlayerController : MonoBehaviour
             } else{
                 isDashing = false;
                 canDash = true;
+                regenBar(staminaBar,-take);
                 yield return new WaitForSeconds(0.1f);
             }
             canDash = true;
