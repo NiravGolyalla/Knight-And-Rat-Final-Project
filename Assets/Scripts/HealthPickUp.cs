@@ -8,7 +8,7 @@ public class HealthPickUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Knight") || other.CompareTag("Rat"))
+        if (other.CompareTag("Rat"))
         {
             PlayerController.instantance.Heal(healthAmount);
             Destroy(gameObject);

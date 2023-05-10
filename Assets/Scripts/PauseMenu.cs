@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,8 @@ public class PauseMenu : MonoBehaviour
     public static PauseMenu instance;
     public bool isPaused = false;
     public Animator anim;
+    string[] non_pause = {"Start Menu"};
+
     void Awake()
     {
         instance = this;
@@ -16,10 +19,13 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(!isPaused){
-                Paused();
-            } else{
-                UnPaused();
+            string active_scene = SceneManager.GetActiveScene().name;
+            if(!non_pause.Contains(active_scene)){
+                if(!isPaused){
+                    Paused();
+                } else{
+                    UnPaused();
+                }
             }
         }
     }
