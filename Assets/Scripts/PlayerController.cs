@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
         isDashing = (Input.GetKey(KeyCode.LeftShift) && canDash);
         isHeld = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space));
         
-        print(isHeld && canHold && isMoving);
+        // print(isHeld && canHolds && isMoving);
 
         //Swap
         if (Input.GetKeyDown(KeyCode.Q))
@@ -252,7 +252,7 @@ public class PlayerController : MonoBehaviour
         float take = isKnightController ? stmLostK : stmLostR;
         if(canDash && take < staminaBar.getValue() && !isAttacking){
             canDash = false;
-            print(isKnightController);
+            // print(isKnightController);
             if(isKnightController){
                 canMove = false;
                 if(!(horizontalInput == 0 && verticalInput == 0)){
@@ -350,7 +350,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if(isKnightController){
-            print(isHeld && canHold);
+            // print(isHeld && canHold);
             if(isRecovering) return lockState(K_Recover_LR,KRecover);
             if(isHeld && canHold && isMoving) return lockState(K_HoldAttackWalk_LR,KAttack);
             if(isHeld && canHold) return lockState(K_HoldAttack_LR,KAttack);
