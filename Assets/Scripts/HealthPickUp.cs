@@ -11,6 +11,7 @@ public class HealthPickUp : MonoBehaviour
         if (other.CompareTag("Rat"))
         {
             PlayerController.instantance.Heal(healthAmount);
+            FindAnyObjectByType<AudioManager>().Play("PickUp");
             Destroy(gameObject);
         }
     }

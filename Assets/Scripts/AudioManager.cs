@@ -7,14 +7,15 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
     public static AudioManager instance;
-    
-    string curr_scene = "NULL";
-    string[] dungeon_levels = {"Dungeon1","Dungeon2","Dungeon3"};
-    string[] tutorial_levels = {"Tutorial1","Tutorial2","Tutorial3"};
-    string[] boss_levels = {"THEFINALBOSS(pleasedontedititwithoutlmk)"};
-    
 
-    void Awake() {
+    string curr_scene = "NULL";
+    string[] dungeon_levels = { "Dungeon1", "Dungeon2", "Dungeon3" };
+    string[] tutorial_levels = { "Tutorial1", "Tutorial2", "Tutorial3" };
+    string[] boss_levels = { "THEFINALBOSS(pleasedontedititwithoutlmk)" };
+
+
+    void Awake()
+    {
         if (instance == null)
         {
             instance = this;
@@ -36,31 +37,37 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    void Update() {
+    void Update()
+    {
         updateBGM();
     }
 
-    public void ChangeMasterVolume(float val){
+    public void ChangeMasterVolume(float val)
+    {
         AudioListener.volume = val;
     }
 
-    void updateBGM(){
-        string active_scene = SceneManager.GetActiveScene().name; 
-        if(curr_scene != active_scene){
-            if (dungeon_levels.Contains(active_scene)) {
+    void updateBGM()
+    {
+        string active_scene = SceneManager.GetActiveScene().name;
+        if (curr_scene != active_scene)
+        {
+            if (dungeon_levels.Contains(active_scene))
+            {
                 StopByName("StartMenuMusic");
                 StopByName("BossMusic");
                 StopByName("TutorialBGM");
 
                 Play("DungeonBGM");
             }
-            else if (tutorial_levels.Contains(active_scene)) {
+            else if (tutorial_levels.Contains(active_scene))
+            {
                 StopByName("StartMenuMusic");
                 StopByName("BossMusic");
                 StopByName("DungeonBGM");
 
                 Play("TutorialBGM");
-            
+
             }
             else if (boss_levels.Contains(active_scene))
             {
@@ -69,7 +76,9 @@ public class AudioManager : MonoBehaviour
                 StopByName("TutorialBGM");
 
                 Play("BossMusic");
-            } else{
+            }
+            else
+            {
                 StopByName("DungeonBGM");
                 StopByName("StartMenuMusic");
                 StopByName("TutorialBGM");
@@ -80,8 +89,9 @@ public class AudioManager : MonoBehaviour
             curr_scene = active_scene;
         }
     }
-    
-    public void Play(string name) {
+
+    public void Play(string name)
+    {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
@@ -90,7 +100,8 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Play();
     }
-    public void StopByName(string name) {
+    public void StopByName(string name)
+    {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
@@ -99,4 +110,48 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Stop();
     }
+    public void SetSoundVolume(string name, float vol)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " could not be found");
+            return;
+        }
+        s.source.volume = vol;
+    }
+
+    public void SetPitchVolume(string name, float pitch)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " could not be found");
+            return;
+        }
+        s.source.pitch = pitch;
+    }
+
+    public bool isStillPlaying(string name) {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " could not be found");
+            return false;
+        }
+        return s.source.isPlaying;
+
+    }
+
+    public void setSoundLooping(string name, bool loop) {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " could not be found");
+            return;
+        }
+        s.source.loop = loop;
+
+    }
+
 }

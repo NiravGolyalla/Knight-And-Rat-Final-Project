@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int K_HoldAttack_LR = Animator.StringToHash("K_HoldAttack_LR");
     private static readonly int K_AttackWalk_LR = Animator.StringToHash("K_AttackWalk_LR");
     private static readonly int K_HoldAttackWalk_LR = Animator.StringToHash("K_HoldAttackWalk_LR");
+    private bool isAttackSoundPlaying = false;
     //0.017f
     float frame_refer = 0.017f;
         
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
         knightAnimator = knight.GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         UpdateAnimClipTimes();
+        FindAnyObjectByType<AudioManager>().Play("KnightWalk");
         Setup();
     }
 
@@ -162,6 +164,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Swap();
+        }
+        if (isMoving)
+        {
+            FindAnyObjectByType<AudioManager>().SetSoundVolume("KnightWalk", 1f);
+        }
+        else
+        {
+            FindAnyObjectByType<AudioManager>().SetSoundVolume("KnightWalk", 0f);
         }
     }
 
@@ -352,15 +362,59 @@ public class PlayerController : MonoBehaviour
         if(isKnightController){
             // print(isHeld && canHold);
             if(isRecovering) return lockState(K_Recover_LR,KRecover);
-            if(isHeld && canHold && isMoving) return lockState(K_HoldAttackWalk_LR,KAttack);
-            if(isHeld && canHold) return lockState(K_HoldAttack_LR,KAttack);
+            if(isHeld && canHold && isMoving) {
+                    print("me1");
+                
+                if (isAttackSoundPlaying)
+                {
+                    FindAnyObjectByType<AudioManager>().setSoundLooping("Attack", true);
+                    FindAnyObjectByType<AudioManager>().SetPitchVolume("Attack", 1.5f);
+                    FindAnyObjectByType<AudioManager>().SetSoundVolume("Attack", 1.0f);
+                    FindAnyObjectByType<AudioManager>().Play("Attack");
+                    isAttackSoundPlaying = true;
+                }
+                return lockState(K_HoldAttackWalk_LR,KAttack);
+                
+                }
+            if(isHeld && canHold) {
+                    print("me2");
+
+                if (isAttackSoundPlaying)
+                {
+                    FindAnyObjectByType<AudioManager>().setSoundLooping("Attack", true);
+                    FindAnyObjectByType<AudioManager>().SetPitchVolume("Attack", 1.5f);
+                    FindAnyObjectByType<AudioManager>().SetSoundVolume("Attack", 1.0f);
+                    FindAnyObjectByType<AudioManager>().Play("Attack");
+                    isAttackSoundPlaying = true;
+                }
+                return lockState(K_HoldAttack_LR,KAttack);}
             
-            if (!canAttack && isMoving){
+            if (!canAttack && isMoving) {
+                if (!isAttackSoundPlaying)
+                {
+                    FindAnyObjectByType<AudioManager>().setSoundLooping("Attack", false);
+                    FindAnyObjectByType<AudioManager>().SetPitchVolume("Attack", 0.5f);
+                    FindAnyObjectByType<AudioManager>().SetSoundVolume("Attack", 1.0f);
+                    FindAnyObjectByType<AudioManager>().Play("Attack");
+                    isAttackSoundPlaying = true;
+                }
                 return K_AttackWalk_LR;
             }
             if (!canAttack){
+                    print("me4");
+
+                if (!isAttackSoundPlaying)
+                {
+                    FindAnyObjectByType<AudioManager>().setSoundLooping("Attack", false);
+                    FindAnyObjectByType<AudioManager>().SetPitchVolume("Attack", 0.5f);
+                    FindAnyObjectByType<AudioManager>().SetSoundVolume("Attack", 1.0f);
+                    FindAnyObjectByType<AudioManager>().Play("Attack");
+                    isAttackSoundPlaying = true;
+                }
                 return K_Attack_LR;
             } 
+            isAttackSoundPlaying = false;
+            FindAnyObjectByType<AudioManager>().StopByName("Attack");
             if (isDashing) return lockState(K_Dash_LR,dashDur);
             if (isMoving) return K_Move_LR;
             else return K_Idle_LR;

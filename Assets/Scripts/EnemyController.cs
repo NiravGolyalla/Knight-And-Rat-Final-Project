@@ -132,6 +132,7 @@ public class EnemyController : MonoBehaviour
 
     public void takeDamage(){
         if(!takingDamage){
+            FindAnyObjectByType<AudioManager>().Play("Hit");
             takingDamage = true;
             healthBar.setValue(healthBar.getValue()-2f);
             StartCoroutine(KnockedBack());

@@ -30,7 +30,12 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void Hover() {
+        FindAnyObjectByType<AudioManager>().Play("Hover");
+    }
+
     public void Paused(){
+        FindAnyObjectByType<AudioManager>().Play("Pause");
         isPaused = true;
         Time.timeScale = 0f;    
         anim.SetTrigger("Close");
@@ -38,6 +43,15 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void UnPaused(){
+        FindAnyObjectByType<AudioManager>().Play("UnPause");
+        isPaused = false;
+        Time.timeScale = 1f;    
+        anim.SetTrigger("Open");
+        anim.ResetTrigger("Close");
+    }
+
+    public void Resume() {
+        FindAnyObjectByType<AudioManager>().Play("Confirm");
         isPaused = false;
         Time.timeScale = 1f;    
         anim.SetTrigger("Open");
@@ -45,11 +59,13 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LevelSelect(){
+        FindAnyObjectByType<AudioManager>().Play("Confirm");
         LevelManager.instance.LoadLevel("Sewer Hub");
         UnPaused();
     }
 
     public void MainMenu(){
+        FindAnyObjectByType<AudioManager>().Play("Confirm");
         LevelManager.instance.LoadLevel("Start Menu");
         UnPaused();
     }
