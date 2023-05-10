@@ -202,12 +202,8 @@ public class PlayerController : MonoBehaviour
             float take = isKnightController ? dmgTakeK * dmg : dmgTakeR * dmg;
             healthBar.setValue(healthBar.getValue() - take);
 
-            if (!isShowingDamageIndicator)
-            {
-                isShowingDamageIndicator = true;
-                StartCoroutine(ShowDamageIndicator());
-            }
-
+            StartCoroutine(ShowDamageIndicator());
+            
             yield return new WaitForSeconds(0.5f);
             takingDamage = false;
         }
