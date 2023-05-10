@@ -43,6 +43,7 @@ public class LeverController : MonoBehaviour
             flipping = true;
             if (didAttack) {yield return new WaitForSeconds(0.5f);}
             on = !on;
+            FindAnyObjectByType<AudioManager>().Play("Lever");
             if (on)
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = turnedOn;

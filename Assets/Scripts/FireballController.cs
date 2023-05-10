@@ -9,6 +9,7 @@ public class FireballController : MonoBehaviour
 
     private void Start()
     {
+        FindAnyObjectByType<AudioManager>().Play("Fireball");
         Destroy(gameObject, lifeTime);
     }
 

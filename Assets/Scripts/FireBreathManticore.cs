@@ -91,6 +91,7 @@ public class FireBreathManticore : MonoBehaviour
 
     IEnumerator FireBreathAttack()
     {
+        FindAnyObjectByType<AudioManager>().Play("Firebreath");
         hitboxCollider.enabled = true;
         float startAngle = -90f;
         float angleStep = fireProjectileAngleRange / (fireProjectileCount - 1);

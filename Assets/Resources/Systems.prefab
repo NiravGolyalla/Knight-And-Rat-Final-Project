@@ -270,6 +270,24 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Lever
+    clip: {fileID: 8300000, guid: 1ab3d6a65e7f41148b558ef2c071d938, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Fireball
+    clip: {fileID: 8300000, guid: cd655b9fcb5aa064da529b66744c9be5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Firebreath
+    clip: {fileID: 8300000, guid: 0dd8f36846fa3284e8b9ef23e4a3bdb5, type: 3}
+    volume: 1
+    pitch: 2
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1145224059109080183
 GameObject:
   m_ObjectHideFlags: 0

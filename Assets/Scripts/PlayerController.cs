@@ -258,6 +258,7 @@ public class PlayerController : MonoBehaviour
     
     public void Swap(){
         if(canSwap && formBar.getValue() == formBar.getMaxValue()){
+            FindAnyObjectByType<AudioManager>().Play("Transform");
             Instantiate(poof, transform.position, Quaternion.identity);
             isKnightController = !isKnightController;
             rat.SetActive(!isKnightController);
