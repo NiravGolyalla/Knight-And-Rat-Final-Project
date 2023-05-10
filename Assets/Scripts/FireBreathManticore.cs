@@ -158,9 +158,18 @@ public class FireBreathManticore : MonoBehaviour
         LevelManager.instance.LoadLevel("Start Menu");
     }
 
-    IEnumerator KnockbackPlayer(GameObject player)
+    IEnumerator KnockbackPlayer(GameObject playerContainer)
     {
-        Vector3 originalPosition = player.transform.position;
+        // Get all colliders in children
+        Collider2D[] colliders = playerContainer.GetComponentsInChildren<Collider2D>();
+
+        // Disable all colliders
+        foreach (var collider in colliders)
+        {
+            collider.enabled = false;
+        }
+
+        Vector3 originalPosition = playerContainer.transform.position;
         Vector3 peakPosition = originalPosition + (bouncePoint.transform.position - originalPosition) / 2 + Vector3.up * 2f; // Adjust the "2f" value to control the height of the bounce
         Vector3 finalPosition = bouncePoint.transform.position;
 
@@ -171,13 +180,20 @@ public class FireBreathManticore : MonoBehaviour
         while (elapsedTime < knockbackTime)
         {
             t = elapsedTime / knockbackTime;
-            player.transform.position = CalculateBezierPoint(t, originalPosition, peakPosition, finalPosition);
+            playerContainer.transform.position = CalculateBezierPoint(t, originalPosition, peakPosition, finalPosition);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        player.transform.position = finalPosition;
+        playerContainer.transform.position = finalPosition;
+
+        // Enable all colliders
+        foreach (var collider in colliders)
+        {
+            collider.enabled = true;
+        }
     }
+
 
     Vector3 CalculateBezierPoint(float t, Vector3 p0, Vector3 p1, Vector3 p2)
     {
