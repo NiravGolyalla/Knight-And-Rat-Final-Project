@@ -90,6 +90,8 @@ public class PlayerController : MonoBehaviour
     private static readonly int K_HoldAttack_LR = Animator.StringToHash("K_HoldAttack_LR");
     private static readonly int K_AttackWalk_LR = Animator.StringToHash("K_AttackWalk_LR");
     private static readonly int K_HoldAttackWalk_LR = Animator.StringToHash("K_HoldAttackWalk_LR");
+    //0.017f
+    float frame_refer = 0.017f;
         
     //Unity Functions
     private void Awake(){
@@ -100,6 +102,7 @@ public class PlayerController : MonoBehaviour
         ratAnimator = rat.GetComponent<Animator>();
         knightAnimator = knight.GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        UpdateAnimClipTimes();
         Setup();
     }
 
@@ -115,7 +118,6 @@ public class PlayerController : MonoBehaviour
         currAnimator = isKnightController ? knightAnimator : ratAnimator;
         currentState = isKnightController ? K_Idle_LR : R_Idle_LR;
         
-        
         healthBar.setMaxValue(health);
         healthBar.setValue(health);
         staminaBar.setMaxValue(stamina);
@@ -127,15 +129,17 @@ public class PlayerController : MonoBehaviour
         // if(Time.timeScale != 0 || !LevelManager.instance.reloading){
         if(Time.timeScale != 0){
             cInput();
+            Movement();
             int state = updateSprite();
             if(state != currentState){
+                // print(state);
                 currAnimator.CrossFade(state,0,0);
                 currentState = state;
             }
             regenBar(healthBar,0.1f);
             regenBar(staminaBar,2f);
             regenBar(formBar,7f);
-            Movement();
+            
         }
         cooldownBuffer += Time.deltaTime;
         if(healthBar.getValue()<= 0f){LevelManager.instance.Reload();}
@@ -152,6 +156,8 @@ public class PlayerController : MonoBehaviour
         isDashing = (Input.GetKey(KeyCode.LeftShift) && canDash);
         isHeld = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space));
         
+        print(isHeld && canHold && isMoving);
+
         //Swap
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -200,8 +206,8 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator Attack(){
         if(isAttacking && canAttack){
-            cooldownBuffer = 0;
             canAttack = false;
+            cooldownBuffer = 0;
             if(isMoving){
                 yield return new WaitForSeconds(KAttackWalk);
             } else{
@@ -311,28 +317,28 @@ public class PlayerController : MonoBehaviour
         foreach(AnimationClip clip in kclips){
             switch(clip.name){
                 case "K_Idle_LR":
-                    KIdle = clip.length-0.017f;
+                    KIdle = clip.length-frame_refer;
                     break;
                 case "K_Move_LR":
-                    KMove = clip.length-0.017f;
+                    KMove = clip.length-frame_refer;
                     break;
                 case "K_Dash_LR":
-                    KDash = clip.length-0.017f;
+                    KDash = clip.length-frame_refer;
                     break;
                 case "K_Recover_LR":
-                    KRecover = clip.length-0.017f;
+                    KRecover = clip.length-frame_refer;
                     break;
                 case "K_Attack_LR":
-                    KAttack = clip.length-0.017f;
+                    KAttack = clip.length-frame_refer;
                     break;
                 case "K_HoldAttack_LR":
-                    KHoldAttack = clip.length-0.017f;
+                    KHoldAttack = clip.length-frame_refer;
                     break;
                 case "K_AttackWalk_LR":
-                    KAttackWalk = clip.length-0.017f;
+                    KAttackWalk = clip.length-frame_refer;
                     break;
                 case "K_HoldAttackWalk_LR":
-                    KHoldAttackWalk = clip.length-0.017f;
+                    KHoldAttackWalk = clip.length-frame_refer;
                     break;
             }
         }
@@ -344,6 +350,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if(isKnightController){
+            print(isHeld && canHold);
             if(isRecovering) return lockState(K_Recover_LR,KRecover);
             if(isHeld && canHold && isMoving) return lockState(K_HoldAttackWalk_LR,KAttack);
             if(isHeld && canHold) return lockState(K_HoldAttack_LR,KAttack);
@@ -381,42 +388,45 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ShowDamageIndicator()
     {
-        if (isShowingDamageIndicator) yield break;
-        
-        isShowingDamageIndicator = true;
-        
-        // Get the sprite renderer for the appropriate child object
-        SpriteRenderer spriteRenderer = isKnightController ? knight.GetComponent<SpriteRenderer>() : rat.GetComponent<SpriteRenderer>();
+        if (!isShowingDamageIndicator){
+            
+            isShowingDamageIndicator = true;
+            
+            // Get the sprite renderer for the appropriate child object
+            SpriteRenderer spriteRenderer = isKnightController ? knight.GetComponent<SpriteRenderer>() : rat.GetComponent<SpriteRenderer>();
 
-        // Save the original color
-        Color originalColor = spriteRenderer.color;
-        if (originalColor == damageColor) 
-        {
+            // Save the original color
+            Color originalColor = spriteRenderer.color;
+            if (originalColor == damageColor) 
+            {
+                isShowingDamageIndicator = false;
+                yield break;
+            }
+        
+
+            // Set the new color
+            spriteRenderer.color = damageColor;
+        
+
+            // Wait for the damage indicator duration
+            float elapsedTime = 0f;
+            while (elapsedTime < damageIndicatorDuration)
+            {
+                // Lerp between the damage color and the original color
+                float t = elapsedTime / damageIndicatorDuration;
+                spriteRenderer.color = Color.Lerp(damageColor, originalColor, t);
+
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+
+            // Reset the color
+            spriteRenderer.color = originalColor;
+            
             isShowingDamageIndicator = false;
-            yield break;
         }
-    
+        yield return null;
 
-        // Set the new color
-        spriteRenderer.color = damageColor;
-    
-
-        // Wait for the damage indicator duration
-        float elapsedTime = 0f;
-        while (elapsedTime < damageIndicatorDuration)
-        {
-            // Lerp between the damage color and the original color
-            float t = elapsedTime / damageIndicatorDuration;
-            spriteRenderer.color = Color.Lerp(damageColor, originalColor, t);
-
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        // Reset the color
-        spriteRenderer.color = originalColor;
-        
-        isShowingDamageIndicator = false;
     }
 
 }

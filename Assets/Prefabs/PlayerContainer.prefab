@@ -224,7 +224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758919238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.31941247, y: 0.15940845, z: -9.972459}
+  m_LocalPosition: {x: -0.31941223, y: 0.15940857, z: -9.972459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -613,7 +613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328603150018252474}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.1342115, y: -0.4006214, z: 184.70004}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1342,6 +1342,7 @@ MonoBehaviour:
   poof: {fileID: 8493872730611703165, guid: 36153cb8286a01b43bd22c5aab08bc72, type: 3}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   damageIndicatorDuration: 0.5
+  isShowingDamageIndicator: 0
   cinemachineVirtualCamera: {fileID: 5337757580123146295}
   shakeIntensity: 2
   shakeDuration: 0.2
@@ -1519,7 +1520,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6265409750821366249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.000000014901161, z: -10}
+  m_LocalPosition: {x: 0.00000023841858, y: 0.00000013411045, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
