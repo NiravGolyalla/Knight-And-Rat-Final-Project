@@ -76408,7 +76408,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: health
-      value: 300
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: cutscene

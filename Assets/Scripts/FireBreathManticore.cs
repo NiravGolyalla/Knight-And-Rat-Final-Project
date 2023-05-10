@@ -37,7 +37,7 @@ public class FireBreathManticore : MonoBehaviour
 
     void Update()
     {
-        if (manticore.health <= 100 && !stage2Started)
+        if (manticore.health <= 120 && !stage2Started)
         {
             manticore.stage = 2;
             stage2Started = true;

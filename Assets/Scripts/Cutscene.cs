@@ -118,7 +118,7 @@ public class Cutscene : MonoBehaviour
             start_ += 1;
 
         }
-        else if (start_ == 6 && !DialogueManager.instance.speaking && manticore.health <=100)
+        else if (start_ == 6 && !DialogueManager.instance.speaking && manticore.health <=120)
         {
             Dialogue d = dialouges.Dequeue();
             DialogueManager.instance.StartDialogue(d);
