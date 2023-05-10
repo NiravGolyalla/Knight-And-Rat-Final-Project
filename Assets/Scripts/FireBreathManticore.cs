@@ -13,25 +13,31 @@ public class FireBreathManticore : MonoBehaviour
     public GameObject firePoint;
     public GameObject fireProjectilePrefab;
     public int fireProjectileCount = 20;
-    public float fireProjectileInterval = 0.05f;
-    public float fireProjectileAngleRange = 90f;
+    public float fireProjectileInterval = 0.5f;
+    public float fireProjectileSpeedIncreasePerHit = 0.15f;
+    public float fireProjectileAngleRange = 150f;
+    public int missingFireballsCount = 5;
 
     public GameObject bouncePoint;
     public int hits = 0;
     private CircleCollider2D hitboxCollider;
     private bool stopFireBreathAttack = false;
-    // public Tilemap bridgeTilemap;
     public GameObject grid;
+
+    public Color initialFireColor;
+    public Color finalFireColor = Color.red;
+    public float arenaRightMost = 10f;
 
     void Start()
     {
         manticore = GetComponent<Manticore>();
         hitboxCollider = GetComponent<CircleCollider2D>();
+        initialFireColor = fireProjectilePrefab.GetComponent<SpriteRenderer>().color;
     }
 
     void Update()
     {
-        if (manticore.health <= 150 && !stage2Started)
+        if (manticore.health <= 60 && !stage2Started)
         {
             manticore.stage = 2;
             stage2Started = true;
@@ -39,8 +45,6 @@ public class FireBreathManticore : MonoBehaviour
             grid = GameObject.Find("Grid");
 
             Transform bridgeTransform = grid.transform.Find("Door");
-
-            // bridgeTilemap = bridgeTransform.GetComponent<Tilemap>();
             bridgeTransform.gameObject.SetActive(false);
             StartCoroutine(Stage2Sequence());
         }
@@ -48,110 +52,61 @@ public class FireBreathManticore : MonoBehaviour
 
     IEnumerator Stage2Sequence()
     {
-        // Check if Manticore is initially facing right and store this information
         bool initiallyFacingRight = manticore.IsFacingRight();
         hits = 0;
 
-        // If Manticore is initially facing left, flip the sprite before the tired animation
-        if (!initiallyFacingRight)
-        {
-            manticore.Flip();
-        }
-
-        animator.SetTrigger("Tired");
-
-        yield return new WaitForSeconds(4f);
-
-        // If Manticore is initially facing right, flip the sprite before the run animation
+        // If initially facing right.
         if (initiallyFacingRight)
         {
+            animator.SetTrigger("Tired");
+            yield return new WaitForSeconds(4f);
+
             manticore.Flip();
+            animator.SetBool("Running", true);
+            yield return StartCoroutine(RunTowardsTarget());
+            animator.SetBool("Running", false);
         }
-
-        animator.SetBool("Running", true);
-        yield return StartCoroutine(RunTowardsTarget());
-        animator.SetBool("Running", false);
-
-        if (initiallyFacingRight)
+        // If initially not facing right.
+        else
         {
             manticore.Flip();
+
+            animator.SetTrigger("Tired");
+            yield return new WaitForSeconds(4f);
+
+            animator.SetBool("Running", true);
+            yield return StartCoroutine(RunTowardsTarget());
+            animator.SetBool("Running", false);
         }
-        hits = 0;
-        if (!initiallyFacingRight)
+        manticore.Flip();
+        animator.SetTrigger("FireBreath");
+
+        while (manticore.health > 0)
         {
-                manticore.Flip();
-        }
-        StartCoroutine(RepeatedFireBreathAttack());
-        animator.SetTrigger("Tired");
-        hitboxCollider.enabled = false;
-        yield return new WaitForSeconds(4f);
-    }
-    IEnumerator RepeatedFireBreathAttack()
-    {
-        stopFireBreathAttack = false;
-        while (hits < 2 && !stopFireBreathAttack)
-        { 
-            animator.SetTrigger("FireBreath");
             yield return StartCoroutine(FireBreathAttack());
-            yield return new WaitForSeconds(0.25f);
         }
     }
-    IEnumerator RunTowardsTarget()
-    {
-        // Wait for the running animation to start
-        yield return new WaitForSeconds(0.1f);
 
-        // Get the animator state info
-        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
-        float t = 0f;
-        Vector3 startPosition = transform.position;
-        float distance = Vector2.Distance(startPosition, targetObject.transform.position);
-
-        while (Vector2.Distance(transform.position, targetObject.transform.position) > 0.1f)
-        {
-            // Check if the running animation is playing
-            if (stateInfo.IsName("ManticoreRun"))
-            {
-                t += Time.deltaTime * runSpeed / distance;
-                transform.position = Vector2.Lerp(startPosition, targetObject.transform.position, t);
-            }
-            else
-            {
-                // Update the animator state info
-                stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-            }
-
-            yield return null;
-        }
-    }
     IEnumerator FireBreathAttack()
     {
-        // Turn on the hitbox collider
         hitboxCollider.enabled = true;
-        
-        // Spawn fire projectiles
-        float startAngle = -45f;
+        float startAngle = -90f;
         float angleStep = fireProjectileAngleRange / (fireProjectileCount - 1);
+        int missingFireballsStartIndex = Random.Range(0, 11) + 20;
 
-        int missingFireballsStartIndex = Random.Range(0, fireProjectileCount - 8);
 
         for (int j = 0; j < fireProjectileCount; j++)
         {
-            if (j < missingFireballsStartIndex || j >= missingFireballsStartIndex + 8)
+            if (j < missingFireballsStartIndex || j >= missingFireballsStartIndex + missingFireballsCount)
             {
                 float angle = startAngle + angleStep * j;
                 SpawnFireProjectile(angle);
             }
-            yield return new WaitForSeconds(fireProjectileInterval);
         }
 
-        // Wait for some time before turning off the collider
-        yield return new WaitForSeconds(0.55f);
-        
-        // Turn off the hitbox collider
-         hitboxCollider.enabled = false;
-        
+        yield return new WaitForSeconds(fireProjectileInterval - (hits * fireProjectileSpeedIncreasePerHit));
+        hitboxCollider.enabled = false;
     }
 
     void SpawnFireProjectile(float angle)
@@ -159,19 +114,21 @@ public class FireBreathManticore : MonoBehaviour
         float radians = angle * Mathf.Deg2Rad;
         Vector2 direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
         GameObject fireProjectile = Instantiate(fireProjectilePrefab, firePoint.transform.position, Quaternion.identity);
-        fireProjectile.GetComponent<Rigidbody2D>().velocity = direction * runSpeed;
+        fireProjectile.GetComponent<Rigidbody2D>().velocity = direction * (runSpeed + (hits * fireProjectileSpeedIncreasePerHit));
+
+        // Change fireball color
+        fireProjectile.GetComponent<SpriteRenderer>().color = Color.Lerp(initialFireColor, finalFireColor, (float)hits / 10);
+
         Destroy(fireProjectile, 5f);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Sword") && hitboxCollider.enabled && stage2Started)
+        if (collision.gameObject.CompareTag("Sword") && hitboxCollider.enabled && stage2Started && animator.GetCurrentAnimatorStateInfo(0).IsName("FireBreath"))
         {
             Debug.Log("Sword hit Manticore");
-            // Take damage from the sword
             manticore.TakeDamage2(20);
 
-            // Find the parent GameObject with the "Knight" or "Rat" tag
             Transform currentParent = collision.transform.parent;
             GameObject playerContainer = null;
 
@@ -187,18 +144,22 @@ public class FireBreathManticore : MonoBehaviour
 
             if (playerContainer != null)
             {
-                // Start knockback coroutine for the player container
                 StartCoroutine(KnockbackPlayer(playerContainer));
             }
             hits++;
 
-            if (hits >= 2)
+            if (manticore.health <= 0)
             {
-        
                 StartCoroutine(DestroyAfterAnimation());
             }
-
         }
+    }
+    IEnumerator DestroyAfterAnimation()
+    {      
+        Camera.main.orthographicSize = 10f;  
+        animator.SetTrigger("Death");
+        yield return new WaitForSeconds(2f);    
+        Destroy(gameObject);    
     }
 
     IEnumerator KnockbackPlayer(GameObject player)
@@ -231,12 +192,30 @@ public class FireBreathManticore : MonoBehaviour
         Vector3 B = uu * p0 + 2 * u * t * p1 + tt * p2;
         return B;
     }
-    IEnumerator DestroyAfterAnimation()
-    {
-        animator.SetTrigger("Death");
-        yield return new WaitForSeconds(3f);
-        Destroy(gameObject);
-        LevelManager.instance.LoadLevel("Start Menu");
-    }
 
+    IEnumerator RunTowardsTarget()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        float t = 0f;
+        Vector3 startPosition = transform.position;
+        float distance = Vector2.Distance(startPosition, targetObject.transform.position);
+
+        while (Vector2.Distance(transform.position, targetObject.transform.position) > 0.1f)
+        {
+            if (stateInfo.IsName("ManticoreRun"))
+            {
+                t += Time.deltaTime * runSpeed / distance;
+                transform.position = Vector2.Lerp(startPosition, targetObject.transform.position, t);
+            }
+            else
+            {
+                stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            }
+
+            yield return null;
+        }
+    }
 }

@@ -123,7 +123,7 @@ public class Cutscene : MonoBehaviour
         else if (fightStarted)
         {
             // Check Manticore's health and trigger dialogues based on health
-            if (manticore.health <= manticore.health / 2 && start_ == 6 && !DialogueManager.instance.speaking && dialouges.Count > 0)
+            if (manticore.health == 0 && start_ == 5 && !DialogueManager.instance.speaking && dialouges.Count > 0)
             {
                 Dialogue d = dialouges.Dequeue();
                 DialogueManager.instance.StartDialogue(d);

@@ -8116,7 +8116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3418045282222039462, guid: 101b65fcb0e4db049938d2eea6bfa07c, type: 3}
       propertyPath: m_SortingOrder
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3418045282222039463, guid: 101b65fcb0e4db049938d2eea6bfa07c, type: 3}
       propertyPath: item
@@ -10099,7 +10099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3418045282222039462, guid: 101b65fcb0e4db049938d2eea6bfa07c, type: 3}
       propertyPath: m_SortingOrder
-      value: 150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3418045282222039463, guid: 101b65fcb0e4db049938d2eea6bfa07c, type: 3}
       propertyPath: item
@@ -76041,7 +76041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2da19c498ba47bda3188f0ff86156e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1092750025038004921, guid: bba378df24d012349bcf3ad129c7c20e, type: 3}
+  enemyPrefab: {fileID: 1092750025038004921, guid: b3d7b605c571a4f67b40f02084eedc4b, type: 3}
   spawnPoint: {fileID: 1619276312}
   spawnInterval: 6.5
 --- !u!61 &1900726411
@@ -76099,10 +76099,16 @@ MonoBehaviour:
   firePoint: {fileID: 491551931}
   fireProjectilePrefab: {fileID: 3902199642617433380, guid: 2b7e175e310db484e8487712de269484, type: 3}
   fireProjectileCount: 40
-  fireProjectileInterval: 0.05
-  fireProjectileAngleRange: 130
+  fireProjectileInterval: 1.65
+  fireProjectileSpeedIncreasePerHit: 0.15
+  fireProjectileAngleRange: 165
+  missingFireballsCount: 8
   bouncePoint: {fileID: 343020876}
   hits: 0
+  grid: {fileID: 0}
+  initialFireColor: {r: 0, g: 0, b: 0, a: 0}
+  finalFireColor: {r: 1, g: 0, b: 0, a: 1}
+  arenaRightMost: 10
 --- !u!114 &1984028804 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
@@ -76225,7 +76231,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: health
-      value: 300
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 414068379943000601, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: cutscene
@@ -76310,6 +76316,10 @@ PrefabInstance:
     - target: {fileID: 414068379943000605, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: m_Name
       value: FINAL BOSS
+      objectReference: {fileID: 0}
+    - target: {fileID: 414068379943000607, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
+      propertyPath: m_SortingOrder
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 414068380089214321, guid: 295ae4b26434a294d87bb73246c27791, type: 3}
       propertyPath: m_LocalPosition.x
