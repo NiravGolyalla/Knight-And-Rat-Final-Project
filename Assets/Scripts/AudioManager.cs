@@ -40,6 +40,10 @@ public class AudioManager : MonoBehaviour
         updateBGM();
     }
 
+    public void ChangeMasterVolume(float val){
+        AudioListener.volume = val;
+    }
+
     void updateBGM(){
         string active_scene = SceneManager.GetActiveScene().name; 
         if(curr_scene != active_scene){
