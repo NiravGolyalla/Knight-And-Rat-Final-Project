@@ -5,6 +5,7 @@ public class LeverController : MonoBehaviour
 {
     bool on;
     private bool withinRange;
+    bool flipping = false;
     public Sprite turnedOff;
     public Sprite turnedOn;
     private BoxCollider2D leverCollider;
@@ -24,7 +25,7 @@ public class LeverController : MonoBehaviour
     {
         if (withinRange)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            if (PlayerController.instantance.canAttack == false)
             {
                 StartCoroutine(flipLever(true));
             }
@@ -38,18 +39,22 @@ public class LeverController : MonoBehaviour
     
     private IEnumerator flipLever(bool didAttack)
     {
-        if (didAttack) {yield return new WaitForSeconds(0.5f);
- }
-        on = !on;
-        if (on)
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = turnedOn;
-            flipLeverColliderLocation();
-        }
-        else
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = turnedOff;
-            flipLeverColliderLocation();
+        if(!flipping){
+            flipping = true;
+            if (didAttack) {yield return new WaitForSeconds(0.5f);}
+            on = !on;
+            if (on)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = turnedOn;
+                flipLeverColliderLocation();
+            }
+            else
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = turnedOff;
+                flipLeverColliderLocation();
+            }
+            yield return new WaitForSeconds(0.7f);
+            flipping = false;
         }
         yield return null;
     }

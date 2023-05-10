@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private bool canDash = true;
     private bool canMove = true;
-    private bool canAttack = true;
+    public bool canAttack = true;
     private bool canHold = false;
     private bool canSwap = true;
     public bool takingDamage = false;
