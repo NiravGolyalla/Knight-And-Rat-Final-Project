@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Volumeslider : MonoBehaviour
+public class vslider : MonoBehaviour
 {
     [SerializeField] private Slider s;
 
