@@ -76147,13 +76147,13 @@ MonoBehaviour:
   fireProjectilePrefab: {fileID: 3902199642617433380, guid: 2b7e175e310db484e8487712de269484, type: 3}
   fireProjectileCount: 40
   fireProjectileInterval: 1.65
-  fireProjectileSpeedIncreasePerHit: 0.15
+  fireProjectileSpeedIncreasePerHit: 0.2
   fireProjectileAngleRange: 165
   missingFireballsCount: 8
   bouncePoint: {fileID: 343020876}
   hits: 0
   grid: {fileID: 582342025}
-  initialFireColor: {r: 0, g: 0, b: 0, a: 0}
+  initialFireColor: {r: 1, g: 1, b: 1, a: 0}
   finalFireColor: {r: 1, g: 0, b: 0, a: 1}
   arenaRightMost: 1000
 --- !u!114 &1984028804 stripped
