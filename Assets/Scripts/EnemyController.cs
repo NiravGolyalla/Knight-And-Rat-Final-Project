@@ -99,10 +99,14 @@ public class EnemyController : MonoBehaviour
 
     private Transform findPlayer(float radius){
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
-    
+        Vector2 position2D = new Vector2(transform.position.x, transform.position.y);
         foreach (Collider2D c in colliders){       
             if (c.tag == "Rat" || c.tag == "Knight"){
-                return c.transform;
+                Vector2 tarposition2D = new Vector2(c.transform.position.x, c.transform.position.y);
+                bool hasLineOfSight = Physics2D.Linecast(position2D, tarposition2D, LayerMask.GetMask("Obstacle"));
+                if(!hasLineOfSight){
+                    return c.transform;
+                }
             }
         }
         return null;
