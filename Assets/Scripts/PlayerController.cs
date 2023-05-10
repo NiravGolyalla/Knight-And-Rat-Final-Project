@@ -42,11 +42,11 @@ public class PlayerController : MonoBehaviour
     private bool canMove = true;
     private bool canAttack = true;
     private bool canHold = false;
+    private bool canSwap = true;
     public bool takingDamage = false;
 
     private float inputBuffer = 0.0f;
     private float cooldownBuffer;
-
 
     //movement variables
     private float horizontalInput = 1f;
@@ -147,18 +147,10 @@ public class PlayerController : MonoBehaviour
         isHeld = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || cooldownBuffer < inputBuffer);
         cooldownBuffer = (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) ? 0f : cooldownBuffer;
 
-
         //Swap
-        if (Input.GetKeyDown(KeyCode.Q) && formBar.getValue() == formBar.getMaxValue())
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            Instantiate(poof, transform.position, Quaternion.identity);
-            isKnightController = !isKnightController;
-            rat.SetActive(!isKnightController);
-            knight.SetActive(isKnightController);
-            ratIcon.SetActive(!isKnightController);
-            knightIcon.SetActive(isKnightController);
-            currAnimator = isKnightController ? knightAnimator : ratAnimator;
-            formBar.setValue(0f);
+            Swap();
         }
     }
 
@@ -222,6 +214,19 @@ public class PlayerController : MonoBehaviour
 
     public void Heal(float heal){healthBar.setValue(healthBar.getValue()+heal);}
     
+    public void Swap(){
+        if(canSwap && formBar.getValue() == formBar.getMaxValue()){
+            Instantiate(poof, transform.position, Quaternion.identity);
+            isKnightController = !isKnightController;
+            rat.SetActive(!isKnightController);
+            knight.SetActive(isKnightController);
+            ratIcon.SetActive(!isKnightController);
+            knightIcon.SetActive(isKnightController);
+            currAnimator = isKnightController ? knightAnimator : ratAnimator;
+            formBar.setValue(0f);
+        }
+    }
+
     private IEnumerator Dash(){
         float take = isKnightController ? stmLostK : stmLostR;
         if(canDash && take < staminaBar.getValue() && !isAttacking){
@@ -262,20 +267,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.tag == "to_tutorial2"){
-            LevelManager.instance.LoadLevel("tutorial2");
-        }
-        else if(other.tag =="to_tutorial3"){
-            LevelManager.instance.LoadLevel("tutorial3");
-        }
-        else if(other.tag =="to_dungeon"){
-            LevelManager.instance.LoadLevel("DungeonLevel2.0");
-        }
-        else if (other.tag == "to_circle")
-        {
-            LevelManager.instance.LoadLevel("adri2.0");
-        }
+    void OnTriggerStay2D(Collider2D col)
+    {
+        canSwap = (col.tag != "NoSwap");
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        canSwap = true;
     }
 
 
@@ -340,7 +339,6 @@ public class PlayerController : MonoBehaviour
                 return K_Attack_LR;
             } 
             if (isDashing) return lockState(K_Dash_LR,dashDur);
-            print("Reached");
             if (isMoving) return K_Move_LR;
             else return K_Idle_LR;
         } else{

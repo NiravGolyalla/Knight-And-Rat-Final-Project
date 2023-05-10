@@ -19,6 +19,7 @@ TagManager:
   - Wall
   - NPC
   - Manticore
+  - NoSwap
   layers:
   - Default
   - TransparentFX
