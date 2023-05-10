@@ -20,6 +20,8 @@ public class FireBreathManticore : MonoBehaviour
     public int hits = 0;
     private CircleCollider2D hitboxCollider;
     private bool stopFireBreathAttack = false;
+    public Tilemap bridgeTilemap;
+    public GameObject grid;
 
     void Start()
     {
@@ -34,6 +36,12 @@ public class FireBreathManticore : MonoBehaviour
             manticore.stage = 2;
             stage2Started = true;
             hits = 0;
+            grid = GameObject.Find("Grid");
+
+            Transform bridgeTransform = grid.transform.Find("Door");
+
+            bridgeTilemap = bridgeTransform.GetComponent<Tilemap>();
+            bridgeTransform.gameObject.SetActive(false);
             StartCoroutine(Stage2Sequence());
         }
     }

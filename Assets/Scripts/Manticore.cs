@@ -45,6 +45,8 @@ public class Manticore : MonoBehaviour
 
     private bool fightStarted = false;
     public FallingBarrelSpawner fallingBarrelSpawner;
+    [SerializeField] private Bar_Controller healthBar;
+
 
     void Start()
     {
@@ -53,6 +55,8 @@ public class Manticore : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
         Flip();
+        healthBar.setMaxValue(health);
+        healthBar.setValue(health);
 
     }
 
@@ -326,12 +330,14 @@ public class Manticore : MonoBehaviour
         if (!isConsumingCatnip || !hitboxCollider.enabled) return;
 
         health -= damage;
+        healthBar.setValue(health); 
         StartCoroutine(ShowDamageTaken());
 
     }
     public void TakeDamage2(int damage)
     {
         health -= damage;
+        healthBar.setValue(health);
         StartCoroutine(ShowDamageTaken());
 
     }
