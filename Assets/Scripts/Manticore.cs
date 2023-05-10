@@ -45,19 +45,18 @@ public class Manticore : MonoBehaviour
 
     private bool fightStarted = false;
     public FallingBarrelSpawner fallingBarrelSpawner;
-    [SerializeField] private Bar_Controller healthBar;
+    [SerializeField] private BossHealthBar healthBar;
+    [SerializeField] CanvasGroup healthBarCanvasGroup;
 
 
     void Start()
     {
+        healthBar.SetMaxHealth(health);
         UpdateTarget();
         hitboxCollider = GetComponent<CircleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
         Flip();
-        healthBar.setMaxValue(health);
-        healthBar.setValue(health);
-
     }
 
     void Update()
@@ -81,6 +80,7 @@ public class Manticore : MonoBehaviour
         }
         else
         {
+            healthBarCanvasGroup.alpha = 1;
             UpdateTarget();
             DetectCatnip();
 
@@ -330,16 +330,23 @@ public class Manticore : MonoBehaviour
         if (!isConsumingCatnip || !hitboxCollider.enabled) return;
 
         health -= damage;
-        healthBar.setValue(health); 
+        healthBar.SetHealth(health);
         StartCoroutine(ShowDamageTaken());
+        if (health <= 0)
+        {
+            healthBar.gameObject.SetActive(false); // Deactivate the health bar
+        }     
 
     }
     public void TakeDamage2(int damage)
     {
         health -= damage;
-        healthBar.setValue(health);
+        healthBar.SetHealth(health);
         StartCoroutine(ShowDamageTaken());
-
+        if (health <= 0)
+        {
+            healthBar.gameObject.SetActive(false); // Deactivate the health bar
+        }
     }
 
     IEnumerator ShowDamageTaken()
@@ -358,6 +365,7 @@ public class Manticore : MonoBehaviour
     {
         fightStarted = true;
         isCutsceneActive = false;
+        healthBarCanvasGroup.alpha = 1;
     }
 
     public void FaceRight()

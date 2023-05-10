@@ -155,7 +155,7 @@ MonoBehaviour:
   fallDuration: 3
   startScale: 2
   endScale: 0.8
-  hitEffectPrefab: {fileID: 8493872730611703165, guid: 36153cb8286a01b43bd22c5aab08bc72, type: 3}
+  hitEffectPrefab: {fileID: 8493872730611703165, guid: 858588f2a25364c3cb1cbf354e562553, type: 3}
 --- !u!50 &-345767837334271284
 Rigidbody2D:
   serializedVersion: 4
