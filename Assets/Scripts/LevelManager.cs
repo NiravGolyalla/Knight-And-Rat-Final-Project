@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class LevelManager : MonoBehaviour
     public bool FinishTutorial = false;
     public bool FinishDungeon = false;
     public bool DevMode = false;
+
+    [SerializeField] private TMP_Text s;
+    public bool lock_ = false;
 
     public bool reloading = false;
 
@@ -52,9 +57,10 @@ public class LevelManager : MonoBehaviour
                 instance.LoadLevel(8);
             }
         }
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.K))
         {
           DevMode = !DevMode;
+          StartCoroutine(showDevMode());
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -116,5 +122,18 @@ public class LevelManager : MonoBehaviour
             reloading = false;
         }
         yield return null;
+    }
+
+    IEnumerator showDevMode(){
+        if(!lock_){
+            lock_ = true;
+            s.text = "Dev Mode";
+            s.text += DevMode ? "Enabled" : "Disabled";
+            transition.CrossFade("dev_Start",0,0);
+            yield return new WaitForSeconds(0.5f); 
+            transition.CrossFade("dev_End",0,0);
+            yield return new WaitForSeconds(0.5f);
+            lock_ = false;
+        }
     }
 }
